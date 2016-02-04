@@ -310,7 +310,7 @@
 }
 body {
     background-color: #000D3A;
-    background-image: url("engilogo.jpg");
+    background-image: url("../images/engilogo.jpg");
     background-repeat: no-repeat;
     background-position: left top;
 }
