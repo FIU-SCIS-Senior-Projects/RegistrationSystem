@@ -27,19 +27,19 @@
 #cssmenu #menu-button {
   display: none;
 }
-#cssmenu {
+#cssmenu { /*color for menu bar*/
   width: auto;
   font-family: 'Open Sans', sans-serif;
   line-height: 1;
-  background: #ffffff;
-  margin-top: 85px;
+  background: #002D62;
+  margin-top: 70px;
 }
-#menu-line {
+#menu-line { /*line on top of menu items*/
   position: absolute;
   top: 0;
   left: 0;
   height: 3px;
-  background: #009ae1;
+  background: #DEB406;
   -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out;
@@ -66,12 +66,12 @@
 #cssmenu.align-right ul ul {
   text-align: right;
 }
-#cssmenu > ul > li > a {
+#cssmenu > ul > li > a { /*text of the menu items*/
   padding: 20px;
   font-size: 12px;
   text-decoration: none;
   text-transform: uppercase;
-  color: #000000;
+  color: #ffffff;
   -webkit-transition: color .2s ease;
   -moz-transition: color .2s ease;
   -ms-transition: color .2s ease;
@@ -80,7 +80,7 @@
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li.active > a {
-  color: #009ae1;
+  color: #DEB406;
 }
 #cssmenu > ul > li.has-sub > a {
   padding-right: 25px;
@@ -309,9 +309,11 @@
   }
 }
 body {
-    background-color: #000D3A;
-    background-image: url("../images/engilogo.jpg");
+    background-color: #FFFFFF;
+    background-image: url("../images/fiu_scis_logo.png");
     background-repeat: no-repeat;
     background-position: left top;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration-color: #002D62;
 }
 
