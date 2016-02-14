@@ -23,7 +23,7 @@
         try 
         {
               Class.forName("com.mysql.jdbc.Driver").newInstance ();
-              con = DriverManager.getConnection("jdbc:mysql://localhost:3306","root","EWdev");
+              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
 
               Statement stat = con.createStatement();
 
