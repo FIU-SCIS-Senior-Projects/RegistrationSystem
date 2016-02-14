@@ -23,7 +23,7 @@
         try 
         {
               Class.forName("com.mysql.jdbc.Driver").newInstance ();
-              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","password");
+              con = DriverManager.getConnection("jdbc:mysql://localhost:3306","root","EWdev");
 
               Statement stat = con.createStatement();
 
@@ -33,7 +33,10 @@
               stat.close();
               con.close();
         } 
-        catch (Exception e) { }
+        catch (Exception e) 
+	{	
+        	out.println("Unable to connect to database"+e);
+	}
 
         response.sendRedirect("success.htm");
     %>
