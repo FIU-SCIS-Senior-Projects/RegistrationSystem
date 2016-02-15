@@ -12,7 +12,7 @@
        
         String fName = request.getParameter("fname");
         String lName = request.getParameter("lname");
-        String coachemail = request.getAttribute("email");
+        String coachemail = request.getParameter("email");
         String schoolName = request.getParameter("schoolname");
         String password = request.getParameter("pw");
        
