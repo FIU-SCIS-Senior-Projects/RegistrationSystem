@@ -9,7 +9,6 @@
     <%
         Class.forName("com.mysql.jdbc.Driver").newInstance ();
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
-        Statement stat = con.createStatement();
        
         String fName = request.getParameter("fname");
         String lName = request.getParameter("lname");
@@ -17,7 +16,15 @@
         String schoolName = request.getParameter("schoolname");
         String password = request.getParameter("pw");
        
-        stat.executeUpdate("INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES('" + fName + "','" + lName + "','" + email + "','" + password + "', 1, 1);");
+        String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
+        PreparedStatement pstat = con.prepareStatement(sql);
+        pstat.setString(1, fName);
+        pstat.setString(2, lName);
+        pstat.setString(3, email);
+        pstat.setString(4, password);
+        pstat.setInt(5, 1);
+        pstat.setInt(6, 1);
+        pstat.executeUpdate();
        
         response.sendRedirect("../../index.html");
     %>
