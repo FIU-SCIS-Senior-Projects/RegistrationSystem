@@ -1,14 +1,10 @@
 <html>
 <head>
-   <meta charset='utf-8'>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Register a new coach.</title>
 </head>
 <body>
-    <%@ page import="javax.servlet.*" %>
-    <%@ page import="javax.servlet.http.*" %>
-    <%@ page import="java.sql.*" %>
+    <%@ page import="java.sql.*" %> 
+    <%@ page import="java.io.*" %> 
         
     <%
         Connection con = null;
@@ -18,7 +14,7 @@
         String schoolName = request.getParameter("schoolname");
         String pw = request.getParameter("password");
        
-        String queryText = "insert into user_details (\"firstName\", \"lastName\",\"emailAddress\", \"schoolName\", \"password\")values('"+fName+"','"+lName+"','"+email+"','"+ schoolName+"','"+pw+"')";
+        String queryText = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (fname, lname, coachemail, schoolname, password, 1, 1)";
         
         try 
         {
@@ -34,11 +30,10 @@
               con.close();
         } 
         catch (Exception e) 
-	{	
+	    {	
         	out.println("Unable to connect to database"+e);
-	}
-
-        response.sendRedirect("success.htm");
+	    }
+        response.sendRedirect("../../index.html");
     %>
 </body>
 </hmtl>
