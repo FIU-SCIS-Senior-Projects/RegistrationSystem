@@ -20,7 +20,7 @@
         PreparedStatement pstat = con.prepareStatement(sql);
         pstat.setString(1, fName);
         pstat.setString(2, lName);
-        pstat.setString(3, 'eguer048@fiu.edu');
+        pstat.setString(3, "eguer048@fiu.edu");
         pstat.setString(4, password);
         pstat.setInt(5, 1);
         pstat.setInt(6, 1);
