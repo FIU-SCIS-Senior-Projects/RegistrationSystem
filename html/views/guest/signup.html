@@ -10,7 +10,7 @@
    <title>Registration Page</title>
 </head>
 <body>
-    
+       
 <div id='cssmenu'>
 <ul>
    <li><a href="../../../index.html">Home</a></li>
@@ -25,8 +25,33 @@
    <a style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px" href="signup.html">Sign Up</a>
 </div>
 
+<div id='validationMessages'>
+    <p id="firstNameValidation" style="position:absolute; top:0; right: 0; margin-top:230px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
+    <p hidden id="lastNameValidation" style="position:absolute; top:0; right: 0; margin-top:277px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
+    <p hidden id="emailValidation" style="position:absolute; top:0; right: 0; margin-top:325px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
+    <p hidden id="schoolNameValidation" style="position:absolute; top:0; right: 0; margin-top:371px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
+    <p hidden id="passwordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
+    <p hidden id="passwordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000"><b>The values do not match</b></p>
+    <p hidden id="confPasswordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
+    <p hidden id="confPasswordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000"><b>The values do not match.</b></p>
+</div>
+    
+<div id='successfulCreate'>
+    <p hidden id="successfulCreateMessage" style="position:absolute; top:0; right: 0; margin-top:530px; margin-right:570px">Account successfully created!</p>
+</div>
+
+<script> 
+    function validateForm() {
+        var x = document.forms["regform"]["fname"].value;
+        if (x == null || x == "") {
+            document.getElementById("firstNameValidation").style.display = "inline";
+            return false;
+        }
+    }
+</script>
+    
 <div id='registrationform'>
-     <center><form method="post" action="../../jsp/create_coach.jsp" style="margin-top: 85px">
+     <center><form name="regform" method="post" action="../../jsp/create_coach.jsp" onsubmit="return validateForm()" style="margin-top: 85px">
         First Name:<br>
         <input type="text" name="fname"><br>
         Last Name:<br>
@@ -42,21 +67,6 @@
         <input type="submit" value="Register">
       </form></center>
 </div>
-
-<div id='validationMessages'>
-    <p hidden id="firstNameValidation" style="position:absolute; top:0; right: 0; margin-top:230px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="lastNameValidation" style="position:absolute; top:0; right: 0; margin-top:277px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="emailValidation" style="position:absolute; top:0; right: 0; margin-top:325px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="schoolNameValidation" style="position:absolute; top:0; right: 0; margin-top:371px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="passwordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="passwordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000"><b>The values do not match</b></p>
-    <p hidden id="confPasswordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="confPasswordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000"><b>The values do not match.</b></p>
-</div>
-    
-<div id='successfulCreate'>
-    <p hidden id="successfulCreateMessage" style="position:absolute; top:0; right: 0; margin-top:530px; margin-right:570px">Account successfully created!</p>
-</div>
-    
+   
 </body>
 <html>
