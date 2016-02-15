@@ -12,9 +12,9 @@
         String lName = request.getParameter("lname");
         String email = request.getParameter("email");
         String schoolName = request.getParameter("schoolname");
-        String pw = request.getParameter("password");
+        String pw = request.getParameter("pw");
        
-        String queryText = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (fname, lname, coachemail, schoolname, password, 1, 1)";
+        String queryText = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES ('"+fname+"','"+lname+"','"+email+"','"+pw+"','"+1+"','"+1+")";
         
         try 
         {
