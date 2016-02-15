@@ -7,33 +7,17 @@
     <%@ page import="java.io.*" %> 
         
     <%
-        Connection con = null;
+        Class.forName("com.mysql.jdbc.Driver").newInstance ();
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+        Statement stat = con.createStatement();
+       
         String fName = request.getParameter("fname");
         String lName = request.getParameter("lname");
         String email = request.getParameter("email");
         String schoolName = request.getParameter("schoolname");
-        String pw = request.getParameter("pw");
+        String password = request.getParameter("pw");
        
-        String queryText = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES ('"+fname+"','"+lname+"','"+email+"','"+pw+"','"+1+"','"+1+")";
-        
-        try 
-        {
-              Class.forName("com.mysql.jdbc.Driver").newInstance ();
-              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
-
-              Statement stat = con.createStatement();
-
-              ResultSet rst = stat.executeQuery(queryText);
-
-              rst.close();
-              stat.close();
-              con.close();
-        } 
-        catch (Exception e) 
-	    {	
-        	out.println("Unable to connect to database"+e);
-	    }
-        response.sendRedirect("../../index.html");
+        stat.executeUpdate("INSERT INTO coach VALUES( " + fName + ", '" + lName + "' , '" + email + "', '" + schoolName + "', '" + password + "', '1', '1');" );
     %>
 </body>
 </hmtl>
