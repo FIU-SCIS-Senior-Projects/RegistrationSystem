@@ -12,7 +12,7 @@
        
         String fName = request.getParameter("fname");
         String lName = request.getParameter("lname");
-        String coachemail = request.getParameter("email");
+        String coachemail = "" + request.getParameter("email") + "";
         String schoolName = request.getParameter("schoolname");
         String password = request.getParameter("pw");
        
@@ -20,7 +20,7 @@
         PreparedStatement pstat = con.prepareStatement(sql);
         pstat.setString(1, fName);
         pstat.setString(2, lName);
-        pstat.setString(3, "eguer048@fiu.edu");
+        pstat.setString(3, email);
         pstat.setString(4, password);
         pstat.setInt(5, 1);
         pstat.setInt(6, 1);
