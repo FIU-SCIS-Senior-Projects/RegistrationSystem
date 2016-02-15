@@ -16,7 +16,7 @@
        
         stat.executeUpdate("insert into team (coach_id, team_name) VALUES (1, '" + teamName + "');");
        
-        response.sendRedirect("../html/views/coach/coachteams.html");
+        response.sendRedirect("../views/coach/coachteams.html");
     %>
 </body> 
 </html>
