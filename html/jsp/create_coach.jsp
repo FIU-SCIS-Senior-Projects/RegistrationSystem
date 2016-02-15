@@ -19,7 +19,7 @@
        
         stat.executeUpdate("INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES('" + fName + "','" + lName + "','" + email + "','" + password + "', 1, 1);");
        
-        response.sendRedirect(../../../index.html);
+        response.sendRedirect(../../index.html);
     %>
 </body>
 </hmtl>
