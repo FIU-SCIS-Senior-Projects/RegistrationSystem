@@ -17,7 +17,7 @@
         String schoolName = request.getParameter("schoolname");
         String password = request.getParameter("pw");
        
-        stat.executeUpdate("insert into coach (first_name, last_name, email, password, school_id, role) VALUES (fName, lName, email, pw, 1, 1);");
+        stat.executeUpdate("INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES('Eduardo','Guerra','eguer048@gmail.com','test', 1, 1);");
     %>
 </body>
 </hmtl>
