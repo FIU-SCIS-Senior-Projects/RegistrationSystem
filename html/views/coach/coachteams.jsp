@@ -1,4 +1,6 @@
 <!doctype html>
+<%@ page import="java.sql.*" %> 
+<%@ page import="java.io.*" %>
 <html lang=''>
 <head>
    <meta charset='utf-8'>
@@ -34,6 +36,25 @@
     <br/>Team Name<input type="text" name="tname"></input>
     <input type= "submit" value="Create Team">
 </form>
+     
+<%
+    Class.forName("com.mysql.jdbc.Driver").newInstance ();
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+    Statement stat = con.createStatement();
+    ResultSet rs = null;
+    rs = statement.executeQuery("SELECT * FROM team");
+%>
+
+    <table border="1">
+        <tr>
+            <th>Team Name</th>
+        </tr>
+        <% while(rs.next()){ %>
+            <tr>
+                <td> <%= rs.getString("team_name") %></td>
+            </tr>
+        <% }
+            rs.close(); %>
     
 </body>
 <html>
