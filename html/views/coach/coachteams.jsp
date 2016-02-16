@@ -28,14 +28,8 @@
     <p style=" color:#002D62; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
     <p style=" color:#002D62; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 10px">Log Out</p>
 </div>
-    
-<form action ="../../jsp/CreateTeam.jsp">
-    
-    <br>Create team<br/>
-    
-    <br/>Team Name<input type="text" name="tname"></input>
-    <input type= "submit" value="Create Team">
-</form>
+
+    <a href="#" onclick="window.open('../../jsp/CreateTeam.jsp', 'newwindow', 'width=300, height=250'); return false;">Create team</a>
     
 <%
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
@@ -51,7 +45,7 @@
         </tr>
 	<% while(rs.next()) {%>
             <tr>
-                <td> <%= rs.getString("team_name") %></td>
+                <td><%= rs.getString("team_name") %></td>
             </tr>
         <% } rs.close(); %>
     
