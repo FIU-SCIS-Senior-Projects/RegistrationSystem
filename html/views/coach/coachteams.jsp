@@ -36,7 +36,7 @@
     <br/>Team Name<input type="text" name="tname"></input>
     <input type= "submit" value="Create Team">
 </form>
-     
+    
 <%
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
@@ -49,12 +49,10 @@
         <tr>
             <th>Team Name</th>
         </tr>
-        <% while(rs.next()){ %>
             <tr>
                 <td> <%= rs.getString("team_name") %></td>
             </tr>
-        <% }
-            rs.close(); %>
+        <% rs.close(); %>
     
 </body>
 <html>
