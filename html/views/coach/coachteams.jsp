@@ -42,17 +42,18 @@
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
     Statement stat = con.createStatement();
     ResultSet rs = null;
-    rs = statement.executeQuery("SELECT * FROM team");
+    rs = stat.executeQuery("SELECT * FROM team");
 %>
-
+</br>
     <table border="1">
         <tr>
             <th>Team Name</th>
         </tr>
+	<% while(rs.next()) {%>
             <tr>
                 <td> <%= rs.getString("team_name") %></td>
             </tr>
-        <% rs.close(); %>
+        <% } rs.close(); %>
     
 </body>
 <html>
