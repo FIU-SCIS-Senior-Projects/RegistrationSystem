@@ -42,10 +42,48 @@
 
 <script> 
     function validateForm() {
-        var x = document.forms["regform"]["fname"].value;
-        if (x == null || x == "") {
-            document.getElementById("firstNameValidation").style.display = "inline";
-            return false;
+        var fname = document.forms["regform"]["fname"].value;
+        var lname = document.forms["regform"]["lname"].value;
+        var email = document.forms["regform"]["email"].value;
+        var schoolName = document.forms["regform"]["schoolname"].value;
+        var pw = document.forms["regform"]["pw"].value;
+        var confpw = document.forms["regform"]["confpw"].value;
+        
+        if (fname != null  && lname != null && email != null && schoolName != null && pw != null && confpw != null)
+        {
+            if (pw != confpw)
+            {
+                document.getElementById("passwordValidationNotMatching").style.display = "inline";
+                document.getElementById("confPasswordValidationNotMatching").style.display = "inline";
+                return false;
+            }
+            document.getElementById("confPasswordValidationNotMatching").style.display = "inline";
+            return true;
+        }
+        else
+        {
+             if (fname == null || fname == "") {
+                document.getElementById("firstNameValidation").style.display = "inline";
+             }
+             if (lname == null || lname == "") {
+                document.getElementById("lastNameValidation").style.display = "inline";
+             }
+             if (email == null || email == "") {
+                document.getElementById("emailValidation").style.display = "inline";
+             }
+             if (email == null || email == "") {
+                document.getElementById("firstNameValidation").style.display = "inline";
+             }
+             if (schoolName == null || schoolName == "") {
+                document.getElementById("schoolNameValidation").style.display = "inline";
+             }
+             if (pw == null || pw == "") {
+                document.getElementById("passwordValidationEmpty").style.display = "inline";
+             }
+             if (confpw == null || confpw == "") {
+                document.getElementById("confPasswordValidationEmpty").style.display = "inline";  
+             }
+             return false;
         }
     }
 </script>
