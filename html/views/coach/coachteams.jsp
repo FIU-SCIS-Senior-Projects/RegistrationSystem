@@ -11,7 +11,7 @@
    <script src="../../javascript/menuscript.js"></script>
    <title>My Teams</title>
     <style type="text/css">
-    input {float: center; clear: both;}
+    input {float: right; clear: both; width: 250px;}
     </style>
 </head>
 <body>
