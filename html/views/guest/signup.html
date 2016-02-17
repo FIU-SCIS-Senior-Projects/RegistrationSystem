@@ -25,86 +25,60 @@
    <a style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px" href="signup.html">Sign Up</a>
 </div>
 
+
+<!--
 <div id='validationMessages'>
     <p id="firstNameValidation" style="position:absolute; top:0; right: 0; margin-top:230px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p hidden id="lastNameValidation" style="position:absolute; top:0; right: 0; margin-top:277px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="emailValidation" style="position:absolute; top:0; right: 0; margin-top:325px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="schoolNameValidation" style="position:absolute; top:0; right: 0; margin-top:371px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="passwordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="passwordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000"><b>The values do not match</b></p>
-    <p hidden id="confPasswordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000"><b>This field can't be empty.</b></p>
-    <p hidden id="confPasswordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000"><b>The values do not match.</b></p>
+    <p id="lastNameValidation" style="position:absolute; top:0; right: 0; margin-top:277px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
+    <p id="emailValidation" style="position:absolute; top:0; right: 0; margin-top:325px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
+    <p id="schoolNameValidation" style="position:absolute; top:0; right: 0; margin-top:371px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
+    <p id="passwordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
+    <p id="passwordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000; display:none"><b>The values do not match</b></p>
+    <p id="confPasswordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
+    <p id="confPasswordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000; display:none"><b>The values do not match.</b></p>
 </div>
+-->
+
     
 <div id='successfulCreate'>
-    <p hidden id="successfulCreateMessage" style="position:absolute; top:0; right: 0; margin-top:530px; margin-right:570px">Account successfully created!</p>
+    <p id="successfulCreateMessage" style="position:absolute; top:0; right: 0; margin-top:530px; margin-right:570px; display:none">Account successfully created!</p>
 </div>
 
 <script> 
     function validateForm() {
-        var fname = document.forms["regform"]["fname"].value;
-        var lname = document.forms["regform"]["lname"].value;
-        var email = document.forms["regform"]["email"].value;
-        var schoolName = document.forms["regform"]["schoolname"].value;
         var pw = document.forms["regform"]["pw"].value;
         var confpw = document.forms["regform"]["confpw"].value;
         
-        if ((fname != null || fname != "")  && (lname != null || lname != "") && (email != null || email != "") && (schoolName != null || schoolName != "") != null && (pw != null || pw != "") && (confpw != null || confpw != ""))
+        if (pw != confpw)
         {
-            if (pw != confpw)
-            {
-                document.getElementById("passwordValidationNotMatching").style.display = "inline";
-                document.getElementById("confPasswordValidationNotMatching").style.display = "inline";
-                return false;
-            }
-            document.getElementById("successfulCreateMessage").style.display = "inline";
-            return true;
+            document.getElementById("passwordValidationNotMatching").style.display = "inline";
+            document.getElementById("confPasswordValidationNotMatching").style.display = "inline";
+            return false;
         }
-        else
-        {
-             if (fname == null || fname == "") {
-                document.getElementById("firstNameValidation").style.display = "inline";
-             }
-             if (lname == null || lname == "") {
-                document.getElementById("lastNameValidation").style.display = "inline";
-             }
-             if (email == null || email == "") {
-                document.getElementById("emailValidation").style.display = "inline";
-             }
-             if (email == null || email == "") {
-                document.getElementById("firstNameValidation").style.display = "inline";
-             }
-             if (schoolName == null || schoolName == "") {
-                document.getElementById("schoolNameValidation").style.display = "inline";
-             }
-             if (pw == null || pw == "") {
-                document.getElementById("passwordValidationEmpty").style.display = "inline";
-             }
-             if (confpw == null || confpw == "") {
-                document.getElementById("confPasswordValidationEmpty").style.display = "inline";  
-             }
-             return false;
+        else{
+          document.getElementById("successfulCreateMessage").style.display = "inline";
+          return true; 
         }
     }
 </script>
     
 <div id='registrationform'>
-     <center><form name="regform"  onsubmit="return validateForm()" style="margin-top: 85px">
+     <center><form name="regform"  action="../../jsp/create_coach.jsp" onsubmit="return validateForm()" style="margin-top: 85px">
         First Name:<br>
-        <input type="text" name="fname"><br>
+        <input type="text" name="fname" required><br>
         Last Name:<br>
-        <input type="text" name="lname"><br>
+        <input type="text" name="lname" required><br>
         Email:<br>
-        <input type="text" name="email"><br>
+        <input type="text" name="email" required><br>
         School Name:<br>
-        <input type="text" name="schoolname"><br>
+        <input type="text" name="schoolname" required><br>
         Password:<br>
-        <input type="text" name="pw"><br>
+        <input type="text" name="pw" required><br>
         Confirm Password:<br>
-        <input type="text" name="confpw"><br>
+        <input type="text" name="confpw" required><br>
         <input type="submit" value="Register">
       </form></center>
 </div>
-   
+    
 </body>
 <html>
