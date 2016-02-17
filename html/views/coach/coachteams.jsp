@@ -11,7 +11,7 @@
    <script src="../../javascript/menuscript.js"></script>
    <title>My Teams</title>
     <style type="text/css">
-    input {float: right; clear: both;}
+    input {float: center; clear: both;}
     </style>
 </head>
 <body>
@@ -35,7 +35,7 @@
 <form action ="../../jsp/CreateTeam.jsp">
     <br>Create team<br/>
     
-    <p align= "right">Team Name</p><input type="text" name="tname" ></input>
+    <br align= "right">Team Name<input type="text" name="tname" ></input>
     <input type= "submit" value="Create Team">
 </form>
     
