@@ -46,6 +46,7 @@
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
     Statement stat = con.createStatement();
     ResultSet rs = null;
+    ResultSet rs1 = null;
     rs = stat.executeQuery("SELECT * FROM team");
     ArrayList teamNames = new ArrayList();
     ArrayList teamIds = new ArrayList();
@@ -55,27 +56,25 @@
 	 } 
  %>
 
-<% for(int i =0; i < teamNames.size(); i++) {%>
+<% for(int i =0; i < teamNames.size(); i++) {
 
-    <table border="1">
-	<h2><%= teamNames.get(i) %></h2>
-<%	 
-    ResultSet rs1 = null;
-    rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
-	<% while (rs1.next()) {%>
+    rs1 = stat.executeQuery("SELECT distinct participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
+    <table border="0">
+	<h2><%= teamNames.get(i) %></h2> 
         <tr>
             <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
 	    <th>T-Shirt Size</th>
         </tr>
-            <tr>
-	    <td><%= rs1.getString("first_name") %></td>
-	    <td><%= rs1.getString("last_name") %></td>
+	<% while (rs1.next()) {%>
+        <tr>
+	    <td><%= rs1.getString("first_name")%></td>
+	    <td><%= rs1.getString("last_name")%></td>
 	    <td><%= rs1.getString("email") %></td>
-	    <td><%= i%> </td>
-            </tr>
-        <% } rs1.close();rs.close(); }%>
+	    <td>XL</td>
+        </tr>
+        <% }  }rs1.close();rs.close();%>
     
 </body>
 <html>

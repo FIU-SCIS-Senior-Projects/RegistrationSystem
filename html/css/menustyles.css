@@ -314,6 +314,12 @@ body {
     background-repeat: no-repeat;
     background-position: left top;
     font-family: 'Open Sans', sans-serif;
-    color: #002D62;
+    color: #000000;
 }
+th {
+    border-bottom: 1px solid #ddd;
+    background-color: #00A1F1;
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
 
