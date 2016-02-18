@@ -47,13 +47,16 @@
     ResultSet rs = null;
     rs = stat.executeQuery("SELECT * FROM team");
     ResultSet rs1 = null;
-    rs1 = stat.executeQuery("SELECT first_name, last_name, email FROM parti);
+    rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name,participant. email FROM participant, coach WHERE coach.coach_id = participant.participant_id" );
+    if (rs.next())
+	{
+	  String team_name = rs.getString("team_name");
+	}
 %>
 </br>
 </br>
 
-	<% if(rs.next()) {%>
-	<%= rs.getString("team_name") %>
+	<% while (rs1.next()) {%>
     <table border="1">
         <tr>
             <th>First Name</th>
@@ -61,9 +64,14 @@
 	    <th>Email</th>
 	    <th>T-Shirt Size</th>
         </tr>
+	<b><c:out value "${team_name}" /></b>
             <tr>
+	    <td><%= rs1.getString("first_name") %></td>
+	    <td><%= rs1.getString("last_name") %></td>
+	    <td><%= rs1.getString("email") %></td>
+	    <td>XL</td>
             </tr>
-        <% } rs.close(); %>
+        <% } rs1.close();rs.close(); %>
     
 </body>
 <html>
