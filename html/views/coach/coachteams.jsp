@@ -45,16 +45,12 @@
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
     Statement stat = con.createStatement();
     ResultSet rs = null;
-    rs = stat.executeQuery("SELECT * FROM team");
+    rs = stat.executeQuery("SELECT * FROM team");%>
+ <% if (rs.next()){%> 
+	</br><p><%= rs.getString("team_name")%></p>
+	<% } 
     ResultSet rs1 = null;
-    rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name,participant. email FROM participant, coach WHERE coach.coach_id = participant.participant_id" );
-    if (rs.next())
-	{
-	  String team_name = rs.getString("team_name");
-	}
-%>
-</br>
-</br>
+    rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name,participant. email FROM participant, coach WHERE coach.coach_id = participant.coach_id" );%>
 
 	<% while (rs1.next()) {%>
     <table border="1">
@@ -64,7 +60,6 @@
 	    <th>Email</th>
 	    <th>T-Shirt Size</th>
         </tr>
-	<b><c:out value "${team_name}" /></b>
             <tr>
 	    <td><%= rs1.getString("first_name") %></td>
 	    <td><%= rs1.getString("last_name") %></td>
