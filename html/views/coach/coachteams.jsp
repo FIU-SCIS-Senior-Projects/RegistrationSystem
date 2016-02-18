@@ -10,6 +10,10 @@
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
    <title>My Teams</title>
+    <style type="text/css">
+    input {float: right; clear: both;}
+        form {float: right; width: 250px;}
+    </style>
 </head>
 <body>
 
@@ -29,7 +33,13 @@
     <p style=" color:#002D62; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 10px">Log Out</p>
 </div>
 
-    <a href="#" onclick="window.open('../../jsp/CreateTeam.jsp', 'newwindow', 'width=300, height=250'); return false;">Create team</a>
+<form action ="../../jsp/CreateTeam.jsp">
+    <br>Create team<br/>
+    
+    <br align= "right">Team Name<input type="text" name="tname" ></input>
+    <input type= "submit" value="Create Team">
+</form>
+    
     
 <%
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
