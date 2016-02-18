@@ -1,6 +1,7 @@
 <!doctype html>
 <%@ page import="java.sql.*" %> 
 <%@ page import="java.io.*" %>
+<%@ page import="java.util.*"%>
 <html lang=''>
 <head>
    <meta charset='utf-8'>
@@ -45,15 +46,22 @@
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
     Statement stat = con.createStatement();
     ResultSet rs = null;
-    rs = stat.executeQuery("SELECT * FROM team");%>
- <% if (rs.next()){%> 
-	</br><p><%= rs.getString("team_name")%></p>
-	<% } 
+    rs = stat.executeQuery("SELECT * FROM team");
+    ArrayList teamNames = new ArrayList();
+    while (rs.next()){ 
+	teamNames.add(rs.getString("team_name"));
+	 } 
+ %>
+
+<% for(int i =0; i < teamNames.size(); i++) {%>
+
+<%	 
     ResultSet rs1 = null;
     rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name,participant. email FROM participant, coach WHERE coach.coach_id = participant.coach_id" );%>
 
 	<% while (rs1.next()) {%>
     <table border="1">
+	<h2><%= teamNames.get(i) %></h2>
         <tr>
             <th>First Name</th>
 	    <th>Last Name</th>
@@ -66,7 +74,7 @@
 	    <td><%= rs1.getString("email") %></td>
 	    <td>XL</td>
             </tr>
-        <% } rs1.close();rs.close(); %>
+        <% } rs1.close();rs.close(); }%>
     
 </body>
 <html>
