@@ -10,6 +10,14 @@
    <title>Login Page</title>
 </head>
 <body>
+
+<script language="javascript" type="text/javascript">
+function popup(url) {
+	newwindow=window.open(url,'name','resizable=no, scrollbars=no,top=600,left=500,height=400,width=400');
+	//if (window.focus) {newwindow.focus()}
+	return false;
+}
+</script>
     
 <div id='cssmenu'>
 <ul>
@@ -18,22 +26,20 @@
    <li><a href="guestvideos.html">Videos</a></li>
 </ul>
 </div>
-    
-<div id='toprighttext'>
-   <a style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 85px; margin-top: 18px" href="signin.html">Sign In</a>
-   <p style=" color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
-   <a style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px" href="signup.html">Sign Up</a>
-</div>
-    
+        
 <div id='loginform'>
-     <center><form style="margin-top: 85px">
+     <form style="margin-top: 85px">
         Email:<br>
         <input type="text" name="email"><br>
         Password:<br>
         <input type="text" name="password"><br>
         <input type="submit" value="Log In">
-      </form></center>
+     </form>
 </div>
-
+    
+<div id='recoverytext'>
+    <a href="recoverpw.html" onclick="popup('recoverpw.html')" id="recoverpwlink" style="position:absolute; top:0; right: 0; margin-top:260px; margin-right:150px"><b>Forgot password?</b></p>
+</div>
+    
 </body>
 <html>
