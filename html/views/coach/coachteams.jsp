@@ -34,9 +34,8 @@
 </div>
 
 <form action ="../../jsp/CreateTeam.jsp">
-    <br>Create team<br/>
-    
-    Team Name<input type="text" name="tname" ></input>
+      
+   <br></br> Team Name<input type="text" name="tname" ></input>
     <input type= "submit" value="Create Team">
 </form>
     
@@ -47,15 +46,22 @@
     Statement stat = con.createStatement();
     ResultSet rs = null;
     rs = stat.executeQuery("SELECT * FROM team");
+    ResultSet rs1 = null;
+    rs1 = stat.executeQuery("SELECT first_name, last_name, email FROM parti);
 %>
 </br>
+</br>
+
+	<% if(rs.next()) {%>
+	<%= rs.getString("team_name") %>
     <table border="1">
         <tr>
-            <th>Team Name</th>
+            <th>First Name</th>
+	    <th>Last Name</th>
+	    <th>Email</th>
+	    <th>T-Shirt Size</th>
         </tr>
-	<% while(rs.next()) {%>
             <tr>
-                <td><%= rs.getString("team_name") %></td>
             </tr>
         <% } rs.close(); %>
     
