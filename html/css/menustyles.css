@@ -242,10 +242,10 @@
   #menu-line {
     display: none;
   }
-  #cssmenu #menu-button {
+  #cssmenu #menu-button { /* resized menu text color */
     display: block;
     padding: 20px;
-    color: #000000;
+    color: #ffffff;
     cursor: pointer;
     font-size: 12px;
     text-transform: uppercase;
@@ -290,7 +290,7 @@
     display: block;
     width: 1px;
     height: 11px;
-    background: #000000;
+    background: #ffffff;
     z-index: 99;
   }
   #cssmenu .submenu-button::before {
@@ -301,7 +301,7 @@
     display: block;
     width: 11px;
     height: 1px;
-    background: #000000;
+    background: #ffffff;
     z-index: 99;
   }
   #cssmenu .submenu-button.submenu-opened:after {

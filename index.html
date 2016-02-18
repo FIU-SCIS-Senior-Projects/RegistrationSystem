@@ -10,6 +10,15 @@
    <title>Welcome to Registration 1.0!</title>
 </head>
 <body>
+    
+<script language="javascript" type="text/javascript">
+function popup(url) {
+	newwindow=window.open(url,'name','resizable=no, scrollbars=no,top=600,left=500,height=400,width=400');
+	//if (window.focus) {newwindow.focus()}
+	return false;
+}
+</script>
+    
 <div id='cssmenu'>
 <ul>
    <li><a href="index.html">Home</a></li>
@@ -19,7 +28,7 @@
 </div>
     
 <div id='toprighttext'>
-   <a href="html/views/guest/signin.html" id="signin" style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 85px; margin-top: 18px">Sign In</a>
+   <a href="html/views/guest/signin.html" onclick="return popup('html/views/guest/signin.html')" id="signin" style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 85px; margin-top: 18px">Sign In</a>
    <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
    <a href="html/views/guest/signup.html" id="signup" style="color:#002D62; position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Sign Up</a> 
 </div>
