@@ -48,20 +48,21 @@
     ResultSet rs = null;
     rs = stat.executeQuery("SELECT * FROM team");
     ArrayList teamNames = new ArrayList();
-    while (rs.next()){ 
+    ArrayList teamIds = new ArrayList();
+    while (rs.next()){
+	teamIds.add(rs.getString("team_id"));
 	teamNames.add(rs.getString("team_name"));
 	 } 
  %>
 
 <% for(int i =0; i < teamNames.size(); i++) {%>
 
-<%	 
-    ResultSet rs1 = null;
-    rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name,participant. email FROM participant, coach WHERE coach.coach_id = participant.coach_id" );%>
-
-	<% while (rs1.next()) {%>
     <table border="1">
 	<h2><%= teamNames.get(i) %></h2>
+<%	 
+    ResultSet rs1 = null;
+    rs1 = stat.executeQuery("SELECT participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
+	<% while (rs1.next()) {%>
         <tr>
             <th>First Name</th>
 	    <th>Last Name</th>
@@ -72,7 +73,7 @@
 	    <td><%= rs1.getString("first_name") %></td>
 	    <td><%= rs1.getString("last_name") %></td>
 	    <td><%= rs1.getString("email") %></td>
-	    <td>XL</td>
+	    <td><%= i%> </td>
             </tr>
         <% } rs1.close();rs.close(); }%>
     
