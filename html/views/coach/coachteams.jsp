@@ -65,7 +65,7 @@
 <% for(int i =0; i < teamNames.size(); i++) {
 
     rs1 = stat.executeQuery("SELECT distinct participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
-    <form action
+    
     <table border="0">
 	<h2><%= teamNames.get(i)%></h2> 
         <tr>
