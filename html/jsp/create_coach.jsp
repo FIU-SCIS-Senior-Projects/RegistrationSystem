@@ -17,27 +17,30 @@
         String password = request.getParameter("pw");
         String confpassword = request.getParameter("confpw");
        
-        System.out.println("The value of password is:" + password);
-        System.out.println("The value of password is:" + confpassword);
-       
-        if(!password.equals(confpassword)) {
-            System.out.println("Checking if the passwords are the same.");
-            response.sendRedirect("signup.jsp?valid=false");
-        }
-       
+        console.log("The value of password is:" + password);
+        console.log("The value of password is:" + confpassword);
+              
         try {
-            String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
-            PreparedStatement pstat = con.prepareStatement(sql);
-            pstat.setString(1, fName);
-            pstat.setString(2, lName);
-            pstat.setString(3, coachemail);
-            pstat.setString(4, password);
-            pstat.setInt(5, 1);
-            pstat.setInt(6, 1);
-            pstat.executeUpdate();
-            System.out.println("After insertion.");
+            if (password.equals(confpassword))
+            {
+                String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
+                PreparedStatement pstat = con.prepareStatement(sql);
+                pstat.setString(1, fName);
+                pstat.setString(2, lName);
+                pstat.setString(3, coachemail);
+                pstat.setString(4, password);
+                pstat.setInt(5, 1);
+                pstat.setInt(6, 1);
+                pstat.executeUpdate();
+                System.out.println("After insertion.");
 
-            response.sendRedirect("../../index.html");
+                response.sendRedirect("../../index.html");
+            }
+            else
+            {
+                console.log("Passwords don't match.");
+                response.sendRedirect("signup.jsp?valid=false");
+            }  
         }
         catch (IllegalStateException e) {}
         
