@@ -18,7 +18,7 @@
         String confpassword = request.getParameter("confpw");
               
         try {
-            if (password.equals(confpassword))
+            if (password.equals(confpassword) && (password.contains("@") && (password.contains(".edu") || password.contains(".com"))))
             {
                 String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
                 PreparedStatement pstat = con.prepareStatement(sql);
@@ -33,10 +33,14 @@
 
                 response.sendRedirect("../../index.html");
             }
+            else if (!password.equals(confpassword))
+            {
+                response.sendRedirect("signup.jsp?pwvalid=false");
+            }
             else
             {
-                response.sendRedirect("signup.jsp?valid=false");
-            }  
+                response.sendRedirect("signup.jsp?emailvalid=false");
+            }
         }
         catch (IllegalStateException e) {}
         

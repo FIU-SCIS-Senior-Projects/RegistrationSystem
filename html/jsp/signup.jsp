@@ -47,11 +47,19 @@
 <div id='registrationform'>
     <center>
         <%
-           if ( request.getParameter("valid") != null && request.getParameter("valid").equals("false"))
+           if (request.getParameter("pwvalid") != null && request.getParameter("pwvalid").equals("false"))
            {
         %>
         <div class="alert">
             Your passwords do not match!
+        </div>
+        <% } %>
+        <%
+           if (request.getParameter("emailvalid") != null && request.getParameter("emailvalid").equals("false"))
+           {
+        %>
+        <div class="alert">
+            Invalid email!
         </div>
         <% } %>
         <form name="regform" action="create_coach.jsp"  style="margin-top: 85px">
