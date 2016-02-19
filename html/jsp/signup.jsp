@@ -10,7 +10,8 @@
    <title>Registration Page</title>
 </head>
 <body>
-       
+
+<!-- Menu setup -->
 <div id='cssmenu'>
 <ul>
    <li><a href="../../../index.html">Home</a></li>
@@ -19,31 +20,20 @@
 </ul>
 </div>
     
+<!-- Set up of the top right links -->    
 <div id='toprighttext'>
    <a style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 85px; margin-top: 18px" href="signin.html">Sign In</a>
    <p style=" color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
    <a style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px" href="signup.html">Sign Up</a>
 </div>
 
-
-<!--
-<div id='validationMessages'>
-    <p id="firstNameValidation" style="position:absolute; top:0; right: 0; margin-top:230px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p id="lastNameValidation" style="position:absolute; top:0; right: 0; margin-top:277px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p id="emailValidation" style="position:absolute; top:0; right: 0; margin-top:325px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p id="schoolNameValidation" style="position:absolute; top:0; right: 0; margin-top:371px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p id="passwordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p id="passwordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:418px; margin-right:400px; color:#e60000; display:none"><b>The values do not match</b></p>
-    <p id="confPasswordValidationEmpty" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000; display:none"><b>This field can't be empty.</b></p>
-    <p id="confPasswordValidationNotMatching" style="position:absolute; top:0; right: 0; margin-top:465px; margin-right:400px; color:#e60000; display:none"><b>The values do not match.</b></p>
-</div>
--->
-
-    
+<!-- Display this message on successful account create -->    
 <div id='successfulCreate'>
     <p id="successfulCreateMessage" style="position:absolute; top:0; right: 0; margin-top:530px; margin-right:570px; display:none">Account successfully created!</p>
 </div>
-    
+
+<!-- Validation messages for email and passwords
+Registration form-->    
 <div id='registrationform'>
     <center>
         <%

@@ -11,14 +11,15 @@
 </head>
 <body>
     
+ <!-- Script that controls pop-up sign in window -->   
 <script language="javascript" type="text/javascript">
 function popup(url) {
-	newwindow=window.open(url,'name','resizable=no, scrollbars=no,top=600,left=500,height=400,width=400');
-	//if (window.focus) {newwindow.focus()}
+	newwindow=window.open(url,'name','resizable=no, scrollbars=no,top=200,left=500,height=225,width=375');
 	return false;
 }
 </script>
-    
+ 
+<!-- Menu setup -->
 <div id='cssmenu'>
 <ul>
    <li><a href="index.html">Home</a></li>
@@ -26,7 +27,8 @@ function popup(url) {
    <li><a href="html/views/guest/guestvideos.html">Videos</a></li>
 </ul>
 </div>
-    
+
+<!-- Top right link setup -->
 <div id='toprighttext'>
    <a href="html/views/guest/signin.html" onclick="return popup('html/views/guest/signin.html')" id="signin" style=" color:#002D62; position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 85px; margin-top: 18px">Sign In</a>
    <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>

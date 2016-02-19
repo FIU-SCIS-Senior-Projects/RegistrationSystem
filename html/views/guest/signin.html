@@ -11,22 +11,15 @@
 </head>
 <body>
 
+<!-- Script that controls pop-up recover pw window -->
 <script language="javascript" type="text/javascript">
 function popup(url) {
-	newwindow=window.open(url,'name','resizable=no, scrollbars=no,top=600,left=500,height=400,width=400');
-	//if (window.focus) {newwindow.focus()}
+	newwindow=window.open(url,'name','resizable=no, scrollbars=no,top=200,left=500,height=225,width=375');
 	return false;
 }
 </script>
-    
-<div id='cssmenu'>
-<ul>
-   <li><a href="../../../index.html">Home</a></li>
-   <li><a href="guestcontests.html">Contests</a></li>
-   <li><a href="guestvideos.html">Videos</a></li>
-</ul>
-</div>
-        
+
+<!-- Form to enter the login info -->
 <div id='loginform'>
      <form style="margin-top: 85px">
         Email:<br>
@@ -36,9 +29,10 @@ function popup(url) {
         <input type="submit" value="Log In">
      </form>
 </div>
-    
+
+<!-- Scrip that controls pop-up recover pw window -->
 <div id='recoverytext'>
-    <a href="recoverpw.html" onclick="popup('recoverpw.html')" id="recoverpwlink" style="position:absolute; top:0; right: 0; margin-top:260px; margin-right:150px"><b>Forgot password?</b></p>
+    <a href="recoverpw.html" onclick="popup('recoverpw.html')" id="recoverpwlink" style="position:absolute; top:0; right: 0; margin-top:155px; margin-right:75px"><b>Forgot password?</b></p>
 </div>
     
 </body>
