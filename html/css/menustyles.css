@@ -316,6 +316,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #000000;
     font-size: 1em;
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
 }
 table
 {
@@ -324,13 +328,14 @@ table
 td
 {
     white-space: nowrap
-    padding: 10px;
+    
 }
 th {
     border-bottom: 1px solid #ddd;
     background-color: #00A1F1;
     color: white;
     white-space: nowrap
+    padding: 10px;
 }
 tr:nth-child(even) {background-color: #f2f2f2}
 
