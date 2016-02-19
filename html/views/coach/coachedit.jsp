@@ -64,10 +64,11 @@
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
+            <% 
+               i++;%>
         </tr>
             <% 
-               i++;
-               }%>  
+               i++; }%>  
         </table>
         <div style="text-align:center;">
             <form action ="updateTeams.jsp">
