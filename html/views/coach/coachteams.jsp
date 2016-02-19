@@ -59,7 +59,7 @@
 <% for(int i =0; i < teamNames.size(); i++) {
 
     rs1 = stat.executeQuery("SELECT distinct participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
-    <table border="0">
+    <table border="0" align="center">
     <form action="coachedit.jsp">
     <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>
 
@@ -77,8 +77,10 @@
 	    <td><%= rs1.getString("email") %></td>
 	    <td>XL</td>
         </tr>
-        <% }%>  
-    <input type="submit" value="Edit Team"/>
+        <% }%> 
+            <div style="text-align:center"> 
+                <input align="center" type="submit" value="Edit Team"/>
+            </div>
     </form>
 	<%}rs1.close();rs.close();%>
     
