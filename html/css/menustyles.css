@@ -321,6 +321,7 @@ body {
 }
 table
 {
+    table-layout: fixed;
     width: auto;
     white-space: nowrap;
 }
