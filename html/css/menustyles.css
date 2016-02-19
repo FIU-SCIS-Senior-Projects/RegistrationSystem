@@ -327,6 +327,7 @@ table
 }
 td
 {
+    overflow: hidden;
     width: auto;
     white-space: nowrap;
     
