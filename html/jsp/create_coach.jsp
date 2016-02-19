@@ -17,7 +17,11 @@
         String password = request.getParameter("pw");
         String confpassword = request.getParameter("confpw");
        
+        System.out.println("The value of password is:" + password);
+        System.out.println("The value of password is:" + confpassword);
+       
         if(!password.equals(confpassword)) {
+            System.out.println("Checking if the passwords are the same.");
             response.sendRedirect("signup.jsp?valid=false");
         }
        
@@ -30,6 +34,7 @@
         pstat.setInt(5, 1);
         pstat.setInt(6, 1);
         pstat.executeUpdate();
+        System.out.println("After insertion.");
        
         response.sendRedirect("../../index.html");
     %>

@@ -43,24 +43,6 @@
 <div id='successfulCreate'>
     <p id="successfulCreateMessage" style="position:absolute; top:0; right: 0; margin-top:530px; margin-right:570px; display:none">Account successfully created!</p>
 </div>
-
-<script> 
-    function validateForm() {
-        var pw = document.forms["regform"]["pw"].value;
-        var confpw = document.forms["regform"]["confpw"].value;
-        
-        if (pw != confpw)
-        {
-            document.getElementById("passwordValidationNotMatching").style.display = "inline";
-            document.getElementById("confPasswordValidationNotMatching").style.display = "inline";
-            return false;
-        }
-        else{
-          document.getElementById("successfulCreateMessage").style.display = "inline";
-          return false; 
-        }
-    }
-</script>
     
 <div id='registrationform'>
     <center>
