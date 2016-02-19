@@ -16,9 +16,6 @@
         String schoolName = request.getParameter("schoolname");
         String password = request.getParameter("pw");
         String confpassword = request.getParameter("confpw");
-       
-        console.log("The value of password is:" + password);
-        console.log("The value of password is:" + confpassword);
               
         try {
             if (password.equals(confpassword))
@@ -38,7 +35,6 @@
             }
             else
             {
-                console.log("Passwords don't match.");
                 response.sendRedirect("signup.jsp?valid=false");
             }  
         }
