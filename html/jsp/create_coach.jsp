@@ -29,7 +29,6 @@
                 pstat.setInt(5, 1);
                 pstat.setInt(6, 1);
                 pstat.executeUpdate();
-                System.out.println("After insertion.");
 
                 response.sendRedirect("../../index.html");
             }
