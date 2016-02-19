@@ -42,6 +42,8 @@
     
     <br>
     <div>
+        <div style="text-align:center;">
+            <form action ="updateTeams.jsp">
     <table align="center" border="0">
         <tr>
             <th>First Name</th>
@@ -65,8 +67,7 @@
         </tr>
             <% }%>  
         </table>
-        <div style="text-align:center;">
-            <form action ="updateTeams.jsp">
+        
                 <div style="text-align:center">  
                     <input align="center" type="submit" value ="Update Team" />
                     <input align="center" type="submit" value ="Cancel" />
