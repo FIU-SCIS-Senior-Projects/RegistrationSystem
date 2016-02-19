@@ -63,7 +63,7 @@
     <form action="coachedit.jsp">
     <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>
 
-	<h2><%= teamNames.get(i)%></h2> 
+	<h2 style="font-family:sans-serif;padding-right:50px; text-align:center"><%= teamNames.get(i)%></h2> 
         <tr>
         <th>First Name</th>
 	    <th>Last Name</th>
