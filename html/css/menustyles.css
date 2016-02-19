@@ -330,6 +330,7 @@ td
     overflow: hidden;
     width: auto;
     white-space: nowrap;
+    padding: 5px;
     
 }
 th {
@@ -339,5 +340,9 @@ th {
     white-space: nowrap;
     padding: 5px;
 }
-tr:nth-child(even) { width: auto; background-color: #f2f2f2}
+tr:nth-child(even) { 
+    width: auto; 
+    background-color: #f2f2f2;
+    padding: 5px;
+}
 
