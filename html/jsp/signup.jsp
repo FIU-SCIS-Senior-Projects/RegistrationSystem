@@ -65,7 +65,7 @@
 <div id='registrationform'>
     <center>
         <%
-           if ( request.getParameter("valid").equals("false"))
+           if ( request.getParameter("valid") != null && request.getParameter("valid").equals("false"))
            {
         %>
         <div class="alert">
