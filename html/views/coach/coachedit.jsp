@@ -42,8 +42,6 @@
     
     <br>
     <div>
-        <div style="text-align:center;">
-            <form action ="updateTeams.jsp">
     <table align="center" border="0">
         <tr>
             <th>First Name</th>
@@ -51,12 +49,14 @@
             <th>Email</th>
             <th>T-Shirt Size</th>
         </tr>
-        <% while (rs.next()) {%>
+        <% while (rs.next()) { 
+                int i = 0;
+           %>
         <tr>
-            <td><input type = "text" name = "fname" value ="<%=rs.getString("first_name")%>"></td>
-            <td><input type = "text" name = "lname" value ="<%=rs.getString("last_name")%>"></td>
-            <td><input type = "text" name = "email" value ="<%=rs.getString("email")%>"></td>
-            <td><select name ="tShirt">
+            <td><input type = "text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>"></td>
+            <td><input type = "text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>"></td>
+            <td><input type = "text" name = "email<%=i%>" value ="<%=rs.getString("email")%>"></td>
+            <td><select name ="tShirt<%=i%>">
                 <option selected="selected"><%=rs.getString("tshirt_size")%></option>
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
@@ -65,9 +65,12 @@
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
         </tr>
-            <% }%>  
+            <% 
+               i++;
+               }%>  
         </table>
-        
+        <div style="text-align:center;">
+            <form action ="updateTeams.jsp">
                 <div style="text-align:center">  
                     <input align="center" type="submit" value ="Update Team" />
                     <input align="center" type="submit" value ="Cancel" />
