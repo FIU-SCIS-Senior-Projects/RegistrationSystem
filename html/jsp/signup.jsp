@@ -4,9 +4,9 @@
    <meta charset='utf-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="../../css/menustyles.css">
+   <link rel="stylesheet" href="../css/menustyles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="../../javascript/menuscript.js"></script>
+   <script src="../javascript/menuscript.js"></script>
    <title>Registration Page</title>
 </head>
 <body>
@@ -64,6 +64,14 @@
     
 <div id='registrationform'>
     <center>
+        <%
+           if (request.getParameter("valid"))
+           {
+        %>
+        <div class="alert">
+            Your passwords do not match!
+        </div>
+        <% } %>
         <form name="regform" action="../../jsp/create_coach.jsp"  style="margin-top: 85px">
             First Name:<br>
             <input type="text" name="fname" required><br>

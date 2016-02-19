@@ -15,6 +15,11 @@
         String coachemail = request.getParameter("email");
         String schoolName = request.getParameter("schoolname");
         String password = request.getParameter("pw");
+        String confpassword = request.getParameter("confpw");
+       
+        if(!password.equals(confpassword) {
+            response.sendRedirect("../jsp/signup.jsp?valid=false");
+        }
        
         String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
         PreparedStatement pstat = con.prepareStatement(sql);
