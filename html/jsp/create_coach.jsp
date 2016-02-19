@@ -17,8 +17,8 @@
         String password = request.getParameter("pw");
         String confpassword = request.getParameter("confpw");
        
-        if(!password.equals(confpassword) {
-            response.sendRedirect("../jsp/signup.jsp?valid=false");
+        if(!password.equals(confpassword)) {
+            response.sendRedirect("signup.jsp?valid=false");
         }
        
         String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
