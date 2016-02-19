@@ -72,7 +72,7 @@
             Your passwords do not match!
         </div>
         <% } %>
-        <form name="regform" action="../../jsp/create_coach.jsp"  style="margin-top: 85px">
+        <form name="regform" action="create_coach.jsp"  style="margin-top: 85px">
             First Name:<br>
             <input type="text" name="fname" required><br>
             Last Name:<br>
