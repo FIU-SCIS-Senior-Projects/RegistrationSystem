@@ -26,6 +26,17 @@
     <p style=" color:#002D62; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
     <p style=" color:#002D62; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 10px">Log Out</p>
 </div>
+    
+    <%
+    Class.forName("com.mysql.jdbc.Driver").newInstance ();
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+    Statement stat = con.createStatement();
+    ResultSet rs = null;
+    String teamID = request.getParameter("teamId");
+    rs = stat.executeQuery("SELECT * FROM participant WHERE team_id = '" + teamID +"'");
+       
+    %>
+    
     <br>
     <div>
     <table align="center" border="0">
@@ -35,12 +46,13 @@
             <th>Email</th>
             <th>T-Shirt Size</th>
         </tr>
+        <% while (rs.next()) {%>
         <tr>
-            <td><input type = "text" name = "fname" value ="John"></td>
-            <td><input type = "text" name = "fname" value ="Smith"></td>
-            <td><input type = "text" name = "fname" value ="jsmith@gmail.com"></td>
+            <td><input type = "text" name = "fname" value ="<%=rs.getString("first_name")%>"></td>
+            <td><input type = "text" name = "lname" value ="<%=rs.getString("last_name")%>"></td>
+            <td><input type = "text" name = "email" value ="<%=rs.getString("email")%>"></td>
             <td><select name ="tShirt">
-                <option selected="selected"></option>
+                <option selected="selected"><%=rs.getString("tshirt_size")%></option>
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
@@ -48,6 +60,7 @@
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
         </tr>
+            <% }%>  
         </table>
         <div style="text-align:center;">
             <form action ="updateTeams.jsp">
@@ -58,4 +71,3 @@
             </form>
         </div>
     </div>
-        

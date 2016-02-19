@@ -11,13 +11,7 @@
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
    <title>My Teams</title>
-   <!--<style type="text/css">
-        input {float: right; width: 200px; clear: both;}
-        form {float: right; width: 100px;}
-        DIV.table {display:table;}
-        FORM.tr, DIV.tr{display:table-row;}
-        SPAN.td{display:table-cell;}
-    </style>-->
+
     <style>
 
 </style>
@@ -66,8 +60,8 @@
 
     rs1 = stat.executeQuery("SELECT distinct participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
     <table border="0">
-    <form action="editteams.jsp">
-    <input type="hidden" name="TeamId" value="<%=teamIds.get(i)%>"/>
+    <form action="coachedit.jsp">
+    <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>
 
 	<h2><%= teamNames.get(i)%></h2> 
         <tr>
