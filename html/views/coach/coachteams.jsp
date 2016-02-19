@@ -12,9 +12,15 @@
    <script src="../../javascript/menuscript.js"></script>
    <title>My Teams</title>
     <style type="text/css">
-    input {float: right; clear: both;}
+        input {float: right; clear: both;}
         form {float: right; width: 250px;}
+        DIV.table {display:table;}
+        FORM.tr, DIV.tr{display:table-row;}
+        SPAN.td{display:table-cell;}
     </style>
+    <style>
+
+</style>
 </head>
 <body>
 
@@ -59,10 +65,11 @@
 <% for(int i =0; i < teamNames.size(); i++) {
 
     rs1 = stat.executeQuery("SELECT distinct participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
-    <table align="center" border="0">
-	<h2><%= teamNames.get(i) %></h2> 
+    <form action
+    <table border="0">
+	<h2><%= teamNames.get(i)%></h2> 
         <tr>
-            <th>First Name</th>
+        <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
 	    <th>T-Shirt Size</th>
