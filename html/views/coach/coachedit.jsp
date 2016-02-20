@@ -36,7 +36,10 @@
     Statement stat = con.createStatement();
     ResultSet rs = null;
     String teamID = request.getParameter("teamId");
-    rs = stat.executeQuery("SELECT * FROM participant WHERE team_id = '" + teamID +"'");
+    String query = "SELECT * FROM participant WHERE team_id = ?";
+    PreparedStatement pStatement = con.prepareStatement(query); 
+    pStatement.setString(1, teamID.toString());
+    rs = pStatement.executeQuery();
        
     %>
     

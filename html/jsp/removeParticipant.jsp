@@ -40,7 +40,7 @@
         String query = "UPDATE participant SET team_id = 'null' WHERE email = ?";
         PreparedStatement pStatement = con.prepareStatement(query); 
         pStatement.setString(1, email);
-        ResultSet rs = pStatement.execute();
+        ResultSet rs = pStatement.executeQuery();
    }
    catch(IllegalStateException e){}
    
