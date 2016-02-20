@@ -66,7 +66,7 @@
     query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = ?";
     pStatement = con.prepareStatement(query);
     
-    pStatement.setInt(1, teamIds.get(i);
+    pStatement.setInt(1, teamIds.get(i));
     
     rs1 = pStatement.execute(query);
     
