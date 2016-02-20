@@ -89,7 +89,7 @@
 	    <td><%= rs1.getString("first_name")%></td>
 	    <td><%= rs1.getString("last_name")%></td>
 	    <td><%= rs1.getString("email") %></td>
-	    <td>XL</td>
+	    <td><%= rs1.getString("tshirt_size") %></td>
         </tr>
         <% }%> 
             <div style="padding-left:30px;"> 
