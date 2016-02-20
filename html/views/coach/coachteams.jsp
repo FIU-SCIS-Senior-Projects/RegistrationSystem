@@ -49,7 +49,7 @@
     ResultSet rs1 = null;
     rs = stat.executeQuery("SELECT * FROM team");
     ArrayList teamNames = new ArrayList();
-    ArrayList teamIds = new ArrayList();
+    ArrjayList teamIds = new ArrayList();
     while (rs.next()){
 	teamIds.add(rs.getString("team_id"));
 	teamNames.add(rs.getString("team_name"));
