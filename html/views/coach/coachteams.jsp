@@ -63,7 +63,7 @@
 
 <% for(int i =0; i < teamNames.size(); i++) {
     
-    query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = ?";
+    query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email, participant.tshirt_size FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = ?";
     pStatement = con.prepareStatement(query);
     
     pStatement.setString(1, teamIds.get(i).toString());
