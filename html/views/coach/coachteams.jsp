@@ -50,6 +50,7 @@
     rs = stat.executeQuery("SELECT * FROM team");
     ArrayList teamNames = new ArrayList();
     ArrayList teamIds = new ArrayList();
+    PreparedStatement pStatement = null;
     while (rs.next()){
 	teamIds.add(rs.getString("team_id"));
 	teamNames.add(rs.getString("team_name"));
@@ -57,8 +58,15 @@
  %>
 
 <% for(int i =0; i < teamNames.size(); i++) {
-
-    rs1 = stat.executeQuery("SELECT distinct participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = '"+ teamIds.get(i) + "'");%>
+    
+    PreparedStatement pStatement = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = ?");
+    
+    pStatement.setString(1, teamIds.get(i));
+    rs1 = pStatement.execute();
+    
+    %>
+   
+    
     <table border="0" style="padding-left:30px;">
     <form action="coachedit.jsp">
     <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>

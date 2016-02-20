@@ -31,12 +31,19 @@
 </div>
     
 <%
-    Class.forName("com.mysql.jdbc.Driver").newInstance ();
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
-    Statement stat = con.createStatement();
-    ResultSet rs = null;
-    String email = request.getParameter("email");
-    rs = stat.executeQuery("SELECT * FROM participant WHERE email = '" + email +"'");
+   Class.forName("com.mysql.jdbc.Driver").newInstance ();
+   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+   Statement stat = con.createStatement();
+   String email = request.getParameter("email");
+   try
+   {
+        PreparedStatement pStatement = "UPDATE participant SET team_id = 'null' WHERE email = ?";
+        pStatement.setString(1, email);
+        ResultSet rs = pStatement.execute();
+   }
+   catch(IllegalStateException e){}
+   
+   response.sendRedirect("../views/coach/coachedit.jsp");
    
        
 %>
