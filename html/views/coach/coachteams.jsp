@@ -68,7 +68,7 @@
     
     pStatement.setString(1, teamIds.get(i).toString());
     
-    rs1 = pStatement.execute(query);
+    rs1 = pStatement.executeQuery();
     
     %>
    
