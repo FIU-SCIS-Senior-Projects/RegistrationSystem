@@ -18,7 +18,7 @@
             PreparedStatement pstat = con.prepareStatement(query);
             pstat.setString(1, email);
             pstat.setString(2, pw);
-            ResultSet rs = pstat.execute();
+            ResultSet rs = pstat.executeQuery();
             
             if (rs != null)
             {
