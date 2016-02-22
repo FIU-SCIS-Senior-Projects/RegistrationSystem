@@ -20,7 +20,7 @@
             pstat.setString(2, pw);
             ResultSet rs = pstat.executeQuery();
        
-            if (!resultSet.isBeforeFirst()) {    
+            if (!rs.isBeforeFirst()) {    
                 response.sendRedirect("../views/guest/signin.html");
             }
             else
