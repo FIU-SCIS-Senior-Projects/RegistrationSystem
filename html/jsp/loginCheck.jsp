@@ -20,7 +20,7 @@
             pstat.setString(2, pw);
             ResultSet rs = pstat.executeQuery();
        
-            if (rs == true)
+            if (rs != null)
             {
                 response.sendRedirect("../views/coach/homecoachlogin.html");
             }
