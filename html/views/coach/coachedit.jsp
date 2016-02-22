@@ -52,8 +52,9 @@
             <th>Email</th>
             <th>T-Shirt Size</th>
         </tr>
-        <% while (rs.next()) { 
-                int i = 0;
+        <% int i = 0; 
+           while (rs.next()) { 
+                
            %>
         <tr>
             <td><input type = "text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>"></td>
@@ -68,10 +69,10 @@
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
             <td style="background-color: #ffffff;"><form action="../../jsp/removeParticipant.jsp"><input type="hidden" name="email" value="<%=rs.getString("email")%>" />
-                <input type="submit" value="Remove Participant" /></form><% i++;%></td> 
-                
+                <input type="submit" value="Remove Participant" /></form></td>
+            <% i++;%>
         </tr>
-            <% }%> 
+             
         </table>
         <div style="text-align:center;">
             <form action ="updateTeams.jsp">
