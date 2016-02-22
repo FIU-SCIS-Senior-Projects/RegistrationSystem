@@ -68,9 +68,10 @@
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
             <td style="background-color: #ffffff;"><form action="../../jsp/removeParticipant.jsp"><input type="hidden" name="email" value="<%=rs.getString("email")%>" />
-                <input type="submit" value="Remove Participant" /></form><% i++;%></td>        
+                <input type="submit" value="Remove Participant" /></form><% i++;%></td> 
+                
         </tr>
-             
+            <% }%> 
         </table>
         <div style="text-align:center;">
             <form action ="updateTeams.jsp">
