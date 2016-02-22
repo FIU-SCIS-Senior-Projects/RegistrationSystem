@@ -72,7 +72,7 @@
                 <input type="submit" value="Remove Participant" /></form></td>
             <% i++;%>
         </tr>
-             
+             <% } %>
         </table>
         <div style="text-align:center;">
             <form action ="updateTeams.jsp">
