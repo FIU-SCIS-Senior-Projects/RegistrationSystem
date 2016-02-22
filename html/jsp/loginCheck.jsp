@@ -18,7 +18,16 @@
             PreparedStatement pstat = con.prepareStatement(query);
             pstat.setString(1, email);
             pstat.setString(2, pw);
-            ResultSet results = pstat.execute();
+            ResultSet rs = pstat.execute();
+            
+            if (rs != null)
+            {
+                response.sendRedirect("../views/coach/homecoachlogin.html");
+            }
+            else
+            {
+                response.sendRedirect("../views/guest/signin.html");
+            }
         }
         catch (IllegalStateException e) {}
     %>
