@@ -62,9 +62,9 @@ Registration form-->
             School Name:<br>
             <input type="text" name="schoolname" required><br>
             Password:<br>
-            <input type="text" name="pw" required><br>
+            <input type="password" name="pw" required><br>
             Confirm Password:<br>
-            <input type="text" name="confpw" required><br>
+            <input type="password" name="confpw" required><br>
             <input type="submit" value="Register">
           </form>
     </center>

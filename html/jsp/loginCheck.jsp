@@ -19,14 +19,13 @@
             pstat.setString(1, email);
             pstat.setString(2, pw);
             ResultSet rs = pstat.executeQuery();
-            
-            if (rs != null)
-            {
-                response.sendRedirect("../views/coach/homecoachlogin.html");
+       
+            if (!resultSet.isBeforeFirst()) {    
+                response.sendRedirect("../views/guest/signin.html");
             }
             else
             {
-                response.sendRedirect("../views/guest/signin.html");
+                response.sendRedirect("../views/coach/homecoachlogin.html");
             }
         }
         catch (IllegalStateException e) {}
