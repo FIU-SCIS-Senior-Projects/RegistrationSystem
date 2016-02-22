@@ -11,7 +11,7 @@
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
        
         String email = request.getParameter("email");
-        String pw = request.getParameter("password");
+        String pw = request.getParameter("pw");
        
         try {
             String query = "SELECT EXISTS(SELECT 1 FROM coach WHERE email=? AND password=?);";
@@ -20,12 +20,13 @@
             pstat.setString(2, pw);
             ResultSet rs = pstat.executeQuery();
        
-            if (!rs.isBeforeFirst()) {    
-                response.sendRedirect("../views/guest/signin.html");
+            if (rs != null)
+            {
+                response.sendRedirect("../views/coach/homecoachlogin.html");
             }
             else
             {
-                response.sendRedirect("../views/coach/homecoachlogin.html");
+                response.sendRedirect("../views/guest/signin.html"); 
             }
         }
         catch (IllegalStateException e) {}
