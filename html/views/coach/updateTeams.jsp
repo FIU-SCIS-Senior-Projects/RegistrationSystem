@@ -21,18 +21,31 @@
         ArrayList oldEmail = new ArrayList();
         int tableSize = Integer.parseInt(request.getParameter("tableSize"));
    
-        
-        out.print(tableSize + "  ");
    
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < tableSize + 1 ; i++)
         {
             firstName.add(request.getParameter("fname"+i));
             lastName.add(request.getParameter("lname"+i));
             email.add(request.getParameter("email"+i));
             tShirt.add(request.getParameter("tShirt"+i));
             oldEmail.add(request.getParameter("oldEmail"+i));
-            out.print(oldEmail.get(i));
+        
+            String query = "UPDATE participants 
+                            SET first_name = ?, last_name = ?,
+                                email = ?, tshirt_size = ?
+                            WHERE email= ?;
+    
+            PreparedStatement pStatement = con.prepareStatement(query); 
+        
+            pStatement.setString(1, firstName.get(i));
+            pStatement.setString(2, lastName.get(i));
+            pStatement.setString(3, email.get(i));
+            pStatement.setString(4, tShirt.get(i));
+            pStatement.setString(5, oldEmail.get(i));
+    
+            rs = pStatement.executeQuery();
         }
+        response.sendRedirect("coachteams.jsp");
         
         
      }
