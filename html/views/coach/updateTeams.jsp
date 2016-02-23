@@ -40,7 +40,7 @@
             pStatement.setString(4, tShirt.get(i).toString());
             pStatement.setString(5, oldEmail.get(i).toString());
     
-            rs = pStatement.executeQuery();
+            rs = pStatement.executeUpdate();
         }
         response.sendRedirect("coachteams.jsp");
         
