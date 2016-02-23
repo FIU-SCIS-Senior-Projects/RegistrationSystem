@@ -8,7 +8,6 @@
    ResultSet rs = null;
    String submit = request.getParameter("submit");
    
-   
     if(submit.equals("Cancel"))
      {
         response.sendRedirect("coachteams.jsp");
@@ -19,20 +18,21 @@
         ArrayList lastName = new ArrayList();
         ArrayList email = new ArrayList();
         ArrayList tShirt = new ArrayList();
+        ArrayList oldEmail = new ArrayList();
+        int tableSize = Integer.parseInt(request.getParameter("tableSize"));
+        out.print(tableSize + "  ");
    
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < tableSize; i++)
         {
             firstName.add(request.getParameter("fname"+i));
             lastName.add(request.getParameter("lname"+i));
             email.add(request.getParameter("email"+i));
             tShirt.add(request.getParameter("tShirt"+i));
-            out.print(firstName.get(i));
-            out.print(lastName.get(i));
-            out.print(email.get(i));
-            out.print(tShirt.get(i));
-            
+            oldEmail.add(request.getParameter("oldEmail"+i));
+            out.print(oldEmail.get(i));
         }
-        out.print("save and close");
+        
+        
      }
      if(submit.equals("Remove Participant"))
      {

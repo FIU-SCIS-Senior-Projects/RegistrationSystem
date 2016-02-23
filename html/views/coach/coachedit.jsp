@@ -69,13 +69,14 @@
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
-            <td style="background-color: #ffffff;"><input type="hidden" name="email" value="<%=rs.getString("email")%>" />
+            <td style="background-color: #ffffff;"><input type="hidden" name="oldEmail<%=i%>" value="<%=rs.getString("email")%>" />
                 <input type="submit" name="submit" value="Remove Participant"/></td>
             <% i++;%>
         </tr>
              <% } %>
         </table>
-        <div style="text-align:center;">
+            <input type="hidden" name="tableSize" value="<%=i%>" />
+            <div style="text-align:center;">
                 <div style="text-align:center">  
                     <input align="center" type="submit" name="submit" value ="Save & Close" />
                     <input align="center" type="submit" name="submit" value ="Cancel" />
