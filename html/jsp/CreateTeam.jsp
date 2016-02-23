@@ -13,8 +13,9 @@
         Statement stat = con.createStatement();
         
         String teamName = request.getParameter("tname");
+       int coachID = 1;
 	if(teamName!= ""){
-        stat.executeUpdate("insert into team (coach_id, team_name) VALUES (1, '" + teamName + "');");
+        stat.executeUpdate("insert into team (coach_id, team_name) VALUES ("coachID", '" + teamName + "');");
 	response.sendRedirect("../views/coach/coachteams.jsp");
 	}
 	
