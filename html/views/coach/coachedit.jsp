@@ -62,23 +62,23 @@
             <td><input type = "text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>"></td>
             <td><input type = "text" name = "email<%=i%>" value ="<%=rs.getString("email")%>"></td>
             <td><select name ="tShirt<%=i%>">
-                <option selected="selected"><%=rs.getString("tshirt_size")%></option>
+                <option selected="selected" value = "<%=rs.getString("tshirt_size")%>"><%=rs.getString("tshirt_size")%></option>
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
-            <td style="background-color: #ffffff;"><form action="../../jsp/removeParticipant.jsp"><input type="hidden" name="remove" value="<%=rs.getString("email")%>" />
-                <input type="submit" value="Remove Participant" /></form></td>
+            <td style="background-color: #ffffff;"><input type="hidden" name="email" value="<%=rs.getString("email")%>" />
+                <input type="submit" name="submit" value="Remove Participant"/></td>
             <% i++;%>
         </tr>
              <% } %>
         </table>
         <div style="text-align:center;">
                 <div style="text-align:center">  
-                    <input align="center" type="submit" name="save" value ="Save & Close" />
-                    <input align="center" type="submit" name="cancel" value ="Cancel" />
+                    <input align="center" type="submit" name="submit" value ="Save & Close" />
+                    <input align="center" type="submit" name="submit" value ="Cancel" />
                 </div>  
             </form>
         </div>
