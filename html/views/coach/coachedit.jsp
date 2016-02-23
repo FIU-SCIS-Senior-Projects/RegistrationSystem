@@ -46,6 +46,7 @@
     <br>
     <div>
     <table align="center" border="0">
+            <form action ="updateTeams.jsp">
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -68,17 +69,16 @@
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
-            <td style="background-color: #ffffff;"><form action="../../jsp/removeParticipant.jsp"><input type="hidden" name="email" value="<%=rs.getString("email")%>" />
+            <td style="background-color: #ffffff;"><form action="../../jsp/removeParticipant.jsp"><input type="hidden" name="remove" value="<%=rs.getString("email")%>" />
                 <input type="submit" value="Remove Participant" /></form></td>
             <% i++;%>
         </tr>
              <% } %>
         </table>
         <div style="text-align:center;">
-            <form action ="updateTeams.jsp">
                 <div style="text-align:center">  
-                    <input align="center" type="submit" value ="Save & Close" />
-                    <input align="center" type="submit" value ="Cancel" />
+                    <input align="center" type="submit" name="save" value ="Save & Close" />
+                    <input align="center" type="submit" name="cancel" value ="Cancel" />
                 </div>  
             </form>
         </div>
