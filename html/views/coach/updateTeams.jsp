@@ -19,10 +19,11 @@
         ArrayList email = new ArrayList();
         ArrayList tShirt = new ArrayList();
         ArrayList oldEmail = new ArrayList();
-        int tableSize = request.getParameter("tableSize");
-        out.print(tableSize + "  ");
+        String tableSize = request.getParameter("tableSize");
+        int tSize = Integer.parseInt(tableSize);
+        out.print(tSize + "  ");
    
-        for(int i = 0; i < tableSize; i++)
+        for(int i = 0; i < tSize; i++)
         {
             firstName.add(request.getParameter("fname"+i));
             lastName.add(request.getParameter("lname"+i));
