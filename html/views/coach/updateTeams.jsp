@@ -32,7 +32,6 @@
             out.print(tShirt.get(i));
             
         }
-        String firstName = request
         out.print("save and close");
      }
      if(submit.equals("Remove Participant"))
