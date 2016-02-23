@@ -19,7 +19,7 @@
         ArrayList email = new ArrayList();
         ArrayList tShirt = new ArrayList();
         ArrayList oldEmail = new ArrayList();
-        int tableSize = Integer.parseInt(request.getParameter("tableSize"));
+        int tableSize = request.getParameter("tableSize");
         out.print(tableSize + "  ");
    
         for(int i = 0; i < tableSize; i++)
