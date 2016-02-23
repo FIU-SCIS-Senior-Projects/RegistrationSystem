@@ -33,7 +33,7 @@
             String query = "UPDATE participants 
                             SET first_name = ?, last_name = ?,
                                 email = ?, tshirt_size = ?
-                            WHERE email= ?;
+                            WHERE email= ?";
     
             PreparedStatement pStatement = con.prepareStatement(query); 
         
