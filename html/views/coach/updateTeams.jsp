@@ -34,11 +34,11 @@
     
             PreparedStatement pStatement = con.prepareStatement(query); 
         
-            pStatement.setString(1, firstName.get(i));
-            pStatement.setString(2, lastName.get(i));
-            pStatement.setString(3, email.get(i));
-            pStatement.setString(4, tShirt.get(i));
-            pStatement.setString(5, oldEmail.get(i));
+            pStatement.setString(1, firstName.get(i).toString());
+            pStatement.setString(2, lastName.get(i).toString());
+            pStatement.setString(3, email.get(i).toString());
+            pStatement.setString(4, tShirt.get(i).toString());
+            pStatement.setString(5, oldEmail.get(i).toString());
     
             rs = pStatement.executeQuery();
         }
