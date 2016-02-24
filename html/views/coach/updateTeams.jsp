@@ -8,6 +8,7 @@
    ResultSet rs = null;
    String submit = request.getParameter("submit");
    int tableSize = Integer.parseInt(request.getParameter("tableSize"));
+   int teamID = request.getParameter("teamId");
    ArrayList firstName = new ArrayList();
    ArrayList lastName = new ArrayList();
    ArrayList email = new ArrayList();
@@ -60,7 +61,7 @@
             pStatement.setString(2, originalEmail.get(k).toString());
             
             int rows = pStatement.executeUpdate();
-            response.sendRedirect("coachedit.jsp");
+            response.sendRedirect("coachedit.jsp?teamId=" + teamID);
         }
                                  
     }
