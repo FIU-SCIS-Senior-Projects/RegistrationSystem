@@ -54,12 +54,15 @@
         
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {
-            out.print("remove participant "+ k);
-            //String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
-    
+            out.print("remove participant "+ (k + 1));
+            out.print(" email " + oldEmail.get(k).toString)
+            
+            String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
             //PreparedStatement pStatement = con.prepareStatement(query);
-            //pStatement.setString(1, k.toString());
-            //pStatement.setString(2, email.get(k).toString());
+            //pStatement.setString(1, "null");
+            //pStatement.setString(2, oldEmail.get(k).toString());
+            
+            //int rows = pStatement.executeUpdate();
         }
                                  
     }
