@@ -86,15 +86,22 @@
             </form>
         </div>
     </div>
+    
+    <%
+       String query = "SELECT first_name, last_name FROM participant WHERE team_id = ?";
+       PreparedStatement pStatement = con.prepareStatement(query);
+       pStatement.setNull(1, java.sql.Types.INTEGER);
+       ResultSet rs3 = pStatement.executeQuery();
+       
+    %>
         
     <form action ="">
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
         <select name ="participant">
-            <option>text1
-            <option>text2
-            <option>text3
-            <option>text4
-            <option>text5
+            <% while(rs3.next()){ %>
+                <option><%= rs.getString("first_name") rs.getString("last_name") %>
+            <% } %>
+            
         </select>
         <input type="submit" name="submit" value="Add Member"/>
     </form>
