@@ -56,7 +56,7 @@
         {   
             String query = "UPDATE participant SET team_ID = ? WHERE email = ?";
             PreparedStatement pStatement = con.prepareStatement(query);
-            pStatement.setString(1, "null");
+            pStatement.setNull(1, java.sql.Types.INTEGER);
             pStatement.setString(2, originalEmail.get(k).toString());
             
             int rows = pStatement.executeUpdate();
