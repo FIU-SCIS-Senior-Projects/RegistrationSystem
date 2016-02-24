@@ -72,6 +72,7 @@
             <td style="background-color: #ffffff;">
 		<input type="hidden" name="oldEmail<%=i%>" value="<%=rs.getString("email")%>" />
 		<input type="hidden" name="remove" value="<%=i%>" />
+        <input type="hidden" name="teamId" value="<%=teamID%>"/>
                 <input type="submit" name="submit" value="Remove Participant <%=i+1%>"/></td>
             <% i++;%>
         </tr>
