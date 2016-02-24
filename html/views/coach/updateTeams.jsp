@@ -60,6 +60,7 @@
             pStatement.setString(2, originalEmail.get(k).toString());
             
             int rows = pStatement.executeUpdate();
+            response.sendRedirect("coachedit.jsp");
         }
                                  
     }

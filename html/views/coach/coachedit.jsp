@@ -86,3 +86,16 @@
             </form>
         </div>
     </div>
+        
+    <form action ="">
+        <input type="hidden" name="teamId" value="<%=teamID%>"/>
+        <select name ="participant">
+            <option>text1</option>
+            <option>text2</option>
+            <option>text3</option>
+            <option>text4</option>
+            <option>text5</option>
+        </select>
+        <input type="submit" name="submit" value="Add Member"/>
+    </form>
+
