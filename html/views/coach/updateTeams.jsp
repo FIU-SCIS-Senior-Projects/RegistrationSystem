@@ -8,29 +8,31 @@
    ResultSet rs = null;
    String submit = request.getParameter("submit");
    int tableSize = Integer.parseInt(request.getParameter("tableSize"));
+   ArrayList firstName = new ArrayList();
+   ArrayList lastName = new ArrayList();
+   ArrayList email = new ArrayList();
+   ArrayList tShirt = new ArrayList();
+   ArrayList oldEmail = new ArrayList();
+   
+   for(int i = 0; i < tableSize ; i++)
+    {
+        firstName.add(request.getParameter("fname"+i));
+        lastName.add(request.getParameter("lname"+i));
+        email.add(request.getParameter("email"+i));
+        tShirt.add(request.getParameter("tShirt"+i));
+        oldEmail.add(request.getParameter("oldEmail"+i));
+    }
    
     if(submit.equals("Cancel"))
-     {
+    {
         response.sendRedirect("coachteams.jsp");
-     }
+    }
+    
      if(submit.equals("Save & Close"))
      {
-        ArrayList firstName = new ArrayList();
-        ArrayList lastName = new ArrayList();
-        ArrayList email = new ArrayList();
-        ArrayList tShirt = new ArrayList();
-        ArrayList oldEmail = new ArrayList();
-        
-   
    
         for(int i = 0; i < tableSize ; i++)
         {
-            firstName.add(request.getParameter("fname"+i));
-            lastName.add(request.getParameter("lname"+i));
-            email.add(request.getParameter("email"+i));
-            tShirt.add(request.getParameter("tShirt"+i));
-            oldEmail.add(request.getParameter("oldEmail"+i));
-        
             String query = "UPDATE participant SET first_name = ?, last_name = ?, email = ?, tshirt_size = ? WHERE email= ?";
     
             PreparedStatement pStatement = con.prepareStatement(query); 
@@ -49,15 +51,13 @@
      }
     for(int k = 0; k < tableSize; k++)
     {
-        ArrayList oldEmail = new ArrayList();
-        oldEmail.add(request.getParameter("oldEmail"+k));
         
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {
             out.print("remove participant "+ (k + 1));
             out.print(" email " + oldEmail.get(k).toString());
             
-            String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
+            //String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
             //PreparedStatement pStatement = con.prepareStatement(query);
             //pStatement.setString(1, "null");
             //pStatement.setString(2, oldEmail.get(k).toString());
