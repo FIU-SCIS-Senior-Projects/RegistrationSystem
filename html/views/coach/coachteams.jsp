@@ -21,7 +21,7 @@
 <div id='cssmenu'>
 <ul>
    <li><a href="homecoachlogin.html">Home</a></li>
-   <li><a href="coachteams.html">My Teams</a></li>
+   <li><a href="coachteams.jsp">My Teams</a></li>
    <li><a href="coachprofile.html">My Profile</a></li>
    <li><a href="coachcontests.html">Contests</a></li>
    <li><a href="coachvideos.html">Videos</a></li>
