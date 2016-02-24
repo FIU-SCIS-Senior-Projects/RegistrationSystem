@@ -52,7 +52,7 @@
         ArrayList oldEmail = new ArrayList();
         oldEmail.add(request.getParameter("oldEmail"+k));
         
-        if(submit.equals("Remove Participant " + (k+1))
+        if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {
             out.print("remove participant "+ k);
             //String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
