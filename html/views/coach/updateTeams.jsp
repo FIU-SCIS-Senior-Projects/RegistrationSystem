@@ -8,7 +8,7 @@
    ResultSet rs = null;
    String submit = request.getParameter("submit");
    int tableSize = Integer.parseInt(request.getParameter("tableSize"));
-   int teamID = request.getParameter("teamId");
+   int teamID = Integer.parseInt(request.getParameter("teamId"));
    ArrayList firstName = new ArrayList();
    ArrayList lastName = new ArrayList();
    ArrayList email = new ArrayList();
