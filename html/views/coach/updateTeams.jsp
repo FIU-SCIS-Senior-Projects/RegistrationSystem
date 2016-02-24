@@ -47,19 +47,19 @@
         
         
      }
-    for(int k = 0; k < tableSize; i++)
+    for(int k = 0; k < tableSize; k++)
     {
         ArrayList oldEmail = new ArrayList();
-        oldEmail.add(request.getParameter("oldEmail"+i));
+        oldEmail.add(request.getParameter("oldEmail"+k));
         
-        if(submit.equals("Remove Participant " + (i+1))
+        if(submit.equals("Remove Participant " + (k+1))
         {
-            out.print("remove participant "+ i);
+            out.print("remove participant "+ k);
             //String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
     
             //PreparedStatement pStatement = con.prepareStatement(query);
-            //pStatement.setString(1, i.toString());
-            //pStatement.setString(2, email.get(i).toString());
+            //pStatement.setString(1, k.toString());
+            //pStatement.setString(2, email.get(k).toString());
         }
                                  
     }
