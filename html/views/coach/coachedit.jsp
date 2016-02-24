@@ -88,7 +88,7 @@
     </div>
     
     <%
-       String query = "SELECT first_name, last_name FROM participant WHERE team_id = ?";
+       String query1 = "SELECT first_name, last_name FROM participant WHERE team_id = ?";
        PreparedStatement pStatement1 = con.prepareStatement(query);
        pStatement1.setNull(1, java.sql.Types.INTEGER);
        ResultSet rs3 = pStatement1.executeQuery();
