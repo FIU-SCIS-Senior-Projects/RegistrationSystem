@@ -14,13 +14,13 @@
         String pw = request.getParameter("pw");
        
         try {
-            String query = "SELECT EXISTS(SELECT 1 FROM coach WHERE email=? AND password=?);";
+            String query = "SELECT 1 FROM coach WHERE email=? AND password=?;";
             PreparedStatement pstat = con.prepareStatement(query);
             pstat.setString(1, email);
             pstat.setString(2, pw);
             ResultSet rs = pstat.executeQuery();
        
-            if (rs == 1)
+            if (rs != null)
             {
                 response.sendRedirect("../views/coach/homecoachlogin.html");
             }
