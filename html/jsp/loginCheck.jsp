@@ -26,7 +26,19 @@
             }
             else
             {
-                response.sendRedirect("../views/guest/signin.html"); 
+                query = "SELECT 1 FROM administrator WHERE email=? AND password=?;";
+                stat = con.prepareStatement(query);
+                pstat.setString(1, email);
+                pstat.setString(2, pw);
+                rs = pstat.executeQuery();
+                if (rs.isBeforeFirst())
+                {
+                    response.sendRedirect("../views/admin/homeadminlogin.html");
+                }
+                else
+                {
+                    response.sendRedirect("../views/guest/signin.html"); 
+                }
             }
         }
         catch (IllegalStateException e) {}
