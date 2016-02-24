@@ -27,7 +27,7 @@
             else
             {
                 query = "SELECT 1 FROM administrator WHERE email=? AND password=?;";
-                stat = con.prepareStatement(query);
+                pstat = con.prepareStatement(query);
                 pstat.setString(1, email);
                 pstat.setString(2, pw);
                 rs = pstat.executeQuery();
