@@ -22,7 +22,7 @@
         int tableSize = Integer.parseInt(request.getParameter("tableSize"));
    
    
-        for(int i = 0; i < tableSize + 1 ; i++)
+        for(int i = 0; i < tableSize ; i++)
         {
             firstName.add(request.getParameter("fname"+i));
             lastName.add(request.getParameter("lname"+i));
