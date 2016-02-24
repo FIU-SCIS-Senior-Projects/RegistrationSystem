@@ -30,7 +30,7 @@
             tShirt.add(request.getParameter("tShirt"+i));
             oldEmail.add(request.getParameter("oldEmail"+i));
         
-            String query = "UPDATE participants SET first_name = ?, last_name = ?, email = ?, tshirt_size = ? WHERE email= ?";
+            String query = "UPDATE participant SET first_name = ?, last_name = ?, email = ?, tshirt_size = ? WHERE email= ?";
     
             PreparedStatement pStatement = con.prepareStatement(query); 
         
