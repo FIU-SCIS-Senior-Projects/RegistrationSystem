@@ -48,7 +48,9 @@
      }
      if(submit.equals("Remove Participant"))
      {
-        out.print("remove");
+        out.print("remove");	
+        out.println(request.getParameter("remove"));
+	out.println("should be 0");
      }
        
     %>

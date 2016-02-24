@@ -69,7 +69,9 @@
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
-            <td style="background-color: #ffffff;"><input type="hidden" name="oldEmail<%=i%>" value="<%=rs.getString("email")%>" />
+            <td style="background-color: #ffffff;">
+		<input type="hidden" name="oldEmail<%=i%>" value="<%=rs.getString("email")%>" />
+		<input type="hidden" name="remove" value="<%=i%>" />
                 <input type="submit" name="submit" value="Remove Participant"/></td>
             <% i++;%>
         </tr>
