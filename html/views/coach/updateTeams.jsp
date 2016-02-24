@@ -55,7 +55,7 @@
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {
             out.print("remove participant "+ (k + 1));
-            out.print(" email " + oldEmail.get(k).toString);
+            out.print(" email " + oldEmail.get(k).toString());
             
             String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
             //PreparedStatement pStatement = con.prepareStatement(query);
