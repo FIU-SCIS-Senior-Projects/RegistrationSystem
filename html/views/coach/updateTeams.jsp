@@ -12,7 +12,7 @@
    ArrayList lastName = new ArrayList();
    ArrayList email = new ArrayList();
    ArrayList tShirt = new ArrayList();
-   ArrayList oldEmail = new ArrayList();
+   ArrayList originalEmail = new ArrayList();
    
    for(int i = 0; i < tableSize ; i++)
     {
@@ -20,7 +20,7 @@
         lastName.add(request.getParameter("lname"+i));
         email.add(request.getParameter("email"+i));
         tShirt.add(request.getParameter("tShirt"+i));
-        oldEmail.add(request.getParameter("oldEmail"+i));
+        originalEmail.add(request.getParameter("oldEmail"+i));
     }
    
     if(submit.equals("Cancel"))
@@ -41,7 +41,7 @@
             pStatement.setString(2, lastName.get(i).toString());
             pStatement.setString(3, email.get(i).toString());
             pStatement.setString(4, tShirt.get(i).toString());
-            pStatement.setString(5, oldEmail.get(i).toString());
+            pStatement.setString(5, originalEmail.get(i).toString());
     
             int rows = pStatement.executeUpdate();
         }
@@ -53,16 +53,13 @@
     {
         
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
-        {
-            out.print("remove participant "+ (k + 1));
-            out.print(" email " + oldEmail.get(k).toString());
+        {   
+            String query = "UPDATE participant SET team_ID = ? WHERE email = ?";
+            PreparedStatement pStatement = con.prepareStatement(query);
+            pStatement.setString(1, "null");
+            pStatement.setString(2, originalEmail.get(k).toString());
             
-            //String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
-            //PreparedStatement pStatement = con.prepareStatement(query);
-            //pStatement.setString(1, "null");
-            //pStatement.setString(2, oldEmail.get(k).toString());
-            
-            //int rows = pStatement.executeUpdate();
+            int rows = pStatement.executeUpdate();
         }
                                  
     }
