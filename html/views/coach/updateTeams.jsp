@@ -7,6 +7,7 @@
    Statement stat = con.createStatement();
    ResultSet rs = null;
    String submit = request.getParameter("submit");
+   int tableSize = Integer.parseInt(request.getParameter("tableSize"));
    
     if(submit.equals("Cancel"))
      {
@@ -19,7 +20,7 @@
         ArrayList email = new ArrayList();
         ArrayList tShirt = new ArrayList();
         ArrayList oldEmail = new ArrayList();
-        int tableSize = Integer.parseInt(request.getParameter("tableSize"));
+        
    
    
         for(int i = 0; i < tableSize ; i++)
@@ -46,11 +47,22 @@
         
         
      }
-     if(submit.equals("Remove Participant"))
-     {
-        out.print("remove");	
-        out.println(request.getParameter("remove"));
-	out.println("should be 0");
-     }
+    for(int k = 0; k < tableSize; i++)
+    {
+        ArrayList oldEmail = new ArrayList();
+        oldEmail.add(request.getParameter("oldEmail"+i));
+        
+        if(submit.equals("Remove Participant " + (i+1))
+        {
+            out.print("remove participant "+ i);
+            //String query = "UPDATE participant SET team_ID = ? WHERE email= ?";
+    
+            //PreparedStatement pStatement = con.prepareStatement(query);
+            //pStatement.setString(1, i.toString());
+            //pStatement.setString(2, email.get(i).toString());
+        }
+                                 
+    }
+     
        
     %>
