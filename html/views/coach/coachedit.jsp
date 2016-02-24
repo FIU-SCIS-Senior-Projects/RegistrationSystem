@@ -99,7 +99,7 @@
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
         <select name ="participant">
             <% while(rs3.next()){ %>
-                <option><%= rs3.getString("first_name") rs3.getString("last_name") %>
+                <option><%= rs3.getString("first_name")%> <%= rs3.getString("last _name")%>
             <% } %>
             
         </select>
