@@ -92,7 +92,6 @@
        PreparedStatement pStatement1 = con.prepareStatement(query);
        pStatement1.setNull(1, java.sql.Types.INTEGER);
        ResultSet rs3 = pStatement1.executeQuery();
-       out.print();
        
     %>
         
