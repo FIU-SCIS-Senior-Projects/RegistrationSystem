@@ -14,6 +14,7 @@
    ArrayList email = new ArrayList();
    ArrayList tShirt = new ArrayList();
    ArrayList originalEmail = new ArrayList();
+   int rows;
    
    for(int i = 0; i < tableSize ; i++)
     {
@@ -44,7 +45,7 @@
             pStatement.setString(4, tShirt.get(i).toString());
             pStatement.setString(5, originalEmail.get(i).toString());
     
-            int rows = pStatement.executeUpdate();
+            rows = pStatement.executeUpdate();
         }
         response.sendRedirect("coachteams.jsp");
         
@@ -60,7 +61,7 @@
             pStatement.setNull(1, java.sql.Types.INTEGER);
             pStatement.setString(2, originalEmail.get(k).toString());
             
-            int rows = pStatement.executeUpdate();
+            rows = pStatement.executeUpdate();
             response.sendRedirect("coachedit.jsp?teamId=" + teamID);
         }
                                  
@@ -68,28 +69,21 @@
     
     if(submit.equals("Add Participant"))
     {
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
-        String email = request.getParameter("email");
-        String tShirt = request.getParameter("tShirt");
-        String teamID = request.getParameter("teamId");
+        String newFname = request.getParameter("fname");
+        String newLname = request.getParameter("lname");
+        String newEmail = request.getParameter("email");
+        String newTShirt = request.getParameter("tShirt");
         
-        if(!fname.equals("") && !lname.equals("") && !email.equals("") && !tShirt.equals(""))
-        {
+       
             String query = "INSERT INTO participant VALUES (?, ?, ?, ?)";
             PreparedStatement pStatement = con.prepareStatement(query);
-            pStatement.setString(1, fname);
-            pStatement.setString(2, lname);
-            pStatement.setString(3, email);
-            pStatement.setString(4, tShirt);
+            pStatement.setString(1, newFname);
+            pStatement.setString(2, newLname);
+            pStatement.setString(3, newEmail);
+            pStatement.setString(4, newTShirt);
             
-            int rows = pStatement.executeUpdate();
-    
-        }
-        else
-        {
+            rows = pStatement.executeUpdate();
             response.sendRedirect("coachedit.jsp?teamId=" + teamID);
-        }
     
     }
      
