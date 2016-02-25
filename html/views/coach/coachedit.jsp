@@ -95,7 +95,8 @@
        ResultSet rs3 = pStatement1.executeQuery();
        
     %>
-        
+    
+    <!--
     <form action ="">
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
         <select name ="participant">
@@ -106,4 +107,29 @@
         </select>
         <input type="submit" name="submit" value="Add Member"/>
     </form>
+-->
+<form action ="updateTeams.jsp">     
+    <table border="0">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>T-Shirt Size</th>
+        </tr>
+        <tr>
+        <td><input type = "text" name = "fname" placeholder="First Name"></td>
+        <td><input type = "text" name = "lname" placeholder="Last Name"></td>
+        <td><input type = "text" name = "email" placeholder="Email"></td>
+        <td><select name ="tShirt">
+                <option type = "text" value = "XS">XS</option> 
+                <option type = "text" value = "S">S</option>
+                <option type = "text" value = "M">M</option>
+                <option type = "text" value = "L">L</option>
+                <option type = "text" value = "XL">XL</option>
+                </select></td>
+        </tr>
+    </table>
+     <input type="hidden" name="teamId" value="<%=teamID%>"/>
+     <input type="submit" name="submit" value="Add Participant"/></td>
+</form>
 
