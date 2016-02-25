@@ -108,7 +108,7 @@
         <input type="submit" name="submit" value="Add Member"/>
     </form>
 -->
-<div  style="padding-top:40px;">
+<div id="table" style="padding-top:40px;">
 <form action ="updateTeams.jsp">     
     <table border="0">
         <tr>
@@ -125,8 +125,8 @@
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
         </tr>
-        <input type="hidden" name="teamId" value="<%=teamID%>"/>
-        <input type="submit" name="submit" value="Add Participant"/>
+        <input type="hidden" id="table" name="teamId" value="<%=teamID%>"/>
+        <input type="submit" id="table" name="submit" value="Add Participant"/>
     </table>
 </form>
 </div>
