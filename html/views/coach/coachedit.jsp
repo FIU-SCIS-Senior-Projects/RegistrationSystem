@@ -108,15 +108,16 @@
         <input type="submit" name="submit" value="Add Member"/>
     </form>
 -->
+<div  style="padding-top:40px;">
 <form action ="updateTeams.jsp">     
-    <table border="0" style="padding-top:430px;">
+    <table border="0">
         <tr>
         </tr>
         <tr>
         <td style="background-color: #ffffff;"><input type = "text" name = "fname" placeholder="First Name"></td>
         <td style="background-color: #ffffff;"><input type = "text" name = "lname" placeholder="Last Name"></td>
         <td style="background-color: #ffffff;"><input type = "text" name = "email" placeholder="Email"></td>
-        <td style="background-color: #ffffff;" style="padding-top:430px;"><select name ="tShirt">
+        <td style="background-color: #ffffff;"><select name ="tShirt">
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
@@ -127,6 +128,6 @@
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
         <input type="submit" name="submit" value="Add Participant"/>
     </table>
-     
 </form>
+</div>
 
