@@ -65,6 +65,33 @@
         }
                                  
     }
+    
+    if(submit.equals("Add Participant"))
+    {
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String email = request.getParameter("email");
+        String tShirt = request.getParameter("tShirt");
+        String teamID = request.getParameter("teamId");
+        
+        if(!fname.equals("") && !lname.equals("") && !email.equals("") && !tShirt.equals(""))
+        {
+            String query = "INSERT INTO participant VALUES (?, ?, ?, ?)";
+            PreparedStatement pStatement = con.prepareStatement(query);
+            pStatement.setString(1, fname);
+            pStatement.setString(2, lname);
+            pStatement.setString(3, email);
+            pStatement.setString(4, tShirt);
+            
+            int rows = pStatement.executeUpdate();
+    
+        }
+        else
+        {
+            response.sendRedirect("coachedit.jsp?teamId=" + teamID);
+        }
+    
+    }
      
        
     %>
