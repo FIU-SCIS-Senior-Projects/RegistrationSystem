@@ -113,10 +113,10 @@
         <tr>
         </tr>
         <tr>
-        <td style="background-color: #ffffff;"><input type = "text" name = "fname" placeholder="First Name"></td>
-        <td style="background-color: #ffffff;"><input type = "text" name = "lname" placeholder="Last Name"></td>
-        <td style="background-color: #ffffff;"><input type = "text" name = "email" placeholder="Email"></td>
-        <td style="background-color: #ffffff;"><select name ="tShirt">
+        <td style="background-color: #ffffff;" style="padding-top:30px;"><input type = "text" name = "fname" placeholder="First Name"></td>
+        <td style="background-color: #ffffff;" style="padding-top:30px;"><input type = "text" name = "lname" placeholder="Last Name"></td>
+        <td style="background-color: #ffffff;" style="padding-top:30px;"><input type = "text" name = "email" placeholder="Email"></td>
+        <td style="background-color: #ffffff;" style="padding-top:30px;"><select name ="tShirt">
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
@@ -126,6 +126,6 @@
         </tr>
     </table>
      <input type="hidden" name="teamId" value="<%=teamID%>"/>
-     <input type="submit" name="submit" value="Add Participant"/></td>
+     <input type="submit" name="submit" value="Add Participant" style="padding-top:30px;"/></td>
 </form>
 
