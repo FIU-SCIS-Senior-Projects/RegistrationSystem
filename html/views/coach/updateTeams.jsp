@@ -7,31 +7,36 @@
    Statement stat = con.createStatement();
    ResultSet rs = null;
    String submit = request.getParameter("submit");
-   int tableSize = Integer.parseInt(request.getParameter("tableSize"));
-   int teamID = Integer.parseInt(request.getParameter("teamId"));
    ArrayList firstName = new ArrayList();
    ArrayList lastName = new ArrayList();
    ArrayList email = new ArrayList();
    ArrayList tShirt = new ArrayList();
    ArrayList originalEmail = new ArrayList();
    int rows;
+   int teamID;
+   int tableSize;
    
-   for(int i = 0; i < tableSize ; i++)
-    {
-        firstName.add(request.getParameter("fname"+i));
-        lastName.add(request.getParameter("lname"+i));
-        email.add(request.getParameter("email"+i));
-        tShirt.add(request.getParameter("tShirt"+i));
-        originalEmail.add(request.getParameter("oldEmail"+i));
-    }
    
     if(submit.equals("Cancel"))
     {
         response.sendRedirect("coachteams.jsp");
     }
     
-     if(submit.equals("Save & Close"))
-     {
+   
+    //Updating a team
+    if(submit.equals("Save & Close"))
+    {
+        tableSize = Integer.parseInt(request.getParameter("tableSize"));
+        teamID = Integer.parseInt(request.getParameter("teamId"));
+        
+        for(int i = 0; i < tableSize ; i++)
+        {
+        firstName.add(request.getParameter("fname"+i));
+        lastName.add(request.getParameter("lname"+i));
+        email.add(request.getParameter("email"+i));
+        tShirt.add(request.getParameter("tShirt"+i));
+        originalEmail.add(request.getParameter("oldEmail"+i));
+        }
    
         for(int i = 0; i < tableSize ; i++)
         {
@@ -67,12 +72,14 @@
                                  
     }
     
+    //Adding a participant
     if(submit.equals("Add Participant"))
     {
         String newFname = request.getParameter("fname");
         String newLname = request.getParameter("lname");
         String newEmail = request.getParameter("email");
         String newTShirt = request.getParameter("tShirt");
+        teamID = Integer.parseInt(request.getParameter("teamId"));
         
        
             String query = "INSERT INTO participant VALUES (?, ?, ?, ?)";
