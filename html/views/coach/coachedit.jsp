@@ -111,16 +111,12 @@
 <form action ="updateTeams.jsp">     
     <table border="0">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>T-Shirt Size</th>
         </tr>
         <tr>
-        <td><input type = "text" name = "fname" placeholder="First Name"></td>
-        <td><input type = "text" name = "lname" placeholder="Last Name"></td>
-        <td><input type = "text" name = "email" placeholder="Email"></td>
-        <td><select name ="tShirt">
+        <td style="background-color: #ffffff;"><input type = "text" name = "fname" placeholder="First Name"></td>
+        <td style="background-color: #ffffff;"><input type = "text" name = "lname" placeholder="Last Name"></td>
+        <td style="background-color: #ffffff;"><input type = "text" name = "email" placeholder="Email"></td>
+        <td style="background-color: #ffffff;"><select name ="tShirt">
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
