@@ -118,15 +118,17 @@
         <td style="background-color: #ffffff;"><input type = "text" name = "lname" placeholder="Last Name"></td>
         <td style="background-color: #ffffff;"><input type = "text" name = "email" placeholder="Email"></td>
         <td style="background-color: #ffffff;"><select name ="tShirt">
+                <option selected="selected" value = ""></option>
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
+        <td><input type="submit" name="submit" value="Add Participant"/></td>
         </tr>
-        <input type="hidden" id="table" name="teamId" value="<%=teamID%>"/>
-        <input type="submit" id="table" name="submit" value="Add Participant"/>
+        <input type="hidden" name="teamId" value="<%=teamID%>"/>
+        
     </table>
 </form>
 </div>
