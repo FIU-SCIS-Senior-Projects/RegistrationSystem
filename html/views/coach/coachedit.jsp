@@ -109,14 +109,14 @@
     </form>
 -->
 <form action ="updateTeams.jsp">     
-    <table border="0">
+    <table border="0" style="padding-top:430px;">
         <tr>
         </tr>
         <tr>
-        <td style="background-color: #ffffff;" style="padding-top:130px;"><input type = "text" name = "fname" placeholder="First Name"></td>
-        <td style="background-color: #ffffff;" style="padding-top:130px;"><input type = "text" name = "lname" placeholder="Last Name"></td>
-        <td style="background-color: #ffffff;" style="padding-top:130px;"><input type = "text" name = "email" placeholder="Email"></td>
-        <td style="background-color: #ffffff;" style="padding-top:130px;"><select name ="tShirt">
+        <td style="background-color: #ffffff;"><input type = "text" name = "fname" placeholder="First Name"></td>
+        <td style="background-color: #ffffff;"><input type = "text" name = "lname" placeholder="Last Name"></td>
+        <td style="background-color: #ffffff;"><input type = "text" name = "email" placeholder="Email"></td>
+        <td style="background-color: #ffffff;" style="padding-top:430px;"><select name ="tShirt">
                 <option type = "text" value = "XS">XS</option> 
                 <option type = "text" value = "S">S</option>
                 <option type = "text" value = "M">M</option>
@@ -124,8 +124,9 @@
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
         </tr>
+        <input type="hidden" name="teamId" value="<%=teamID%>"/>
+        <input type="submit" name="submit" value="Add Participant"/>
     </table>
-     <input type="hidden" name="teamId" value="<%=teamID%>"/>
-     <input type="submit" name="submit" value="Add Participant" style="padding-top:130px;"/></td>
+     
 </form>
 
