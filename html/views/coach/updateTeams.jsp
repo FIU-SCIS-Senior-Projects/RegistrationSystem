@@ -82,12 +82,14 @@
         String newTShirt = request.getParameter("tShirt");
         teamID = Integer.parseInt(request.getParameter("teamId"));
        
-        String query = "INSERT INTO participant VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO participant VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement pStatement = con.prepareStatement(query);
         pStatement.setString(1, newFname);
         pStatement.setString(2, newLname);
         pStatement.setString(3, newEmail);
-        pStatement.setString(4, newTShirt);
+        pStatement.setID(4, teamID);
+        pStatement.setInt(5, 1);
+        pStatement.setString(6, newTShirt);
             
         rows = pStatement.executeUpdate();
         response.sendRedirect("coachedit.jsp?teamId=" + teamID);
