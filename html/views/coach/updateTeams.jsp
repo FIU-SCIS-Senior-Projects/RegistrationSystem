@@ -87,7 +87,7 @@
         pStatement.setString(1, newFname);
         pStatement.setString(2, newLname);
         pStatement.setString(3, newEmail);
-        pStatement.setID(4, teamID);
+        pStatement.setInt(4, teamID);
         pStatement.setInt(5, 1);
         pStatement.setString(6, newTShirt);
             
