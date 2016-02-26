@@ -128,6 +128,7 @@
         <td style="background-color: #ffffff;"><input type="submit" name="submit" value="Add Participant"/></td>
         </tr>
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
+        <input type="hidden" name="tableSize" value="<%=0%>"/>
         
     </table>
 </form>

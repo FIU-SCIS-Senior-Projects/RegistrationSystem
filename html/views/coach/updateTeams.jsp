@@ -14,7 +14,7 @@
    ArrayList originalEmail = new ArrayList();
    int rows;
    int teamID;
-   int tableSize;
+   int tableSize = Integer.parseInt(request.getParameter("tableSize"));
    
    
     if(submit.equals("Cancel"))
