@@ -61,6 +61,7 @@
         
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {   
+            teamID = Integer.parseInt(request.getParameter("teamId"));
             String query = "UPDATE participant SET team_ID = ? WHERE email = ?";
             PreparedStatement pStatement = con.prepareStatement(query);
             pStatement.setNull(1, java.sql.Types.INTEGER);
@@ -80,17 +81,16 @@
         String newEmail = request.getParameter("email");
         String newTShirt = request.getParameter("tShirt");
         teamID = Integer.parseInt(request.getParameter("teamId"));
-        
        
-            String query = "INSERT INTO participant VALUES (?, ?, ?, ?)";
-            PreparedStatement pStatement = con.prepareStatement(query);
-            pStatement.setString(1, newFname);
-            pStatement.setString(2, newLname);
-            pStatement.setString(3, newEmail);
-            pStatement.setString(4, newTShirt);
+        String query = "INSERT INTO participant VALUES (?, ?, ?, ?)";
+        PreparedStatement pStatement = con.prepareStatement(query);
+        pStatement.setString(1, newFname);
+        pStatement.setString(2, newLname);
+        pStatement.setString(3, newEmail);
+        pStatement.setString(4, newTShirt);
             
-            rows = pStatement.executeUpdate();
-            response.sendRedirect("coachedit.jsp?teamId=" + teamID);
+        rows = pStatement.executeUpdate();
+        response.sendRedirect("coachedit.jsp?teamId=" + teamID);
     
     }
      
