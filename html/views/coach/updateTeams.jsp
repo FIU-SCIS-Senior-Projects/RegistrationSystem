@@ -59,6 +59,7 @@
     for(int k = 0; k < tableSize; k++)
     {
         
+        originalEmail.add(request.getParameter("oldEmail"+k));
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {   
             teamID = Integer.parseInt(request.getParameter("teamId"));

@@ -107,7 +107,6 @@
         </select>
         <input type="submit" name="submit" value="Add Member"/>
     </form>
--->
 <div id="table" style="padding-top:40px;">
 <form action ="updateTeams.jsp">     
     <table border="0">
@@ -133,4 +132,4 @@
     </table>
 </form>
 </div>
-
+-->
