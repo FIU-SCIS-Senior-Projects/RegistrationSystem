@@ -58,9 +58,9 @@
                 
            %>
         <tr>
-            <td><input type = "text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>"></td>
-            <td><input type = "text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>"></td>
-            <td><input type = "text" name = "email<%=i%>" value ="<%=rs.getString("email")%>"></td>
+            <td><input type = "text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>" required></td>
+            <td><input type = "text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>" required></td>
+            <td><input type = "text" name = "email<%=i%>" value ="<%=rs.getString("email")%>" required></td>
             <td><select name ="tShirt<%=i%>">
                 <option selected="selected" value = "<%=rs.getString("tshirt_size")%>"><%=rs.getString("tshirt_size")%></option>
                 <option type = "text" value = "XS">XS</option> 
