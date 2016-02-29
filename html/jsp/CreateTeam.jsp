@@ -7,18 +7,20 @@
     <%@ page import="java.sql.*" %> 
     <%@ page import="java.io.*" %> 
    
-    <%
-        Class.forName("com.mysql.jdbc.Driver").newInstance ();
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
-        Statement stat = con.createStatement();
+<%
+    Class.forName("com.mysql.jdbc.Driver").newInstance ();
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+    Statement stat = con.createStatement();
         
-        String teamName = request.getParameter("tname");
-       int coachID = 1;
-	if(teamName!= ""){
-        stat.executeUpdate("insert into team (coach_id, team_name) VALUES ("coachID", '" + teamName + "');");
-	response.sendRedirect("../views/coach/coachteams.jsp");
-	}
+    String teamName = request.getParameter("tname");
+    int coachID = 1;
+   
+    String query = "INSERT INTO team (coach_id, team_name) VALUES (?, ?)";
+    PreparedStatement pStatement = con.prepareStatement(query);
+    pStatement.setInt(1, coach);
+    pStatement.setString(2, teamName);
+	int rows = pStatement.executeUpdate();
 	
-    %>
+%>
 </body> 
 </html>
