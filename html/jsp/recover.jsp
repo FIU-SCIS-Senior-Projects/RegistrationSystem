@@ -4,11 +4,19 @@
 </head>
 <body>
     <%@ page import="java.sql.*" %> 
-    <%@ page import="java.io.*" %> 
+    <%@ page import="java.io.*,java.util.*,javax.mail.*"%>
+    <%@ page import="javax.mail.internet.*,javax.activation.*"%>
+    <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
         
     <%
         Class.forName("com.mysql.jdbc.Driver").newInstance ();
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+        String from = "admin@regsys.fiu.edu";
+        String host = "localhost";
+       
+        Properties properties = System.getProperties();
+        properties.setProperty("mail.smtp.host", host);
+        Session mailSession = Session.getDefaultInstance(properties);
        
         String email = request.getParameter("email");
        
@@ -20,7 +28,14 @@
        
             if (rs.isBeforeFirst())
             {
-                
+                try {
+                    MimeMessage message = new MimeMessage(mailSession);
+                    message.setFrom(new InternetAddress(from));
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+                    message.setSubject("This is the Subject Line!");
+                    message.setText("This is actual message");
+                    Transport.send(message);
+                } catch (MessageingException mex)
             }
             else
             {
@@ -30,7 +45,14 @@
                 rs = pstat.executeQuery();
                 if (rs.isBeforeFirst())
                 {
-                
+                    try {
+                        MimeMessage message = new MimeMessage(mailSession);
+                        message.setFrom(new InternetAddress(from));
+                        message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+                        message.setSubject("This is the Subject Line!");
+                        message.setText("This is actual message");
+                        Transport.send(message);
+                    } catch (MessageingException mex)
                 }
                 else
                 {
