@@ -37,7 +37,7 @@
     Statement stat = con.createStatement();
     String query = "SELECT * FROM coach WHERE coach_id = ?";
     PreparedStatement pStatement = con.prepareStatement(query); 
-    pStatement.setString(1, coach_id);
+    pStatement.setInt(1, coach_id);
     ResultSet rs = pStatement.executeQuery();
     
     while(rs.next())
