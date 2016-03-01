@@ -107,7 +107,7 @@
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
-        <td style="background-color: #ffffff;"><input align = "center" type="submit" name="submit" value="Add Participant"/></td>
+        <td style="background-color: #ffffff;"><input type="submit" name="submit" value="Add Participant"/></td>
         </tr>
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
         <input type="hidden" name="tableSize" value="<%=0%>"/>

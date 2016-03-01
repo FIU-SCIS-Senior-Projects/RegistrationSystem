@@ -17,7 +17,7 @@
    
     String query = "INSERT INTO team (coach_id, team_name) VALUES (?, ?)";
     PreparedStatement pStatement = con.prepareStatement(query);
-    pStatement.setInt(1, coach);
+    pStatement.setInt(1, coachID);
     pStatement.setString(2, teamName);
 	int rows = pStatement.executeUpdate();
 	
