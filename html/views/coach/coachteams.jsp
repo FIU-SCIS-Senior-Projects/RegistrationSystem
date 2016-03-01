@@ -34,9 +34,9 @@
     <p style=" color:#002D62; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 10px">Log Out</p>
 </div>
 
-<form action ="../../jsp/CreateTeam.jsp" style="padding: 5px">
+<form action ="../../jsp/CreateTeam.jsp" style="padding-left:30px;">
       
-   <br></br><input type="text" name="tname" placeholder="Team Name" style="width: 150px; height: 10px;" required></input>
+   <br></br><input type="text" name="tname" placeholder="Team Name" style="width: 150px" required></input>
     <input type= "submit" value="Create Team">
 </form>
     
