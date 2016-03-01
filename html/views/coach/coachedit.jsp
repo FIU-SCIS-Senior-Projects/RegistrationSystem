@@ -60,7 +60,7 @@
         <tr>
             <td><input type = "text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>" required></td>
             <td><input type = "text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>" required></td>
-            <td><input type = "text" name = "email<%=i%>" value ="<%=rs.getString("email")%>" required></td>
+            <td><input type = "email" name = "email<%=i%>" value ="<%=rs.getString("email")%>" required></td>
             <td><select name ="tShirt<%=i%>">
                 <option selected="selected" value = "<%=rs.getString("tshirt_size")%>"><%=rs.getString("tshirt_size")%></option>
                 <option type = "text" value = "XS">XS</option> 
@@ -88,34 +88,17 @@
         </div>
     </div>
     
-    <%
-       String query1 = "SELECT first_name, last_name FROM participant WHERE team_id is ? and coach_id = 1";
-       PreparedStatement pStatement1 = con.prepareStatement(query);
-       pStatement1.setNull(1, java.sql.Types.INTEGER);
-       ResultSet rs3 = pStatement1.executeQuery();
-       
-    %>
-    
-    <!--
-    <form action ="">
-        <input type="hidden" name="teamId" value="<%=teamID%>"/>
-        <select name ="participant">
-            <% while(rs3.next()){ %>
-                <option><%= rs3.getString("first_name")%> <%= rs3.getString("last _name")%>
-            <% } %>
-            
-        </select>
-        <input type="submit" name="submit" value="Add Member"/>
-    </form>
+
+
 <div id="table" style="padding-top:40px;">
 <form action ="updateTeams.jsp">     
-    <table border="0">
+    <table  align="center" border="0">
         <tr>
         </tr>
         <tr>
         <td style="background-color: #ffffff;"><input type = "text" name = "fname" placeholder="First Name" required></td>
         <td style="background-color: #ffffff;"><input type = "text" name = "lname" placeholder="Last Name" required></td>
-        <td style="background-color: #ffffff;"><input type = "text" name = "email" placeholder="Email" required></td>
+        <td style="background-color: #ffffff;"><input type = "email" name = "email" placeholder="Email" required></td>
         <td style="background-color: #ffffff;"><select name ="tShirt" required>
                 <option selected="selected" value = ""></option>
                 <option type = "text" value = "XS">XS</option> 
@@ -124,7 +107,7 @@
                 <option type = "text" value = "L">L</option>
                 <option type = "text" value = "XL">XL</option>
                 </select></td>
-        <td style="background-color: #ffffff;"><input type="submit" name="submit" value="Add Participant"/></td>
+        <td style="background-color: #ffffff;"><input align = "center" type="submit" name="submit" value="Add Participant"/></td>
         </tr>
         <input type="hidden" name="teamId" value="<%=teamID%>"/>
         <input type="hidden" name="tableSize" value="<%=0%>"/>
@@ -132,4 +115,4 @@
     </table>
 </form>
 </div>
--->
+

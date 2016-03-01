@@ -10,7 +10,7 @@
    <link rel="stylesheet" href="../../css/menustyles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
-   <title>Update Team</title>
+   <title>Account Information</title>
 </head>
 <body>
 
