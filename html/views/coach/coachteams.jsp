@@ -36,7 +36,7 @@
 
 <form action ="../../jsp/CreateTeam.jsp">
       
-   <br></br><input type="text" name="tname" placeholder="Team Name" style="width: 50px; height: 10px; padding: 5px;" required></input>
+   <br></br><input type="text" name="tname" placeholder="Team Name" style="width: 300px; height: 10px; padding: 25px;" required></input>
     <input type= "submit" value="Create Team">
 </form>
     
