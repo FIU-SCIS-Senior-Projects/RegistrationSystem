@@ -42,13 +42,18 @@
     
     while(rs.next())
     {
-       String firstName = rs.getString("first_name");
+        String firstName = rs.getString("first_name");
         String lastName = rs.getString("last_name");
         String email = rs.getString("email");
-    
-        out.print(firstName + " " + lastName + " " + email);
-       
-    }
-    
-       
+    }  
     %>
+    
+    <div style="text-align: center;">
+        <h3><%firstName%></h3>
+        <h3><%lastName%></h3>
+        <h3><%email%></h3>
+         
+        
+        
+    </div>
+    
