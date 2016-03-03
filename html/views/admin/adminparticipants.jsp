@@ -1,4 +1,7 @@
 <!doctype html>
+<%@ page import="java.sql.*" %> 
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*"%>
 <html lang=''>
 <head>
    <meta charset='utf-8'>
@@ -26,6 +29,32 @@
    <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
    <a href="../../../index.html" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
 </div>
+    
+<%
+    Class.forName("com.mysql.jdbc.Driver").newInstance ();
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+   
+    ArrayList schoolNames = new ArrayList();
+    ArrayList coachIds = new ArrayList();
+   
+    String query = "SELECT school_name, coach_id FROM school;";
+    PreparedStatement pstat = con.prepareStatement(query);
+    ResultSet rs = pstat.executeQuery(); 
+   
+    while (rs.next())
+    {
+	   coachIds.add(rs.getString("coach_id"));
+	   schoolNames.add(rs.getString("school_name"));
+    }   
+%>
+    
+<% for(int i =0; i < teamNames.size(); i++) { %>
+    <ol>
+        <li><% teamNames.get(i) %></li>
+    </ol>
+   <%}%> 
+    
+
 
 </body>
 <html>
