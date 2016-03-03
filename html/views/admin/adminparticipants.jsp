@@ -50,7 +50,7 @@
     
 <% for(int i =0; i < schoolNames.size(); i++) { %>
     <ol>
-        <li><% schoolNames.get(i) %></li>
+        <li><% schoolNames.get(i); %></li>
     </ol>
    <%}%> 
     
