@@ -37,7 +37,7 @@
                 {
                     session.setAttribute("user_email", email);
                     session.setAttribute("user_role", 2);
-                    response.sendRedirect("../views/admin/homeadminlogin.html");
+                    response.sendRedirect("../views/admin/homeadminlogin.jsp");
                 }
                 else
                 {

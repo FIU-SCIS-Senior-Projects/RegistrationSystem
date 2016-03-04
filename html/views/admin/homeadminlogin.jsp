@@ -13,7 +13,7 @@
 
 <div id='cssmenu'>
 <ul>
-   <li><a href="homeadminlogin.html">Home</a></li>
+   <li><a href="homeadminlogin.jsp">Home</a></li>
    <li><a href='#'>Contests</a></li>
    <li><a href="adminparticipants.jsp">Participants</a></li>
    <li><a href='#'>Videos</a></li>
@@ -22,9 +22,9 @@
     
 
 <div id='toprighttext'>
-   <p id="email" style="position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 195px; margin-top: 18px">admin@regsys.fiu.edu</p>
+   <p id="email" style="position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 195px; margin-top: 18px"><%=session.getAttribute("user_email")%> </p>
    <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
-   <a href="../../../index.html" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
+   <a href="../../jsp/logout.jsp" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
 </div>
 
 </body>
