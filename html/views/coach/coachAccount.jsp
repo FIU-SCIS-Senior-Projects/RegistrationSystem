@@ -49,9 +49,9 @@
     %>
     
     <div style="text-align: center;">
-        <h3> <c:out value="${firstName}" /> </h3>
-        <h3> <c:out value="${lastName}" /> </h3>
-        <h3> <c:out value="${email}" /> </h3>
+        <h3> <%= firstName %> </h3>
+        <h3> <%= lastName %> </h3>
+        <h3> <%= email %> </h3>
          
         
         
