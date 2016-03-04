@@ -78,9 +78,6 @@
 	    <td><%= rs1.getString("tshirt_size") %></td>
         </tr>
         <% }%> 
-            <div style="padding-left:30px;"> 
-                <input align="center" type="submit" value="Edit Team"/>
-            </div>
 	<%}rs1.close();rs.close();%>
 </body>
 <html>
