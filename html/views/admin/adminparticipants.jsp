@@ -33,65 +33,58 @@
 <%
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+    Statement stat = con.createStatement();
    
-    ArrayList schoolNames = new ArrayList();
-    ArrayList coachFNames = new ArrayList();
-    ArrayList coachLNames = new ArrayList();
-    ArrayList coachIds = new ArrayList();
+    ResultSet rs = null;
     ResultSet rs1 = null;
+    String query;
+    query = "SELECT * FROM team";
+    rs = stat.executeQuery(query);
+    ArrayList teamNames = new ArrayList();
+    ArrayList teamIds = new ArrayList();
+    PreparedStatement pStatement = null;
    
-    String query = "SELECT school_name, school.coach_id, first_name, last_name FROM school, coach WHERE school.coach_id <> 0 and school.coach_id = coach.coach_id;";
-    PreparedStatement pstat = con.prepareStatement(query);
-    ResultSet rs = pstat.executeQuery(); 
-   
-    while (rs.next())
-    {
-       coachFNames.add(rs.getString("first_name"));
-       coachLNames.add(rs.getString("last_name"));
-	   coachIds.add(rs.getString("school.coach_id"));
-	   schoolNames.add(rs.getString("school_name"));
-    }   
-%>
-    
-<% for(int i =0; i < schoolNames.size(); i++) { %>
-    <h1><%= schoolNames.get(i) + "- Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h1>    
-    <% 
-       query = "SELECT team_id, team_name FROM team WHERE coach_id=?";
-       pstat = con.prepareStatement(query);
-       pstat.setString(1, coachIds.get(i).toString());
-       rs = pstat.executeQuery();
-       
-       ArrayList teamNames = new ArrayList();
-       ArrayList teamIds = new ArrayList();
-       while (rs.next())
-       {
-            teamNames.add(rs.getString("team_name"));
-            teamIds.add(rs.getString("team_id"));
-       }
-       for(int j =0; i < teamNames.size(); i++) {
-            query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email, participant.tshirt_size FROM participant, team WHERE participant.team_id = ?";
-            pstat = con.prepareStatement(query);
-            pstat.setString(1, teamIds.get(i).toString());  %>
-            rs1 = pstat.executeQuery();
-            
-            <table border="0" style="padding-left:30px;">
-	        <h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 
-            <tr>
-                <th>First Name</th>
-	            <th>Last Name</th>
-	            <th>Email</th>
-	            <th>T-Shirt Size</th>
-            </tr>
-            <% while (rs1.next()) {%>
-            <tr>
-	           <td><%= rs1.getString("first_name")%></td>
-	           <td><%= rs1.getString("last_name")%></td>
-	           <td><%= rs1.getString("email") %></td>
-	           <td><%= rs1.getString("tshirt_size") %></td>
-            </tr>
-            <% }%> 
-	<%}rs1.close();rs.close();%>
- <% } %>   
+    while (rs.next()){
+	teamIds.add(rs.getString("team_id"));
+	teamNames.add(rs.getString("team_name"));
+	 } 
+ %>
 
+<% for(int i =0; i < teamNames.size(); i++) {
+    
+    query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email, participant.tshirt_size FROM participant, coach, team WHERE coach.coach_id = participant.coach_id and participant.team_id = ?";
+    pStatement = con.prepareStatement(query);
+    
+    pStatement.setString(1, teamIds.get(i).toString());
+    
+    rs1 = pStatement.executeQuery();
+    
+    %>
+   
+    
+    <table border="0" style="padding-left:30px;">
+    <form action="coachedit.jsp">
+    <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>
+
+	<h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 
+        <tr>
+        <th>First Name</th>
+	    <th>Last Name</th>
+	    <th>Email</th>
+	    <th>T-Shirt Size</th>
+        </tr>
+	<% while (rs1.next()) {%>
+        <tr>
+	    <td><%= rs1.getString("first_name")%></td>
+	    <td><%= rs1.getString("last_name")%></td>
+	    <td><%= rs1.getString("email") %></td>
+	    <td><%= rs1.getString("tshirt_size") %></td>
+        </tr>
+        <% }%> 
+            <div style="padding-left:30px;"> 
+                <input align="center" type="submit" value="Edit Team"/>
+            </div>
+    </form>
+	<%}rs1.close();rs.close();%>
 </body>
 <html>
