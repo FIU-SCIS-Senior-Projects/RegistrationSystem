@@ -38,6 +38,7 @@
     ArrayList coachFNames = new ArrayList();
     ArrayList coachLNames = new ArrayList();
     ArrayList coachIds = new ArrayList();
+    ResultSet rs1 = null;
    
     String query = "SELECT school_name, school.coach_id, first_name, last_name FROM school, coach WHERE school.coach_id <> 0 and school.coach_id = coach.coach_id;";
     PreparedStatement pstat = con.prepareStatement(query);
@@ -57,7 +58,7 @@
     <% 
        query = "SELECT team_id, team_name FROM team WHERE coach_id=?";
        pstat = con.prepareStatement(query);
-       pstat.setInt(1, coachIds.get(i));
+       pstat.setStringt(1, coachIds.get(i).toString);
        rs = pstat.executeQuery();
        
        ArrayList teamNames = new ArrayList();
@@ -71,7 +72,7 @@
             query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email, participant.tshirt_size FROM participant, team WHERE participant.team_id = ?";
             pstat = con.prepareStatement(query);
             pstat.setString(1, teamIds.get(i).toString());  %>
-            ResultSet rs1 = pstat.executeQuery();
+            rs1 = pstat.executeQuery();
             
             <table border="0" style="padding-left:30px;">
 	        <h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 
