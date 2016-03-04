@@ -45,9 +45,9 @@
     PreparedStatement pStatement = null;
    
     while (rs.next()){
-	teamIds.add(rs.getString("team_id"));
-	teamNames.add(rs.getString("team_name"));
-	 } 
+	   teamIds.add(rs.getString("team_id"));
+	   teamNames.add(rs.getString("team_name"));
+    } 
  %>
 
 <% for(int i =0; i < teamNames.size(); i++) {
@@ -63,9 +63,6 @@
    
     
     <table border="0" style="padding-left:30px;">
-    <form action="coachedit.jsp">
-    <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>
-
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 
         <tr>
         <th>First Name</th>
@@ -84,7 +81,6 @@
             <div style="padding-left:30px;"> 
                 <input align="center" type="submit" value="Edit Team"/>
             </div>
-    </form>
 	<%}rs1.close();rs.close();%>
 </body>
 <html>
