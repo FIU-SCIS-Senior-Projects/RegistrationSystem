@@ -58,7 +58,7 @@
     <% 
        query = "SELECT team_id, team_name FROM team WHERE coach_id=?";
        pstat = con.prepareStatement(query);
-       pstat.setStringt(1, coachIds.get(i).toString());
+       pstat.setString(1, coachIds.get(i).toString());
        rs = pstat.executeQuery();
        
        ArrayList teamNames = new ArrayList();
