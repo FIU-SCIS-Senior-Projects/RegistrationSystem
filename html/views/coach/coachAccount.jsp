@@ -39,12 +39,15 @@
     PreparedStatement pStatement = con.prepareStatement(query); 
     pStatement.setInt(1, coach_id);
     ResultSet rs = pStatement.executeQuery();
-    
+    String firstName;
+    String lastName;
+    String email;
+       
     while(rs.next())
     {
-        String firstName = rs.getString("first_name");
-        String lastName = rs.getString("last_name");
-        String email = rs.getString("email");
+        firstName = rs.getString("first_name");
+        lastName = rs.getString("last_name");
+        email = rs.getString("email");
     }  
     %>
     
