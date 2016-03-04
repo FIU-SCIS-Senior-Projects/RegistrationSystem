@@ -69,13 +69,13 @@
    
     
     <table border="0" style="padding-left:30px;">
-	<h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2> 
+	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2> 
         <tr>
         <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
 	    <th>T-Shirt Size</th>
-        <th>School Name</th>
+        <th>Team Name</th>
         </tr>
 	<% while (rs1.next()) {%>
         <tr>
@@ -83,7 +83,7 @@
 	    <td><%= rs1.getString("last_name")%></td>
 	    <td><%= rs1.getString("email") %></td>
 	    <td><%= rs1.getString("tshirt_size") %></td>
-        <td><%= schoolNames.get(i) %></td>
+        <td><%= teamNames.get(i) %></td>
         </tr>
         <% }%> 
 	<%}rs1.close();rs.close();%>
