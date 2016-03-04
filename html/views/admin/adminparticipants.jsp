@@ -48,11 +48,11 @@
     }   
 %>
     
-<% for(int i =0; i < schoolNames.size(); i++) { %>
-    <ol>
-        <li><% schoolNames.get(i); %></li>
-    </ol>
-   <%}%> 
+<ol>
+      <% for(int i =0; i < schoolNames.size(); i++) { %>
+        <li><%=schoolNames.get(i) %></li>
+      <% } %>
+</ol>
     
 
 
