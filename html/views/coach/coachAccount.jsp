@@ -49,7 +49,11 @@
     %>
     
     <div style="text-align: center;">
-        <% firstName  lastName email %> 
+        <h3> <c:out value="${firstName}" /> </h3>
+        <h3> <c:out value="${lastName}" /> </h3>
+        <h3> <c:out value="${email}" /> </h3>
+         
+        
         
     </div>
     
