@@ -35,26 +35,62 @@
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    
     ArrayList schoolNames = new ArrayList();
+    ArrayList coachFNames = new ArrayList();
+    ArrayList coachLNames = new ArrayList();
     ArrayList coachIds = new ArrayList();
    
-    String query = "SELECT school_name, coach_id FROM school;";
+    String query = "SELECT school_name, school.coach_id, first_name, last_name FROM school, coach WHERE school.coach_id <> 0 and school.coach_id = coach.coach_id;";
     PreparedStatement pstat = con.prepareStatement(query);
     ResultSet rs = pstat.executeQuery(); 
    
     while (rs.next())
     {
-	   coachIds.add(rs.getString("coach_id"));
+       coachFNames.add(rs.getString("first_name"));
+       coachLNames.add(rs.getString("last_name"));
+	   coachIds.add(rs.getString("school.coach_id"));
 	   schoolNames.add(rs.getString("school_name"));
     }   
 %>
     
-<ol>
-      <% for(int i =0; i < schoolNames.size(); i++) { %>
-        <li><%=schoolNames.get(i) %></li>
-      <% } %>
-</ol>
-    
-
+<% for(int i =0; i < schoolNames.size(); i++) { %>
+    <h1><%= schoolNames.get(i) + "- Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h1>    
+    <% 
+       query = "SELECT team_id, team_name FROM team WHERE coach_id=?";
+       pstat = con.prepareStatement(query);
+       pstat.setInt(1, coachIds.get(i));
+       rs = pstat.executeQuery();
+       
+       ArrayList teamNames = new ArrayList();
+       ArrayList teamIds = new ArrayList();
+       while (rs.next())
+       {
+            teamNames.add(rs.getString("team_name"));
+            teamIds.add(rs.getString("team_id"));
+       }
+       for(int j =0; i < teamNames.size(); i++) {
+            query = "SELECT DISTINCT participant.first_name, participant.last_name, participant.email, participant.tshirt_size FROM participant, team WHERE participant.team_id = ?";
+            pstat = con.prepareStatement(query);
+            pstat.setString(1, teamIds.get(i).toString());  %>
+            ResultSet rs1 = pstat.executeQuery();
+            
+            <table border="0" style="padding-left:30px;">
+	        <h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 
+            <tr>
+                <th>First Name</th>
+	            <th>Last Name</th>
+	            <th>Email</th>
+	            <th>T-Shirt Size</th>
+            </tr>
+            <% while (rs1.next()) {%>
+            <tr>
+	           <td><%= rs1.getString("first_name")%></td>
+	           <td><%= rs1.getString("last_name")%></td>
+	           <td><%= rs1.getString("email") %></td>
+	           <td><%= rs1.getString("tshirt_size") %></td>
+            </tr>
+            <% }%> 
+	<%}rs1.close();rs.close();%>
+ <% } %>   
 
 </body>
 <html>
