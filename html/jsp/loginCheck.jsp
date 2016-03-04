@@ -28,7 +28,7 @@
             }
             else
             {
-                query = "SELECT admin_id FROM administrator WHERE email=? AND password=?;";
+                query = "SELECT administrator_id FROM administrator WHERE email=? AND password=?;";
                 pstat = con.prepareStatement(query);
                 pstat.setString(1, email);
                 pstat.setString(2, pw);
