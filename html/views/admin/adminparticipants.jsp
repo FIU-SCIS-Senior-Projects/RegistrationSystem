@@ -38,15 +38,21 @@
     ResultSet rs = null;
     ResultSet rs1 = null;
     String query;
-    query = "SELECT * FROM team";
+    query = "SELECT team_id, team_name, first_name, last_name, school_name FROM team, school, coach WHERE team.coach_id=coach.coach_id and school.coach_id=coach.coach_id";
     rs = stat.executeQuery(query);
     ArrayList teamNames = new ArrayList();
     ArrayList teamIds = new ArrayList();
+    ArrayList coachFNames = new ArrayList();
+    ArrayList coachLNames = new ArrayList();
+    ArrayList schoolNames = new ArrayList();
     PreparedStatement pStatement = null;
    
     while (rs.next()){
 	   teamIds.add(rs.getString("team_id"));
 	   teamNames.add(rs.getString("team_name"));
+       coachFNames.add(rs.getString("first_name"));
+       coachLNames.add(rs.getString("last_name"));
+       schoolNames.add(rs.getString("school_name"));
     } 
  %>
 
@@ -63,12 +69,13 @@
    
     
     <table border="0" style="padding-left:30px;">
-	<h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 
+	<h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2> 
         <tr>
         <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
 	    <th>T-Shirt Size</th>
+        <th>School Name</th>
         </tr>
 	<% while (rs1.next()) {%>
         <tr>
@@ -76,6 +83,7 @@
 	    <td><%= rs1.getString("last_name")%></td>
 	    <td><%= rs1.getString("email") %></td>
 	    <td><%= rs1.getString("tshirt_size") %></td>
+        <td><%= schoolNames.get(i) %></td>
         </tr>
         <% }%> 
 	<%}rs1.close();rs.close();%>
