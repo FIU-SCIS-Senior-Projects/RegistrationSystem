@@ -49,7 +49,7 @@
         lastName = rs.getString("last_name");
         email = rs.getString("email");
     } 
-       rs.close();
+       
     %>
     
     <div style="text-align: center;">
@@ -58,5 +58,6 @@
          <p><%=email%></p>
          
     </div>
+        <% rs.close(); %>
    </body> 
 </html>
