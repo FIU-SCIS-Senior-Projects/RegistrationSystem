@@ -52,9 +52,10 @@
     %>
     
     <div style="text-align: center;">
-         <%=rs.getString("first_name")%>
-         <%=rs.getString("last_name")%>
-         <%=rs.getString("email")%>
+         <p><%=rs.getString("first_name")%></p>
+         <p><%=rs.getString("last_name")%></p>
+         <p><%=rs.getString("email")%></p>
          
     </div>
    </body> 
+</html>
