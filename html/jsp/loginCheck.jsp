@@ -1,27 +1,6 @@
 <html>
 <head>
    <title>Login page</title>
-    
-<script type="text/javascript">
-    window.onload = maxWindow;
-
-    function maxWindow() {
-        window.moveTo(0, 0);
-
-
-        if (document.all) {
-            top.window.resizeTo(screen.availWidth, screen.availHeight);
-        }
-
-        else if (document.layers || document.getElementById) {
-            if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
-                top.window.outerHeight = screen.availHeight;
-                top.window.outerWidth = screen.availWidth;
-            }
-        }
-    }
-
-</script>
 </head>
 <body>
     <%@ page import="java.sql.*" %> 
@@ -45,11 +24,6 @@
             {
                 session.setAttribute("user_email", email);
                 session.setAttribute("user_role", 1);
-                %>
-                <script type="text/javascript">
-                    maxWindow();
-                </script>
-                <%
                 response.sendRedirect("../views/coach/homecoachlogin.html");
             }
             else
@@ -63,11 +37,6 @@
                 {
                     session.setAttribute("user_email", email);
                     session.setAttribute("user_role", 2);
-                    %>
-                    <script type="text/javascript">
-                        maxWindow();
-                    </script>
-                    <%
                     response.sendRedirect("../views/admin/homeadminlogin.jsp");
                 }
                 else
