@@ -8,8 +8,11 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="../../css/menustyles.css">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    <title>Participants</title>
 </head>
 <body>
@@ -69,7 +72,9 @@
    
     
     <table border="0" style="padding-left:30px;">
-	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2> 
+	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+        <div id="demo" class="collapse">
         <tr>
         <th>First Name</th>
 	    <th>Last Name</th>
@@ -85,7 +90,9 @@
 	    <td><%= rs1.getString("tshirt_size") %></td>
         <td><%= teamNames.get(i) %></td>
         </tr>
+        
         <% }%> 
+        </div>
 	<%}rs1.close();rs.close();%>
 </body>
 <html>
