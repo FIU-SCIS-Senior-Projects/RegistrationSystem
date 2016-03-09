@@ -70,7 +70,7 @@
     
     %>
    
-    
+    <div class="container">
     <table border="0" style="padding-left:30px;">
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
@@ -93,6 +93,7 @@
         
         <% }%> 
         </div>
+     </div>
 	<%}rs1.close();rs.close();%>
 </body>
 <html>
