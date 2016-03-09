@@ -70,10 +70,11 @@
     
     %>
    
+    <div id="demo" class="collapse">
     <table border="0" style="padding-left:30px;">
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-        <div id="demo" class="collapse">
+        
         <tr>
         <th>First Name</th>
 	    <th>Last Name</th>
