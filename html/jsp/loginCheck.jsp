@@ -26,7 +26,7 @@
                 session.setAttribute("user_role", 1);
                 %>
                 <script language="JavaScript">
-                    window.opener.document.location.href = "https://www.google.com/";
+                    window.opener.document.location.href = "../views/coach/homecoachlogin.html";
                     window.close();
                 </script>
                 <%
@@ -42,7 +42,12 @@
                 {
                     session.setAttribute("user_email", email);
                     session.setAttribute("user_role", 2);
-                    response.sendRedirect("../views/admin/homeadminlogin.jsp");
+                    %>
+                    <script language="JavaScript">
+                        window.opener.document.location.href = "../views/admin/homeadminlogin.html";
+                        window.close();
+                    </script>
+                    <%
                 }
                 else
                 {
