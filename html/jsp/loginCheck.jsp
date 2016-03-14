@@ -44,7 +44,7 @@
                     session.setAttribute("user_role", 2);
                     %>
                     <script language="JavaScript">
-                        window.opener.document.location.href = "../views/admin/homeadminlogin.html";
+                        window.opener.document.location.href = "../views/admin/homeadminlogin.jsp";
                         window.close();
                     </script>
                     <%
