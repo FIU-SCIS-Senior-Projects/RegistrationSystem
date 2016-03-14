@@ -31,7 +31,7 @@
                 try {
                     MimeMessage message = new MimeMessage(mailSession);
                     message.setFrom(new InternetAddress(from));
-                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress("eguer048@fiu.edu");
                     message.setSubject("This is the Subject Line!");
                     message.setText("This is actual message");
                     Transport.send(message);

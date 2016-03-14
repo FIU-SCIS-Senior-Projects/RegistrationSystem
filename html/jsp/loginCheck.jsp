@@ -24,7 +24,12 @@
             {
                 session.setAttribute("user_email", email);
                 session.setAttribute("user_role", 1);
-                response.sendRedirect("../views/coach/homecoachlogin.html");
+                %>
+                <script language="JavaScript">
+                    window.opener.document.location.href = "google.com";
+                    window.close();
+                </script>
+                <%
             }
             else
             {
