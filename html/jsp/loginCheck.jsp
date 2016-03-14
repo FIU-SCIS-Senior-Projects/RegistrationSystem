@@ -26,7 +26,7 @@
                 session.setAttribute("user_role", 1);
                 %>
                 <script language="JavaScript">
-                    window.opener.document.location.href = "google.com";
+                    window.opener.document.location.href = "https://www.google.com/";
                     window.close();
                 </script>
                 <%
