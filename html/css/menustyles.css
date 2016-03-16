@@ -106,7 +106,7 @@
   transition: border-color 0.2s ease;
 }
 #cssmenu > ul > li.has-sub:hover > a::after {
-  border-color: #009ae1;
+  border-color: #DEB406;
 }
 #cssmenu ul ul {
   position: absolute;
