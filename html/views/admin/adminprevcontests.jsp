@@ -14,7 +14,7 @@
 
 <div id='cssmenu'>
 <ul>
-   <li><a href="homeadminlogin.jsp">Home</a></li>
+   <li class='active'><a href="homeadminlogin.jsp">Home</a></li>
    <li class='has-sub'><a href='#'>Contests</a>
        <ul>
          <li><a href="adminviewcontests.jsp">Current Contests</a></li>
