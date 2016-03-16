@@ -19,7 +19,6 @@
    <li><a href="homeadminlogin.jsp">Home</a></li>
    <li><a href='#'>Contests</a></li>
    <li><a href="adminparticipants.jsp">Participants</a></li>
-   <li><a href='#'>Videos</a></li>
 </ul>
 </div>
     
