@@ -33,15 +33,17 @@
     <%
 	String firstName = request.getParameter("fname");
 	String lastName = request.getParameter("lname");
-	String email = request.getParameter("email");
+	String email = request.getParameter("email");	
+	String oldEmail = email;
     %>
 
     <form action="updateCoachAccount.jsp">
-	<input type="text" name="fname" value="<%=firstName%>"/>
-	<input type="text" name="lname" value="<%=lastName%>"/>
-	<input type="text" name="email" value="<%=email%>"/>
-	<input type="submit" name="submit" value="Save & Close"/>
-	<input type="submit" name="submit"  value="Cancel"/>
+	<input type="text" name="fname" value="<%=firstName%>">
+	<input type="text" name="lname" value="<%=lastName%>">
+	<input type="text" name="email" value="<%=email%>">
+	<input type="hidden" name="oldEmail" value="<%=oldEmail%>"/>
+	<input type="submit" name="submit" value="Save & Close">
+	<input type="submit" name="submit"  value="Cancel">
     </form>
    </body> 
 </html>

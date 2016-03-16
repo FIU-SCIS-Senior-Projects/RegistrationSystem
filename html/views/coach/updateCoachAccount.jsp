@@ -6,7 +6,7 @@
    if(request.getParameter("submit").equals("Cancel"))
    { response.sendRedirect("coachAccount.jsp"); }
 	
- 
+if(request.getParameter("submit").equals ("Save & Close")){
   Class.forName("com.mysql.jdbc.Driver").newInstance ();
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    Statement stat = con.createStatement();
@@ -15,6 +15,7 @@
    String lastName = request.getParameter("lname");
    String email = request.getParameter("email");
    String oldEmail = request.getParameter("oldEmail");
+
    String query = "UPDATE coach SET first_name = ?, last_name = ?, email = ? WHERE email = ?";
    PreparedStatement pStatement = con.prepareStatement(query);
    pStatement.setString(1, firstName);
@@ -24,6 +25,6 @@
     
    int rows = pStatement.executeUpdate();
 
-   response.sendRedirect("coachAccount.jsp");
+   response.sendRedirect("coachAccount.jsp");}
 %>
    
