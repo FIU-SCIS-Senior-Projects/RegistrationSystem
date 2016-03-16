@@ -48,6 +48,7 @@
         firstName = rs.getString("first_name");
         lastName = rs.getString("last_name");
         email = rs.getString("email");
+	String oldEmail = email;
     %>
     
     <form action="coachEditAccount.jsp">   
@@ -58,6 +59,7 @@
 	 <input type="hidden" name="fname" value="<%=firstName%>"/>
 	 <input type="hidden" name="lname" value="<%=lastName%>"/>
 	 <input type="hidden" name="email" value="<%=email%>"/>
+	 <input type="hidden" name="oldEmail" value="<%=oldEmail%>"/>
          <input type="submit" value="Edit Account"/>
     </div>
         <% } rs.close(); %>

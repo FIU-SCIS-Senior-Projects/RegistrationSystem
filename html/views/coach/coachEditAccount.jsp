@@ -1,4 +1,4 @@
-=<!doctype html>
+<!doctype html>
 <%@ page import="java.sql.*" %> 
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*"%>
@@ -31,31 +31,17 @@
 </div>
     
     <%
-    int coach_id = 1;
-    Class.forName("com.mysql.jdbc.Driver").newInstance ();
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
-    Statement stat = con.createStatement();
-    String query = "SELECT * FROM coach WHERE coach_id = ?";
-    PreparedStatement pStatement = con.prepareStatement(query); 
-    pStatement.setInt(1, coach_id);
-    ResultSet rs = pStatement.executeQuery();
-    String firstName;
-    String lastName;
-    String email;
-       
-    while(rs.next())
-    {
-        firstName = rs.getString("first_name");
-        lastName = rs.getString("last_name");
-        email = rs.getString("email");
+	String firstName = request.getParameter("fname");
+	String lastName = request.getParameter("lname");
+	String email = request.getParameter("email");
     %>
-    
-    <div style="text-align: center;">
-         <p>First Name: <%=firstName%></p>
-         <p>Last Name: <%=lastName%></p>
-         <p>Email: <%=email%></p>
-         
-    </div>
-        <% } rs.close(); %>
+
+    <form action="updateCoachAccount.jsp">
+	<input type="text" name="fname" value="<%=firstName%>"/>
+	<input type="text" name="lname" value="<%=lastName%>"/>
+	<input type="text" name="email" value="<%=email%>"/>
+	<input type="submit" name="submit" value="Save & Close"/>
+	<input type="submit" name="submit"  value="Cancel"/>
+    </form>
    </body> 
 </html>
