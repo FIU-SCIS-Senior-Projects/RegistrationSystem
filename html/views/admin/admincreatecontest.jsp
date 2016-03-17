@@ -45,9 +45,9 @@
         Location:<br>
         <input type="text" name="location" required><br>
         Date:<br>
-        <input type="text" name="date" value="MM/DD/YY" onfocus="if (this.value=='MM/DD/YY') this.value='';" required><br>
+        <input type="text" name="date" value="YYYY-MM-DD" onfocus="if (this.value=='YYYY-MM-DD') this.value='';" required><br>
         Time:<br>
-        <input type="text" name="time" value="HH:MM" onfocus="if (this.value=='HH:MM') this.value='';" required><br>
+        <input type="text" name="time" required><br>
         Description:<br>
         <textarea name="description" rows="5" cols="50" required></textarea><br>
         <input type="submit" value="Create">
