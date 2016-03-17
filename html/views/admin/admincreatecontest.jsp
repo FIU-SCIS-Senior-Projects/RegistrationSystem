@@ -49,7 +49,7 @@
         Time:<br>
         <input type="text" name="time" value="HH:MM" onfocus="if (this.value=='HH:MM') this.value='';" required><br>
         Description:<br>
-        <textarea name="description" rows="5" cols="50"></textarea><br>
+        <textarea name="description" rows="5" cols="50" required></textarea><br>
         <input type="submit" value="Create">
     </form>
 </div>
