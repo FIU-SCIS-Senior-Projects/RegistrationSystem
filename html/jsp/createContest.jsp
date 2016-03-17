@@ -29,7 +29,7 @@
                 pstat.setString(1, date);
                 pstat.setString(1, time);
                 pstat.setString(1, session.getAttribute("user_email"));
-                pstat.setString(1, description);
+                pstat.setString(1, desc);
                 pstat.executeUpdate();
                 
                 response.sendRedirect("../views/admin/adminviewcontests.jsp");
