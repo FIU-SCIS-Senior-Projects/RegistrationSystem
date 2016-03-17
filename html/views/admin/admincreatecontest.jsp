@@ -39,6 +39,14 @@
 </div>
     
 <div id='contestcreate'>
+    <%
+    if (request.getParameter("datevalid") != null && request.getParameter("datevalid").equals("false"))
+    {
+    %>
+    <div class="alert">
+        Invalid date!
+    </div>
+    <% } %>
     <form id="CreateContestForm" action="../../jsp/createContest.jsp">
         Contest Name:<br>
         <input type="text" name="contestname" required><br>
