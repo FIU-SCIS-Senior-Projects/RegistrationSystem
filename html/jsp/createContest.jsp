@@ -14,6 +14,7 @@
         String date = request.getParameter("date");
         String time = request.getParameter("time");
         String desc = request.getParameter("description");
+        String creator = session.getAttribute("user_email").toString();
        
         try {
             if ((date.contains("Y") || date.contains("D") || date.contains("M")) || (!date.contains("-")))
@@ -28,7 +29,7 @@
                 pstat.setString(2, loc);
                 pstat.setString(3, date);
                 pstat.setString(4, time);
-                pstat.setString(5, session.getAttribute("user_email"));
+                pstat.setString(5, creator));
                 pstat.setString(6, desc);
                 pstat.executeUpdate();
                 
