@@ -52,7 +52,7 @@ Registration form-->
             Invalid email!
         </div>
         <% } %>
-        <form name="regform" action="create_coach.jsp"  style="margin-top: 85px">
+        <form id="regform" action="create_coach.jsp"  style="margin-top: 85px">
             First Name:<br>
             <input type="text" name="fname" required><br>
             Last Name:<br>

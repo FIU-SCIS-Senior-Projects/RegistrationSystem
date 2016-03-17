@@ -37,6 +37,22 @@
    <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
    <a href="../../jsp/logout.jsp" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
 </div>
+    
+<div id='contestcreate'>
+    <form id="CreateContestForm" action="../../jsp/createContest.jsp">
+        Contest Name:<br>
+        <input type="text" name="contestname" required><br>
+        Location:<br>
+        <input type="text" name="location" required><br>
+        Date:<br>
+        <input type="text" name="date" value="MM/DD/YY" onfocus="if (this.value=='MM/DD/YY') this.value='';" required><br>
+        Time:<br>
+        <input type="text" name="time" value="HH:MM" onfocus="if (this.value=='HH:MM') this.value='';" required><br>
+        Description:<br>
+        <textarea name="description" rows="5" cols="50"></textarea><br>
+        <input type="submit" value="Create">
+    </form>
+</div>
 
 </body>
 <html>
