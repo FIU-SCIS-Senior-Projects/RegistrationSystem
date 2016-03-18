@@ -38,7 +38,7 @@
    <a href="../../jsp/logout.jsp" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
 </div>
     
-<div id='contestcreate'>
+<div id='contestcreate' >
     <%
     if (request.getParameter("datevalid") != null && request.getParameter("datevalid").equals("false"))
     {
@@ -48,6 +48,8 @@
     </div>
     <% } %>
     <form id="CreateContestForm" action="../../jsp/createContest.jsp">
+        <fieldset style="display:inline">
+        <legend>Create a contest.</legend>
         Contest Name:<br>
         <input type="text" name="contestname" required><br>
         Location:<br>
@@ -59,6 +61,7 @@
         Description:<br>
         <textarea name="description" rows="5" cols="50" required></textarea><br>
         <input type="submit" value="Create">
+        </fieldset>
     </form>
 </div>
 

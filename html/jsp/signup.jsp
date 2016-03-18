@@ -53,6 +53,8 @@ Registration form-->
         </div>
         <% } %>
         <form id="regform" action="create_coach.jsp"  style="margin-top: 85px">
+            <fieldset style="display:inline">
+            <legend>Register here:</legend>
             First Name:<br>
             <input type="text" name="fname" required><br>
             Last Name:<br>
@@ -66,6 +68,7 @@ Registration form-->
             Confirm Password:<br>
             <input type="password" name="confpw" required><br>
             <input type="submit" value="Register">
+            </fieldset>
           </form>
     </center>
 </div>
