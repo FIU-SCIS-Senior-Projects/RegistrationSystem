@@ -43,7 +43,7 @@
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    Statement stat = con.createStatement();
    
-   String query = "SELECT * from contest;";
+   String query = "SELECT * FROM contest WHERE active='y';";
    ResultSet rs = stat.executeQuery(query);
    
    while (rs.next()) { %>
@@ -54,6 +54,7 @@
         Time: <%= rs.getString("time") %> <br>
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
+        Participants: <br>
         <input type="submit" value="Store">
         </fieldset>
    <%}%>
