@@ -54,6 +54,7 @@
         Time: <%= rs.getString("time") %> <br>
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
+        <input type="submit" value="Store">
         </fieldset>
    <%}%>
 </body>
