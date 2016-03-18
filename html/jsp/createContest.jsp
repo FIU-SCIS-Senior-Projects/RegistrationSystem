@@ -31,7 +31,7 @@
                 pstat.setString(4, time);
                 pstat.setString(5, creator);
                 pstat.setString(6, desc);
-                pstat.setString(7, 'y');
+                pstat.setString(7, "y");
                 pstat.executeUpdate();
                 
                 response.sendRedirect("../views/admin/adminviewcontests.jsp");
