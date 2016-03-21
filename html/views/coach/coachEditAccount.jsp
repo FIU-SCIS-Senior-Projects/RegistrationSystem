@@ -37,13 +37,15 @@
 	String oldEmail = email;
     %>
 
-    <form action="updateCoachAccount.jsp">
-	<input type="text" name="fname" value="<%=firstName%>">
-	<input type="text" name="lname" value="<%=lastName%>">
-	<input type="text" name="email" value="<%=email%>">
-	<input type="hidden" name="oldEmail" value="<%=oldEmail%>"/>
-	<input type="submit" name="submit" value="Save & Close">
-	<input type="submit" name="submit"  value="Cancel">
+<form action="updateCoachAccount.jsp">
+    <div style="text-align: center;">
+        First Name : <input type="text" name="fname" value="<%=firstName%>"></br>
+        Last Name : <input type="text" name="lname" value="<%=lastName%>"></br>
+	    Email : <input type="text" name="email" value="<%=email%>">
+	   <input type="hidden" name="oldEmail" value="<%=oldEmail%>"/>
+	   <input type="submit" name="submit" value="Save & Close">
+	   <input type="submit" name="submit"  value="Cancel">
+    </div>
     </form>
    </body> 
 </html>
