@@ -39,9 +39,10 @@
 
 <form action="updateCoachAccount.jsp">
     <div style="text-align: center;">
-        First Name : <input type="text" name="fname" value="<%=firstName%>"></br>
-        Last Name : <input type="text" name="lname" value="<%=lastName%>"></br>
-	    Email : <input type="text" name="email" value="<%=email%>">
+        </br>
+        First Name : <input type="text" name="fname" value="<%=firstName%>"></br></br>
+        Last Name : <input type="text" name="lname" value="<%=lastName%>"></br></br>
+        Email : <input type="text" name="email" value="<%=email%>"></br></br>
 	   <input type="hidden" name="oldEmail" value="<%=oldEmail%>"/>
 	   <input type="submit" name="submit" value="Save & Close">
 	   <input type="submit" name="submit"  value="Cancel">
