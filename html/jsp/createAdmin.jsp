@@ -16,7 +16,7 @@
         String confpassword = request.getParameter("confpw");
        
         try {
-            if (password.equals(confpassword) && (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com"))))
+            if (password.equals(confpassword) && (adminemail.contains("@") && (adminemail.contains(".edu") || adminemail.contains(".com"))))
             {
                 String sql = "INSERT INTO administrator (first_name,last_name, email, password, role) VALUES(?,?,?,?,?);";
                 PreparedStatement pstat = con.prepareStatement(sql);
