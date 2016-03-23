@@ -56,7 +56,7 @@
             Invalid email!
         </div>
         <% } %>
-        <form id="regform" action="create_coach.jsp"  style="margin-top: 85px">
+        <form id="regform" action="create_coach.jsp">
             <fieldset style="display:inline">
             <legend>Create a new administrator:</legend>
             First Name:<br>

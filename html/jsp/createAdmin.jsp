@@ -24,7 +24,7 @@
                 pstat.setString(2, lName);
                 pstat.setString(3, adminemail);
                 pstat.setString(4, password);
-                pstat.setInt(5, 1);
+                pstat.setInt(5, 2);
                 pstat.executeUpdate();
 
                 response.sendRedirect("../views/admin/homeadminlogin.jsp");
