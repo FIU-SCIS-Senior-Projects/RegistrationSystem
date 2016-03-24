@@ -322,7 +322,8 @@ body {
 table
 {
     table-layout: fixed;
-    width: auto;
+    width: 70%;
+    height: 70%;
     white-space: nowrap;
 }
 td
