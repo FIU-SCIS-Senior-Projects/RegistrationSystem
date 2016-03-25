@@ -67,12 +67,12 @@
     } 
  %>
 
-<% for(int i =0; i < teamNames.size(); i++) {
+<% for(int i =0; i < coachFNames.size(); i++) {
     
     query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ? and participant.team_id = team.team_id;";
     pStatement = con.prepareStatement(query);
     
-    pStatement.setString(1, Integer.parseInt(i + 1));
+    pStatement.setInt:(1, i);
     
     rs1 = pStatement.executeQuery();
     
