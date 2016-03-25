@@ -10,6 +10,7 @@
    <title>Admin View Contests</title>
    <%@ page import="java.sql.*" %> 
    <%@ page import="java.io.*" %>
+<!--
 <%!
 public void storeFunction(String contestName)
 {
@@ -21,6 +22,7 @@ public void storeFunction(String contestName)
     pstat.executeUpdate();
 }
 %>
+-->
 </head>
 <body>
 
@@ -68,7 +70,7 @@ public void storeFunction(String contestName)
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store" onclick=<%storeContest(rs.getString("contest_name"));%>>
+        <input type="submit" value="Store">
         </fieldset>
    <%}%>
 </body>
