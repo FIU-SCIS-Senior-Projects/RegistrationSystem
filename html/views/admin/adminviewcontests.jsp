@@ -59,13 +59,14 @@ function storeContest(str)
    while (rs.next()) { %>
         <fieldset style="display:inline">
         <legend> <%= rs.getString("contest_name") %></legend>
+        <script>var contestName = "<%=rs.getString('contest_name')%>"</script>
         Location: <%= rs.getString("location") %> <br>
         Date: <%= rs.getString("date") %> <br>
         Time: <%= rs.getString("time") %> <br>
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store" onclick="storeContest(<%rs.getString('location')%>)">
+        <input type="submit" value="Store" onclick="storeContest(contestName)">
         </fieldset>
    <%}%>
 </body>
