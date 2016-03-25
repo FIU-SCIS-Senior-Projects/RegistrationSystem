@@ -10,7 +10,6 @@
    <title>Admin View Contests</title>
    <%@ page import="java.sql.*" %> 
    <%@ page import="java.io.*" %>
-<!--
 <%!
 public void storeFunction(String contestName)
 {
@@ -22,7 +21,6 @@ public void storeFunction(String contestName)
     pstat.executeUpdate();
 }
 %>
--->
 </head>
 <body>
 
@@ -56,7 +54,7 @@ public void storeFunction(String contestName)
    Class.forName("com.mysql.jdbc.Driver").newInstance ();
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    Statement stat = con.createStatement();
-   PreparedStatement pstat = con.
+   PreparedStatement pstat = con.prepareStatement(sql);
    
    String query = "SELECT * FROM contest WHERE active='y';";
    ResultSet rs = stat.executeQuery(query);
