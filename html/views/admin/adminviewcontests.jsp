@@ -10,17 +10,13 @@
    <title>Admin View Contests</title>
    <%@ page import="java.sql.*" %> 
    <%@ page import="java.io.*" %>
-<%!
-public void storeFunction(String contestName)
+       
+<script>
+function storeContest(str)
 {
-    Class.forName("com.mysql.jdbc.Driver").newInstance ();
-    Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
-    String storeQuery = "UPDATE contest SET active='n' WHERE contest_name=?;";
-    PreparedStatement pstat = con1.prepareStatement(storeQuery);
-    pstat.setString(1, contestName);
-    pstat.executeUpdate();
+    document.location.href = "../../jsp/storeContest?contestname=" + str;
 }
-%>
+</script>
 </head>
 <body>
 
@@ -54,6 +50,8 @@ public void storeFunction(String contestName)
    Class.forName("com.mysql.jdbc.Driver").newInstance ();
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    Statement stat = con.createStatement();
+   String storeQuery = "UPDATE contest SET active='n' WHERE contest_name=?;";
+   PreparedStatement pstat = con.prepareStatement(storeQuery);
    
    String query = "SELECT * FROM contest WHERE active='y';";
    ResultSet rs = stat.executeQuery(query);
@@ -67,7 +65,7 @@ public void storeFunction(String contestName)
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store">
+        <input type="submit" value="Store" onclick="storeContest(<%rs.getString('location')%>)">
         </fieldset>
    <%}%>
 </body>
