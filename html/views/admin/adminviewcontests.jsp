@@ -10,7 +10,17 @@
    <title>Admin View Contests</title>
    <%@ page import="java.sql.*" %> 
    <%@ page import="java.io.*" %>
-
+<%!
+public void storeFunction(String contestName)
+{
+    Class.forName("com.mysql.jdbc.Driver").newInstance ();
+    Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+    String storeQuery = "UPDATE contest SET active='n' WHERE contest_name=?;";
+    PreparedStatement pstat = con1.prepareStatement(sql);
+    pstat.setString(1, contestName);
+    pstat.executeUpdate();
+}
+%>
 </head>
 <body>
 
@@ -39,20 +49,12 @@
    <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
    <a href="../../jsp/logout.jsp" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
 </div>
-
-       
-<%!
-public void storeContest (Statement myStat, String contestName)  
-{
-    String storeQuery = "UPDATE contest SET active='n' WHERE contest_name=contestName;";
-    myStat.executeQuery(storeQuery);
-}
-%>
-    
+   
 <%
    Class.forName("com.mysql.jdbc.Driver").newInstance ();
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    Statement stat = con.createStatement();
+   PreparedStatement pstat = con.
    
    String query = "SELECT * FROM contest WHERE active='y';";
    ResultSet rs = stat.executeQuery(query);
@@ -66,7 +68,7 @@ public void storeContest (Statement myStat, String contestName)
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store" onclick=<%storeContest(stat, rs.getString("contest_name"));%>>
+        <input type="submit" value="Store" onclick=<%storeContest(rs.getString("contest_name"));%>>
         </fieldset>
    <%}%>
 </body>
