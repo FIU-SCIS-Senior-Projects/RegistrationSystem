@@ -64,6 +64,14 @@
     } 
  %>
 
+     <form id="srchform" action="javascript:void()" 
+          onSubmit="if(this.t1.value!=null && this.t1.value!='')
+                    parent.findString(this.t1.value);return false;"
+          >
+        <input type="text" id="t1" name="t1" value="text" size=20>
+        <input type="submit" name=b1 value="Find">
+    </form>
+    
 <% for(int i =0; i < coachFNames.size(); i++) {
     
     query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ? and participant.team_id = team.team_id;";
@@ -75,13 +83,7 @@
     
     %>
     
-    <form id="f1" name="f1" action="javascript:void()" 
-          onSubmit="if(this.t1.value!=null && this.t1.value!='')
-                    parent.findString(this.t1.value);return false;"
-          >
-        <input type="text" id="t1" name="t1" value="text" size=20>
-        <input type="submit" name=b1 value="Find">
-    </form>
+   
 
    
     <table border="0" style="padding-left:30px;">
