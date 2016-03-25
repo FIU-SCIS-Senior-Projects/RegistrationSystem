@@ -49,18 +49,14 @@
     ResultSet rs = null;
     ResultSet rs1 = null;
     String query;
-    query = "SELECT team_id, team_name, first_name, last_name, school_name FROM team, school, coach WHERE team.coach_id=coach.coach_id and school.coach_id=coach.coach_id";
+    query = "SELECT first_name, last_name, school_name FROM school, coach WHERE school.coach_id=coach.coach_id";
     rs = stat.executeQuery(query);
-    ArrayList teamNames = new ArrayList();
-    ArrayList teamIds = new ArrayList();
     ArrayList coachFNames = new ArrayList();
     ArrayList coachLNames = new ArrayList();
     ArrayList schoolNames = new ArrayList();
     PreparedStatement pStatement = null;
    
     while (rs.next()){
-	   teamIds.add(rs.getString("team_id"));
-	   teamNames.add(rs.getString("team_name"));
        coachFNames.add(rs.getString("first_name"));
        coachLNames.add(rs.getString("last_name"));
        schoolNames.add(rs.getString("school_name"));
