@@ -10,6 +10,7 @@
    <link rel="stylesheet" href="../../css/menustyles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
+   <script src="../../javascript/SearchFunction.js"></script>
    <title>Participants</title>
 </head>
 <body>
@@ -73,6 +74,15 @@
     rs1 = pStatement.executeQuery();
     
     %>
+    
+    <form id="f1" name="f1" action="javascript:void()" 
+          onSubmit="if(this.t1.value!=null && this.t1.value!='')
+                    parent.findString(this.t1.value);return false;"
+          >
+        <input type="text" id="t1" name="t1" value="text" size=20>
+        <input type="submit" name=b1 value="Find">
+    </form>
+
    
     <table border="0" style="padding-left:30px;">
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
