@@ -16,7 +16,7 @@
    int teamID;
    int tableSize = Integer.parseInt(request.getParameter("tableSize"));
    
-   
+    //Cancel and go back to teams page
     if(submit.equals("Cancel"))
     {
         response.sendRedirect("coachteams.jsp");
@@ -56,6 +56,8 @@
         
         
      }
+    
+    //logic for removing a participant from a team
     for(int k = 0; k < tableSize; k++)
     {
         
@@ -63,10 +65,9 @@
         if( submit.equals( "Remove Participant " + ( k+1 ) ) )
         {   
             teamID = Integer.parseInt(request.getParameter("teamId"));
-            String query = "UPDATE participant SET team_ID = ? WHERE email = ?";
+            String query = "DELETE FROM participant WHERE email = ?";
             PreparedStatement pStatement = con.prepareStatement(query);
-            pStatement.setNull(1, java.sql.Types.INTEGER);
-            pStatement.setString(2, originalEmail.get(k).toString());
+            pStatement.setString(1, originalEmail.get(k).toString());
             
             rows = pStatement.executeUpdate();
             response.sendRedirect("coachedit.jsp?teamId=" + teamID);
