@@ -9,7 +9,15 @@
    <script src="../../javascript/menuscript.js"></script>
    <title>Admin View Contests</title>
    <%@ page import="java.sql.*" %> 
-   <%@ page import="java.io.*" %>   
+   <%@ page import="java.io.*" %>
+       
+<%!
+public void storeContest (Statement myStat, String contestName)  
+{
+    String storeQuery = "UPDATE contest SET active='n' WHERE contest_name=contestName;";
+    myStat.executeQuery(storeQuery);
+}
+%>
 </head>
 <body>
 
@@ -56,7 +64,7 @@
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store">
+        <input type="submit" value="Store" onclick=<%storeContest(stat, rs.getString("contest_name").toString)%>>
         </fieldset>
    <%}%>
 </body>
