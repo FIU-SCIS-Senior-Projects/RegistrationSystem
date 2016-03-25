@@ -64,7 +64,7 @@ public void storeContest (Statement myStat, String contestName)
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store" onclick=<%storeContest(stat, rs.getString("contest_name").toString)%>>
+        <input type="submit" value="Store" onclick=<%storeContest(stat, rs.getString("contest_name"));%>>
         </fieldset>
    <%}%>
 </body>
