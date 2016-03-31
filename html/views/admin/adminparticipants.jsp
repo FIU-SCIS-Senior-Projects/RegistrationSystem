@@ -63,10 +63,10 @@
        schoolNames.add(rs.getString("school_name"));
     } 
  %>
-<!---->
-     <form id="srchform" action="javascript:findString(this.t1.value)" onSubmit="if(this.t1.value!=null && this.t1.value!=''){parent.findString(this.t1.value);return false;}">
+
+     <form id="srchform" onSubmit="if(this.t1.value!=null && this.t1.value!=''){parent.findString(this.t1.value);return false;}">
         <input type="text" id="t1" name="t1" value="text" size=20>
-        <input type="submit" name=b1 value="Find">
+        <input type="submit" name= "b1" value="Find">
     </form>
     
 <% for(int i =0; i < coachFNames.size(); i++) {
