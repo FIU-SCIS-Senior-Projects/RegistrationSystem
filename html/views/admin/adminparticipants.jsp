@@ -64,9 +64,8 @@
     } 
  %>
 
-     <form id="srchform" action="javascript:void()" 
-          onSubmit="if(this.t1.value!=null && this.t1.value!='')
-                    parent.findString(this.t1.value);return false;"
+     <form id="srchform" action="javascript:findString(t1)" 
+          onSubmit="if(this.t1.value!=null && this.t1.value!=''){parent.findString(this.t1.value);return false;}"
           >
         <input type="text" id="t1" name="t1" value="text" size=20>
         <input type="submit" name=b1 value="Find">
