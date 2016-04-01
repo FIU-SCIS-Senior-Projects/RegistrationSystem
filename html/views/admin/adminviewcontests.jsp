@@ -59,8 +59,9 @@ function storeContest(str)
    while (rs.next()) { %>
         <fieldset style="display:inline">
         <legend> <%= rs.getString("contest_name") %></legend>
+        <input value='<%=rs.getString("contest_name")%>' hidden>
         <script>var contestName = "<%=rs.getString('contest_name')%>"</script>
-        Location: <%= rs.getString("location") %> <br>
+        Location: <%=rs.getString("location")%> <br>
         Date: <%= rs.getString("date") %> <br>
         Time: <%= rs.getString("time") %> <br>
         Created By: <%= rs.getString("creator") %> <br>

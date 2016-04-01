@@ -50,22 +50,26 @@
     ResultSet rs = stat.executeQuery(query);
 %>
     <table id="coachTable" border="0" style="padding-left:30px;">
-    <h1 style="font-family:sans-serif;padding-left:30px;">List of coaches</h1>
+    <form action="../../jsp/deleteCoach.jsp"
     <tr>
-        <th>Action</th>
 	    <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
         <th>School Name</th>
     </tr>
-    <% while(rs.next()) { %>
+    <% int i=0;
+    while(rs.next()) { %>
     <tr>
-        <td><input type="checkbox" id="action"></td>
-        <td><%= rs.getString("first_name")%></td>
-        <td><%= rs.getString("last_name")%></td>
-        <td><%= rs.getString("email")%></td>
-        <td><%= rs.getString("school_name")%></td>
+        <td><input type="text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>" disabled></td>
+        <td><input type="text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>" disabled></td>
+        <td><input type="text" name = "email<%=i%>" value ="<%=rs.getString("email")%>" disabled></td>
+        <td><input type="text" name = "fname<%=i%>" value ="<%=rs.getString("school_name")%>" disabled></td>
+        <td><input type="submit" name="submit" value="Remove Participant <%=i+1%>"/></td>
+    <% i++; %>
     </tr>
     <% } %>
+    </table>
+    <input type="hidden" name="tableSize" value="<%=i%>" />
+    </form>
 </body>
 <html>
