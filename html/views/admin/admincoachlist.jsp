@@ -50,7 +50,7 @@
     ResultSet rs = stat.executeQuery(query);
 %>
     <table id="coachTable" border="0" style="padding-left:30px;">
-    <form action="../../jsp/deleteCoach.jsp"
+    <form action="../../jsp/admindeletecoach.jsp"
     <tr>
 	    <th>First Name</th>
 	    <th>Last Name</th>
@@ -64,7 +64,7 @@
         <td><input type="text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>" disabled></td>
         <td><input type="text" name = "email<%=i%>" value ="<%=rs.getString("email")%>" disabled></td>
         <td><input type="text" name = "fname<%=i%>" value ="<%=rs.getString("school_name")%>" disabled></td>
-        <td><input type="submit" name="submit" value="Remove Participant <%=i+1%>"/></td>
+        <td><input type="submit" name="submit" value="Remove Coach <%=i+1%>"/></td>
     <% i++; %>
     </tr>
     <% } %>
