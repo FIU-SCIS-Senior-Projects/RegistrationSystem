@@ -16,7 +16,8 @@
             PreparedStatement pStatement = con.prepareStatement(query);
             pStatement.setString(1, request.getParameter("email"+k));
             pStatement.executeUpdate();
-            response.sendRedirect("../views/admin/adminlist.jsp");
+            response.sendRedirect("../views/admin/adminList.jsp");
         }
    }
+    
 %>
