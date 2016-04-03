@@ -100,9 +100,10 @@
         <% }%> 
 	<%}rs1.close();rs.close();%>
         
-        <form id="srchform" onSubmit="if(this.t1.value!=null && this.t1.value!=''){parent.findString(this.t1.value);return false;}">
+      
+</body>
+              <form id="srchform" onSubmit="if(this.t1.value!=null && this.t1.value!=''){parent.findString(this.t1.value);return false;}">
         <input type="text" id="t1" name="t1" value="text" size=20>
         <input type="submit" name= "b1" value="Find">
     </form>
-</body>
 <html>
