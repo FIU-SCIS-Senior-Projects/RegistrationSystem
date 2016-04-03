@@ -49,8 +49,8 @@
     String query = "SELECT first_name, last_name, email, school_name FROM coach, school WHERE coach.school_id=school.school_id;";
     ResultSet rs = stat.executeQuery(query);
 %>
+    <form action="../../jsp/admindeletecoach.jsp">
     <table id="coachTable" border="0" style="padding-left:30px;">
-    <form action="../../jsp/admindeletecoach.jsp"
     <tr>
 	    <th>First Name</th>
 	    <th>Last Name</th>
@@ -60,11 +60,14 @@
     <% int i=0;
     while(rs.next()) { %>
     <tr>
-        <td><input type="text" name = "fname<%=i%>" value ="<%=rs.getString("first_name")%>" disabled></td>
-        <td><input type="text" name = "lname<%=i%>" value ="<%=rs.getString("last_name")%>" disabled></td>
-        <td><input type="text" name = "email<%=i%>" value ="<%=rs.getString("email")%>" disabled></td>
-        <td><input type="text" name = "fname<%=i%>" value ="<%=rs.getString("school_name")%>" disabled></td>
-        <td><input type="submit" name="submit" value="Remove Coach <%=i+1%>"/></td>
+        <td><%=rs.getString("first_name")%></td>
+        <td><%=rs.getString("last_name")%></td>
+        <td><%=rs.getString("email")%></td>
+        <td><%=rs.getString("school_name")%></td>
+        <td>
+            <input type="hidden" name="email<%=i%>" value="<%=rs.getString("email")%>" >
+            <input type="submit" name="submit" value="Remove Coach <%=i+1%>"/>
+        </td>
     <% i++; %>
     </tr>
     <% } %>
