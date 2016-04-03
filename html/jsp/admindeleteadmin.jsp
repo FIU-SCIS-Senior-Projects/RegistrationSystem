@@ -10,7 +10,7 @@
    
    for(int k = 0; k < tableSize; k++)
    {
-        if( submit.equals( "Remove Admin " + ( k+1 ) ) )
+        if( submit.equals( "Remove Administrator " + ( k+1 ) ) )
         {  
             String query = "DELETE FROM administrator WHERE email = ?";
             PreparedStatement pStatement = con.prepareStatement(query);
@@ -19,5 +19,6 @@
             response.sendRedirect("../views/admin/adminList.jsp");
         }
    }
+     response.sendRedirect("../views/admin/adminList.jsp");
     
 %>
