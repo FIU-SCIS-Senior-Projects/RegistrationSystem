@@ -34,6 +34,7 @@ function storeContest(str)
        <ul>
          <li><a href="adminparticipants.jsp">Teams</a></li>
          <li><a href="admincoachlist.jsp">Coaches</a></li>
+         <li><a href="adminList.jsp">Administrators</a></li>
        </ul> 
    </li>
    <li><a href="admincreateadmin.jsp">Create Admin</a></li>

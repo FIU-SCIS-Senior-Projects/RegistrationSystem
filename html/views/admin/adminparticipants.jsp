@@ -29,6 +29,7 @@
        <ul>
          <li><a href="adminparticipants.jsp">Teams</a></li>
          <li><a href="admincoachlist.jsp">Coaches</a></li>
+         <li><a href="adminList.jsp">Administrators</a></li>
        </ul> 
    </li>
    <li><a href="admincreateadmin.jsp">Create Admin</a></li>
@@ -102,8 +103,5 @@
         
       
 </body>
-              <form id="srchform" onSubmit="if(this.t1.value!=null && this.t1.value!=''){parent.findString(this.t1.value);return false;}">
-        <input type="text" id="t1" name="t1" value="text" size=20>
-        <input type="submit" name= "b1" value="Find">
-    </form>
+              
 <html>
