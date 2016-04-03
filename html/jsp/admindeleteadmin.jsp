@@ -18,7 +18,11 @@
             pStatement.executeUpdate();
             response.sendRedirect("../views/admin/adminList.jsp");
         }
+        else
+        {
+            response.sendRedirect("../views/admin/adminList.jsp");
+        }
    }
-     response.sendRedirect("../views/admin/adminList.jsp");
+     
     
 %>
