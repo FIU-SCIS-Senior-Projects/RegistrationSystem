@@ -11,7 +11,7 @@
    
    String contestName = request.getParameter("cName");
                                               
-   String query = "UPDATE contest SET ACTIVE='y' WHERE contest_name=?";
+   String query = "UPDATE contest SET ACTIVE='n' WHERE contest_name=?";
    PreparedStatement pstat = con.prepareStatement(query);
    pstat.setString(1, contestName);
    pstat.executeUpdate();
