@@ -64,7 +64,6 @@
         <td><%=rs.getString("first_name")%></td>
         <td><%=rs.getString("last_name")%></td>
         <td><%=rs.getString("email")%></td>
-        <td><%=rs.getString("school_name")%></td>
         <td>
             <input type="hidden" name="email<%=i%>" value="<%=rs.getString("email")%>" >
             <input type="submit" name="submit" value="Remove Administrator <%=i+1%>"/>
