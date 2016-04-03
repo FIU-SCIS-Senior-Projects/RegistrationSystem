@@ -6,5 +6,6 @@
 </head>
 <body>
 Your method is working!
+<input type="submit" value="<%=request.getParameter("cName")%>">
 </body>
 </hmtl>

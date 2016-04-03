@@ -57,18 +57,19 @@ function storeContest(str)
    ResultSet rs = stat.executeQuery(query);
    
    while (rs.next()) { %>
+        <form action="../../jsp/storeContest.jsp" >
         <fieldset style="display:inline">
         <legend> <%= rs.getString("contest_name") %></legend>
-        <input value='<%=rs.getString("contest_name")%>' hidden>
-        <script>var contestName = "<%=rs.getString('contest_name')%>"</script>
         Location: <%=rs.getString("location")%> <br>
         Date: <%= rs.getString("date") %> <br>
         Time: <%= rs.getString("time") %> <br>
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store" onclick="storeContest(contestName)">
+        <input type="hidden" name="cName" value="<%= rs.getString("contest_name")%>">
+        <input type="submit" value="Store">
         </fieldset>
+        </form>
    <%}%>
 </body>
 <html>
