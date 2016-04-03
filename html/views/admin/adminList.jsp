@@ -56,7 +56,7 @@
 	    <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
-        <th>School Name</th>
+        
     </tr>
     <% int i=0;
     while(rs.next()) { %>
@@ -64,7 +64,7 @@
         <td><%=rs.getString("first_name")%></td>
         <td><%=rs.getString("last_name")%></td>
         <td><%=rs.getString("email")%></td>
-        <td>
+        <tdstyle="background-color: #ffffff;">
             <input type="hidden" name="email<%=i%>" value="<%=rs.getString("email")%>" >
             <input type="submit" name="submit" value="Remove Administrator <%=i+1%>"/>
         </td>
