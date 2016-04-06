@@ -52,7 +52,7 @@
     String query;
     query = "SELECT first_name, last_name, school_name FROM school, coach WHERE school.coach_id=coach.coach_id and school_name like '?' ";
     PreparedStatement pStatement = con.prepareStatement(query);
-    pStatement.setString(1, request.getParameter("SchoolName"));
+    pStatement.setString(1, request.getParameter("schoolName"));
     rs = pStatement.executeQuery();
        
     ArrayList coachFNames = new ArrayList();

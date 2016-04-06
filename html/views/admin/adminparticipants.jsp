@@ -44,7 +44,7 @@
 </div>
     </br></br>
     <form action="adminSearchTeam.jsp" style="padding-left:30px;">
-       Search for School: <input type="text" placeholder="Search Schools" name = "schoolName"/>
+       Search for School: <input type="text" placeholder="Search Schools" name = "schoolName" required/>
         <input type="submit" name= "submit" value="Search"/>
     </form>
 <%
