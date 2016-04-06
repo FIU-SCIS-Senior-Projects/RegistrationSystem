@@ -69,7 +69,7 @@
        schoolNames.add(rs.getString("school_name"));
        //out.print(rs.getString("school_name") + " ");
     } 
-       
+       rs.close();
  %>
         
 <% for(int i =0; i < coachFNames.size(); i++) {
@@ -104,6 +104,6 @@
         </tr>
         
         <% }%> 
-	<%}rs1.close();rs.close();%>
+	<%}rs1.close();%>
     
     
