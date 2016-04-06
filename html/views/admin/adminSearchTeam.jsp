@@ -53,7 +53,7 @@
     String schoolName = request.getParameter("schoolName");
     query = "SELECT first_name, last_name, school_name FROM school, coach WHERE school.coach_id=coach.coach_id and school_name like ? ";
     PreparedStatement pStatement = con.prepareStatement(query);
-    pStatement.setString(1, schoolName + "%");
+    pStatement.setString(1, schoolName);
     rs = pStatement.executeQuery();
        
     ArrayList coachFNames = new ArrayList();
@@ -63,12 +63,47 @@
    
     while (rs.next()){
        coachFNames.add(rs.getString("first_name"));
-       out.print(rs.getString("first_name") + " ");
+       //out.print(rs.getString("first_name") + " ");
        coachLNames.add(rs.getString("last_name"));
-       out.print(rs.getString("last_name") + " ");
+       //out.print(rs.getString("last_name") + " ");
        schoolNames.add(rs.getString("school_name"));
-       out.print(rs.getString("school_name") + " ");
+       //out.print(rs.getString("school_name") + " ");
     } 
+       
  %>
+        
+<% for(int i =0; i < coachFNames.size(); i++) {
+    
+    query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ? and participant.team_id = team.team_id;";
+    pStatement = con.prepareStatement(query);
+    
+    pStatement.setInt(1, (i + 1));
+    
+    rs1 = pStatement.executeQuery();
+    
+    %>
+    
+   
+
+    <table border="0" style="padding-left:30px;">
+	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
+        <tr>
+        <th>First Name</th>
+	    <th>Last Name</th>
+	    <th>Email</th>
+	    <th>T-Shirt Size</th>
+        <th>Team Name</th>
+        </tr>
+	<% while (rs1.next()) {%>
+        <tr>
+	    <td><%= rs1.getString("first_name")%></td>
+	    <td><%= rs1.getString("last_name")%></td>
+	    <td><%= rs1.getString("email") %></td>
+	    <td><%= rs1.getString("tshirt_size") %></td>
+        <td><%= rs1.getString("team_name") %></td>
+        </tr>
+        
+        <% }%> 
+	<%}rs1.close();rs.close();%>
     
     
