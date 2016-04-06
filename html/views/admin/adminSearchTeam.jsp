@@ -51,7 +51,9 @@
     ResultSet rs1 = null;
     String query;
     query = "SELECT first_name, last_name, school_name FROM school, coach WHERE school.coach_id=coach.coach_id and school_name like '?' ";
-    PreparedStatement pStatement = null;
+    PreparedStatement pStatement = con.prepareStatement(query);
+    pStatement.setString(1, request.getParameter("SchoolName"));
+    rs = pStatement.executeQuery();
        
     ArrayList coachFNames = new ArrayList();
     ArrayList coachLNames = new ArrayList();
@@ -60,8 +62,11 @@
    
     while (rs.next()){
        coachFNames.add(rs.getString("first_name"));
+       out.print(rs.getString("first_name") + " ");
        coachLNames.add(rs.getString("last_name"));
+       out.print(rs.getString("last_name") + " ");
        schoolNames.add(rs.getString("school_name"));
+       out.print(rs.getString("school_name") + " ");
     } 
  %>
     
