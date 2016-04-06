@@ -76,7 +76,7 @@
     query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ?";
     pStatement = con.prepareStatement(query);
     
-    pStatement.setInt(1, coachIds.get(i).toString());
+    pStatement.setInt(1, (Integer)coachIds.get(i));
     
     rs1 = pStatement.executeQuery();
     
