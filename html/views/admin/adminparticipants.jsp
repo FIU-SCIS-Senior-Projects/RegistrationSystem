@@ -67,8 +67,6 @@
        schoolNames.add(rs.getString("school_name"));
     } 
  %>
-
-     
     
 <% for(int i =0; i < coachFNames.size(); i++) {
     
@@ -76,12 +74,8 @@
     pStatement = con.prepareStatement(query);
     
     pStatement.setInt(1, (i + 1));
-    
     rs1 = pStatement.executeQuery();
-    
     %>
-    
-   
 
     <table border="0" style="padding-left:30px;">
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
@@ -102,8 +96,8 @@
         </tr>
         
         <% }%> 
-	<%}rs1.close();rs.close();%>
-        
+<%}rs1.close();rs.close();%>
+    </table>
       
 </body>
               

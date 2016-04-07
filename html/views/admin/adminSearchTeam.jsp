@@ -103,11 +103,12 @@
         </tr>
         
         <% }%> 
-	<%}%>
+     </table>
+<%}rs1.close()%>
     
-    <form action="adminparticipants.jsp">   
-    <input type="sumbit" value="Go Back"/>
-    </form> 
+    <form action="adminparticipants.jsp" style="padding-left:30px;">
+        <input type="submit" name= "submit" value="Go Back"/>
+    </form>
     
     </body>
               
