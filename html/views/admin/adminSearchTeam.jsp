@@ -106,10 +106,9 @@
      </table>
 <%}rs1.close();%>
     
+    </br></br>
     <form action="adminparticipants.jsp" style="padding-left:30px;">
         <input type="submit" name= "submit" value="Go Back"/>
     </form>
-    
-    </body>
-              
-<html>
+</body>
+</html>
