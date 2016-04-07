@@ -56,7 +56,7 @@
     String schoolName = request.getParameter("schoolName");
     query = "SELECT first_name, last_name, school_name, coach.coach_id FROM school, coach WHERE school.coach_id=coach.coach_id and school_name like ? ";
     PreparedStatement pStatement = con.prepareStatement(query);
-    pStatement.setString(1, schoolName);
+    pStatement.setString(1, schoolName + "%");
     rs = pStatement.executeQuery();
        
     ArrayList coachFNames = new ArrayList();
@@ -70,7 +70,7 @@
        coachLNames.add(rs.getString("last_name"));
        schoolNames.add(rs.getString("school_name"));
        coachIds.add(rs.getString("coach_id"));
-       out.print(rs.getString("coach.coach_id"));
+       out.print(rs.getString("coach_id"));
     } 
        out.print(coachIds.size());
        rs.close();
