@@ -70,6 +70,7 @@
        coachLNames.add(rs.getString("last_name"));
        schoolNames.add(rs.getString("school_name"));
        coachIds.add(rs.getString("coach_id"));
+       out.println(rs.getString("coach_id"))
     } 
        rs.close();
  %>
