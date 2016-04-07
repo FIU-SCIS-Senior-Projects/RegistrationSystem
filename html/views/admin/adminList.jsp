@@ -50,6 +50,7 @@
     String query = "SELECT first_name, last_name, email FROM administrator;";
     ResultSet rs = stat.executeQuery(query);
 %>
+    </br></br>
     <form action="../../jsp/admindeleteadmin.jsp">
     <table border="0" style="padding-left:30px;">
     <tr>
