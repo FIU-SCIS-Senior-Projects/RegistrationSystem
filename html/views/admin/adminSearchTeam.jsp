@@ -72,7 +72,7 @@
        coachIds.add(rs.getString("coach_id"));
        out.print(rs.getString("coach_id"));
     } 
-       out.print(coachIds.getSize());
+       out.print(coachIds.size());
        rs.close();
  %>
         
