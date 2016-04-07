@@ -59,7 +59,7 @@
     pStatement.setString(1, schoolName + "%");
     rs = pStatement.executeQuery();
        
-    if(rs.next())
+    if(rs == null)
     {%>
         
        </br></br>
@@ -116,11 +116,12 @@
         
         <% }%> 
      </table>
-<%}rs1.close();}%>
+<%}rs1.close();%>
     
     </br></br>
     <form action="adminparticipants.jsp" style="padding-left:30px;">
         <input type="submit" name= "submit" value="Go Back"/>
     </form>
+<% } %>
 </body>
 </html>
