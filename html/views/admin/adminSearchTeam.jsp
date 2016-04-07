@@ -50,6 +50,9 @@
     ResultSet rs = null;
     ResultSet rs1 = null;
     String query;
+    PreparedStatement pStatement1;
+
+       
     String schoolName = request.getParameter("schoolName");
     query = "SELECT first_name, last_name, school_name, coach.coach_id FROM school, coach WHERE school.coach_id=coach.coach_id and school_name like ? ";
     PreparedStatement pStatement = con.prepareStatement(query);
@@ -72,13 +75,12 @@
  %>
         
 <% for(int i =0; i < coachFNames.size(); i++) {
+    query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ? and participant.team_id = team.team_id";
+    pStatement1 = con.prepareStatement(query);
     
-    query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ?";
-    pStatement = con.prepareStatement(query);
+    pStatement1.setInt(1, (Integer)coachIds.get(i));
     
-    pStatement.setInt(1, (Integer)coachIds.get(i));
-    
-    rs1 = pStatement.executeQuery();
+    rs1 = pStatement1.executeQuery();
     
     %>
     
