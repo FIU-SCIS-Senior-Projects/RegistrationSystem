@@ -61,13 +61,8 @@
        
     if(rs == null)
     {%>
-    
-        </br></br>
-        <form action="adminparticipants.jsp" style="padding-left:30px;">
-            No Schools Found
-            </br></br>
-            <input type="submit" name= "submit" value="Go Back"/>
-        </form>
+        
+        
     <%}
     else{
          
