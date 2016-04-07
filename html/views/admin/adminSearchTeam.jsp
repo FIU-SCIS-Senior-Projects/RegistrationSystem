@@ -116,7 +116,7 @@
         
         <% }%> 
      </table>
-<%}rs1.close();%>
+<%}%>
     
     </br></br>
     <form action="adminparticipants.jsp" style="padding-left:30px;">
