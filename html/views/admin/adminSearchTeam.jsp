@@ -70,9 +70,7 @@
        coachLNames.add(rs.getString("last_name"));
        schoolNames.add(rs.getString("school_name"));
        coachIds.add(rs.getString("coach_id"));
-       out.print(rs.getString("coach_id"));
     } 
-       out.print(coachIds.size());
        rs.close();
  %>
      
@@ -108,6 +106,10 @@
         
         <% }%> 
 	<%}%>
+    
+    <form action="adminparticipants.jsp">   
+    <input type="sumbit" name="Go Back"/>
+    </form> 
     
     </body>
               
