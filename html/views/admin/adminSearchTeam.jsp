@@ -1,3 +1,4 @@
+<!doctype html>
 <%@ page import="java.sql.*" %> 
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*"%>
@@ -9,7 +10,6 @@
    <link rel="stylesheet" href="../../css/menustyles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
-   <script src="../../javascript/SearchFunction.js"></script>
    <title>Participants</title>
 </head>
 <body>
@@ -83,8 +83,6 @@
     rs1 = pStatement1.executeQuery();
     
     %>
-    
-   
 
     <table border="0" style="padding-left:30px;">
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= schoolNames.get(i) + " - Coach: " + coachFNames.get(i) + " " + coachLNames.get(i)%></h2>
@@ -108,7 +106,7 @@
 	<%}%>
     
     <form action="adminparticipants.jsp">   
-    <input type="sumbit" name="Go Back"/>
+    <input type="sumbit" value="Go Back"/>
     </form> 
     
     </body>

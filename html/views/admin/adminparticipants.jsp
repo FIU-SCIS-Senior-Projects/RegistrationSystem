@@ -10,7 +10,6 @@
    <link rel="stylesheet" href="../../css/menustyles.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="../../javascript/menuscript.js"></script>
-   <script src="../../javascript/SearchFunction.js"></script>
    <title>Participants</title>
 </head>
 <body>
