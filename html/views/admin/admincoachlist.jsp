@@ -53,21 +53,21 @@
     <form action="../../jsp/admindeletecoach.jsp">
     <table id="coachTable" border="0" style="padding-left:30px;">
     <tr>
+      <th style="width:25%">School Name</th>
 	    <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Email</th>
-        <th>School Name</th>
     </tr>
     <% int i=0;
     while(rs.next()) { %>
     <tr>
+        <td style="width:25%"><%=rs.getString("school_name")%></td>
         <td><%=rs.getString("first_name")%></td>
         <td><%=rs.getString("last_name")%></td>
         <td><%=rs.getString("email")%></td>
-        <td><%=rs.getString("school_name")%></td>
         <td style="background-color: #ffffff;">
-            <input type="hidden" name="email<%=i%>" value="<%=rs.getString("email")%>" >
-            <input type="submit" name="submit" value="Remove Coach <%=i+1%>"/>
+            <input type="hidden" name="sName<%=i%>" value="<%=rs.getString('school_name')%>" >
+            <input type="submit" name="submit" value="Remove School <%=i+1%>"/>
         </td>
     <% i++; %>
     </tr>

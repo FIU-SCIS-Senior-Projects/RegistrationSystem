@@ -3,46 +3,109 @@
    <title>Register a new coach.</title>
 </head>
 <body>
-    <%@ page import="java.sql.*" %> 
-    <%@ page import="java.io.*" %> 
+<%@ page import="java.sql.*" %> 
+<%@ page import="java.io.*" %> 
         
-    <%
-        Class.forName("com.mysql.jdbc.Driver").newInstance ();
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+<%
+Class.forName("com.mysql.jdbc.Driver").newInstance ();
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
        
-        String fName = request.getParameter("fname");
-        String lName = request.getParameter("lname");
-        String coachemail = request.getParameter("email");
-        String schoolName = request.getParameter("schoolname");
-        String password = request.getParameter("pw");
-        String confpassword = request.getParameter("confpw");
-              
-        try {
-            if (password.equals(confpassword) && (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com"))))
-            {
-                String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
-                PreparedStatement pstat = con.prepareStatement(sql);
-                pstat.setString(1, fName);
-                pstat.setString(2, lName);
-                pstat.setString(3, coachemail);
-                pstat.setString(4, password);
-                pstat.setInt(5, 1);
-                pstat.setInt(6, 1);
-                pstat.executeUpdate();
+String fName = request.getParameter("fname");
+String lName = request.getParameter("lname");
+String coachemail = request.getParameter("email");
+String schoolName = request.getParameter("schoolname");
+String password = request.getParameter("pw");
+String confpassword = request.getParameter("confpw");
 
-                response.sendRedirect("../../index.html");
-            }
-            else if (!password.equals(confpassword))
+if (password.equals(confpassword) == false)
+{
+    response.sendRedirect("signup.jsp?pwvalid=false");
+}
+if (password.length() < 6)
+{
+    response.sendRedirect("signup.jsp?pwlength=false");
+}
+
+String query = "SELECT * FROM coach WHERE email=?;";
+PreparedStatement pstat = con.prepareStatement(query);
+pstat.setString(1, coachemail);
+ResultSet rs = pstat.executeQuery();
+
+if (rs.isBeforeFirst())
+{
+    response.sendRedirect("signup.jsp?coachvalid=false");
+}
+else
+{
+    query = "SELECT * FROM administrator WHERE email=?";
+    pstat = con.prepareStatement(query);
+    pstat.setString(1, coachemail);
+    rs = pstat.executeQuery();
+    if (rs.isBeforeFirst())
+    {
+        response.sendRedirect("signup.jsp?adminvalid=false");
+    }
+    else
+    {
+        if (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com") || coachemail.contains(".org") || coachemail.contains(".gov")))
+        {
+            String checkSchool = "SELECT first_name, last_name FROM coach, school WHERE school.coach_id = coach.coach_id AND school_name=?;";
+            pstat = con.prepareStatement(checkSchool);
+            pstat.setString(1, schoolName);
+            rs = pstat.executeQuery();
+
+            if (rs.isBeforeFirst())
             {
-                response.sendRedirect("signup.jsp?pwvalid=false");
+                String coachFName, coachLName;
+                while (rs.next())
+                {
+                    coachFName = rs.getString("first_name");
+                    coachLName = rs.getString("last_name");
+                }
+                coachFullName = coachFName + " " + coachLName;
+                response.sendRedirect("signup.jsp?coachName=" + coachFullName);
             }
             else
             {
-                response.sendRedirect("signup.jsp?emailvalid=false");
+                query = "INSERT INTO school (school_name) VALUES (?);";
+                pstat = con.prepareStatement(query);
+                pstat.setString(1, schoolName);
+                pstat.executeQuery();
             }
         }
-        catch (IllegalStateException e) {}
+        else
+        {
+            response.sendRedirect("signup.jsp?emailvalid=false");
+        }
+    }
+}
+              
+        // try {
+        //     if (password.equals(confpassword) && (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com"))))
+        //     {
+        //         String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
+        //         PreparedStatement pstat = con.prepareStatement(sql);
+        //         pstat.setString(1, fName);
+        //         pstat.setString(2, lName);
+        //         pstat.setString(3, coachemail);
+        //         pstat.setString(4, password);
+        //         pstat.setInt(5, 1);
+        //         pstat.setInt(6, 1);
+        //         pstat.executeUpdate();
+
+        //         response.sendRedirect("../../index.html");
+        //     }
+        //     else if (!password.equals(confpassword))
+        //     {
+        //         response.sendRedirect("signup.jsp?pwvalid=false");
+        //     }
+        //     else
+        //     {
+        //         response.sendRedirect("signup.jsp?emailvalid=false");
+        //     }
+        // }
+        // catch (IllegalStateException e) {}
         
-    %>
+%>
 </body>
 </hmtl>

@@ -10,11 +10,11 @@
    
    for(int k = 0; k < tableSize; k++)
    {
-        if( submit.equals( "Remove Coach " + ( k+1 ) ) )
+        if( submit.equals( "Remove School " + ( k+1 ) ) )
         {  
-            String query = "DELETE FROM coach WHERE email = ?";
+            String query = "DELETE FROM school WHERE school_name = ?";
             PreparedStatement pStatement = con.prepareStatement(query);
-            pStatement.setString(1, request.getParameter("email"+k));
+            pStatement.setString(1, request.getParameter("sName"+k));
             pStatement.executeUpdate();
             response.sendRedirect("../views/admin/admincoachlist.jsp");
         }
