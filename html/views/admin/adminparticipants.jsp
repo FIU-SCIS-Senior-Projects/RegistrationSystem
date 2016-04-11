@@ -48,10 +48,9 @@
         <%
            if (request.getParameter("noSchools") != null && request.getParameter("noSchools").equals("false"))
            {
-        %>
-            <p>No schools found</p>
+                out.print("No schools found");
         
-        <% } %>
+         } %>
     </form>
 <%
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
