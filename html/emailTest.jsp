@@ -1,9 +1,9 @@
 <!doctype html>
  
-<%@ import java.util.*;%>
-<%@ import javax.mail.*;%>
-<%@ import javax.mail.internet.*;%>
-<%@ import javax.activation.*;%>
+<%@ page import ="java.util.*;" %>
+<%@ page import ="javax.mail.*;" %>
+<%@ page import = "javax.mail.internet.*;" %>
+<%@ page import = "javax.activation.*;" %>
 <html lang=''>
 <body>
 
