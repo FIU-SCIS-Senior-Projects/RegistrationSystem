@@ -1,13 +1,13 @@
 <!doctype html>
+ 
+<%@ import java.util.*;%>
+<%@ import javax.mail.*;%>
+<%@ import javax.mail.internet.*;%>
+<%@ import javax.activation.*;%>
 <html lang=''>
 <body>
-    
-<% 
-import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
 
+<%
       
       // Recipients email ID needs to be mentioned.
       String to = request.getParameter("email");
