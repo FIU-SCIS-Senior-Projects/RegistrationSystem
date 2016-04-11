@@ -60,10 +60,9 @@
     rs = pStatement.executeQuery();
        
     if(rs == null)
-    {%>
-        
-        
-    <%}
+    {
+        out.println("No Schools Found");  
+    }
     else{
          
     ArrayList coachFNames = new ArrayList();

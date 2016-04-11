@@ -45,12 +45,7 @@
     <form action="adminSearchTeam.jsp" style="padding-left:30px;">
        Search for School: <input type="text" placeholder="Search Schools" name = "schoolName" required/>
         <input type="submit" name= "submit" value="Search"/>
-        <%
-           if (request.getParameter("noSchools") != null && request.getParameter("noSchools").equals("false"))
-           {
-                out.print("No schools found");
-        
-         } %>
+           
     </form>
 <%
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
