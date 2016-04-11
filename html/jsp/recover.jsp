@@ -15,7 +15,7 @@
         String host = "localhost";
        
         Properties properties = System.getProperties();
-        properties.setProperty("mail.smtp.host", host);
+        properties.setProperty("smtp.cs.fiu.edu", host);
         Session mailSession = Session.getDefaultInstance(properties);
        
         String email = request.getParameter("email");
