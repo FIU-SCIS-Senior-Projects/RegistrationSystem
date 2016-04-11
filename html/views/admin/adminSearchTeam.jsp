@@ -62,7 +62,7 @@
     
     if(!rs.isBeforeFirst())
     {
-       out.print("No Schools Found");
+       out.print("\n\nNo Schools Found");
     }
     else{
          
