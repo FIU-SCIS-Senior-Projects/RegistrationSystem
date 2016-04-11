@@ -59,10 +59,10 @@
     pStatement.setString(1, schoolName + "%");
     rs = pStatement.executeQuery();
       
-    out.print("No Schools Found");
-    if(rs == null)
+    
+    if(!rs.isBeforeFirst())
     {
-       
+       out.print("No Schools Found");
     }
     else{
          
