@@ -66,7 +66,7 @@
         <td><%=rs.getString("last_name")%></td>
         <td><%=rs.getString("email")%></td>
         <td style="background-color: #ffffff;">
-            <input type="hidden" name="sName<%=i%>" value="<%=rs.getString('school_name')%>" >
+            <input type="hidden" name="sName<%=i%>" value="<%=rs.getString("school_name")%>" >
             <input type="submit" name="submit" value="Remove School <%=i+1%>"/>
         </td>
     <% i++; %>
