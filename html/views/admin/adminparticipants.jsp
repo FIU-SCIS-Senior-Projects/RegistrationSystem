@@ -49,9 +49,8 @@
            if (request.getParameter("noSchools") != null && request.getParameter("noSchools").equals("false"))
            {
         %>
-        <div class="alert">
-            No schools found
-        </div>
+            <p>No schools found</p>
+        
         <% } %>
     </form>
 <%
