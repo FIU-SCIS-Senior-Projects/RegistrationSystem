@@ -9,4 +9,8 @@ driverClassName="com.mysql.jdbc.Driver"
 url="jdbc:mysql://localhost:3306/regsys-dev"
 maxActive="15"
 maxIdle="3"/>
+
+  <Resource name="mail/Session" auth="Container"
+            type="javax.mail.Session"
+            mail.smtp.host="localhost"/>
 </Context>
