@@ -8,12 +8,13 @@
    String submit = request.getParameter("submit");
    int tableSize = Integer.parseInt(request.getParameter("tableSize"));
    int coachID;
+   String schoolName;
    
    for(int k = 0; k < tableSize; k++)
    {
         if(submit.equals( "Remove School " + ( k+1 ) ) )
         {
-        	String schoolName = request.getParameter("sName"+k);
+        	schoolName = request.getParameter("sName"+k);
             //String query = "DELETE FROM school WHERE school_name = ?";
             //PreparedStatement pStatement = con.prepareStatement(query);
             //pStatement.setString(1, request.getParameter("sName"+k));
