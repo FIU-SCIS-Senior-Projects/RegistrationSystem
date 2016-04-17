@@ -28,7 +28,7 @@
    pstat.setString(1, schoolName);
    ResultSet rs = pstat.executeQuery();
 
-   coachID = rs.getString("coach_id");
+   coachID = Integer.parseInt(rs.getString("coach_id"));
 
    query = "DELETE FROM participant WHERE coach_id = ?";
    pstat = con.prepareStatement(query);
