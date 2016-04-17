@@ -7,7 +7,7 @@
    
    String submit = request.getParameter("submit");
    int tableSize = Integer.parseInt(request.getParameter("tableSize"));
-   int coachID;
+   int coachID = 0;
    String schoolName = "";
    
    for(int k = 0; k < tableSize; k++)
