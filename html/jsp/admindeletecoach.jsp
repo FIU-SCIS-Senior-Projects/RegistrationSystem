@@ -23,12 +23,12 @@
         }
    }
 
-   String query = "SELECT coach_id FROM school, coach WHERE school.coach_id = coach.coach_id AND school_name = ?;";
+   String query = "SELECT coach.coach_id FROM school, coach WHERE school.coach_id = coach.coach_id AND school_name = ?;";
    PreparedStatement pstat = con.prepareStatement(query);
    pstat.setString(1, schoolName);
    ResultSet rs = pstat.executeQuery();
 
-   coachID = Integer.parseInt(rs.getString("coach_id"));
+   coachID = Integer.parseInt(rs.getString("coach.coach_id"));
 
    query = "DELETE FROM participant WHERE coach_id = ?";
    pstat = con.prepareStatement(query);
