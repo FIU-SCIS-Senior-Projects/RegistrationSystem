@@ -53,4 +53,6 @@
    pstat.setString(1, schoolName);
    pstat.executeUpdate();
 
+   response.sendRedirect("../views/admin/admincoachlist.jsp");
+
 %>
