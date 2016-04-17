@@ -26,7 +26,7 @@
    String query = "SELECT coach_id FROM school WHERE school.coach_id = coach.coach_id AND school_name = ?;";
    PreparedStatement pstat = con.prepareStatement(query);
    pstat.setString(1, schoolName);
-   ResultSet rs = pstat.executeUpdate();
+   ResultSet rs = pstat.executeQuery();
 
    coachID = rs.getString("coach_id");
 
