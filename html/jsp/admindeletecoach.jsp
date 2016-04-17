@@ -23,7 +23,7 @@
         }
    }
 
-   String query = "SELECT coach_id FROM school WHERE school.coach_id = coach.coach_id AND school_name = ?;";
+   String query = "SELECT coach_id FROM school, coach WHERE school.coach_id = coach.coach_id AND school_name = ?;";
    PreparedStatement pstat = con.prepareStatement(query);
    pstat.setString(1, schoolName);
    ResultSet rs = pstat.executeQuery();
