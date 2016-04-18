@@ -72,9 +72,10 @@ else
             }
             else
             {
-                query = "INSERT INTO school (school_name) VALUES (?);";
+                query = "INSERT INTO school (school_name, coach_id) VALUES (?,?);";
                 pstat = con.prepareStatement(query);
                 pstat.setString(1, schoolName);
+                pstat.setInt(2, 0);
                 pstat.executeUpdate();
 
                 query = "SELECT school_id FROM school WHERE school_name = ?;";
