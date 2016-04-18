@@ -72,7 +72,7 @@ try {
                         coachLName = rs.getString("last_name");
                     }
                     coachFullName = coachFName + " " + coachLName;
-                    response.sendRedirect("signup.jsp?coachName=" + coachFullName);
+                    response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
                 }
                 else
                 {

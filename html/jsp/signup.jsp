@@ -52,6 +52,38 @@ Registration form-->
             Invalid email!
         </div>
         <% } %>
+        <%
+           if (request.getParameter("pwlength") != null && request.getParameter("pwlength").equals("false"))
+           {
+        %>
+        <div class="alert">
+            The password must be at least 6 characters long!
+        </div>
+        <% } %>
+        <%
+           if (request.getParameter("coachvalid") != null && request.getParameter("coachvalid").equals("false"))
+           {
+        %>
+        <div class="alert">
+            A coach account already exists with the email!
+        </div>
+        <% } %>
+        <%
+           if (request.getParameter("adminvalid") != null && request.getParameter("adminvalid").equals("false"))
+           {
+        %>
+        <div class="alert">
+            An admin account already exists with the email!
+        </div>
+        <% } %>
+        <%
+           if (request.getParameter("exists") != null && request.getParameter("exists").equals("true"))
+           {
+        %>
+        <div class="alert">
+            This school already has a coach, called <%=request.getParameter("coachName")%>.
+        </div>
+        <% } %>
         <form id="regform" action="create_coach.jsp"  style="margin-top: 85px">
             <fieldset style="display:inline">
             <legend>Register here:</legend>
