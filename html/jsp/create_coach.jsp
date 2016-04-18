@@ -77,7 +77,7 @@ else
                 pstat.setString(1, schoolName);
                 pstat.executeQuery();
 
-                query = "SELECT school_id FROM school WHERE school_name = ?;"
+                query = "SELECT school_id FROM school WHERE school_name = ?;";
                 pstat = con.prepareStatement(query);
                 pstat.setString(1, schoolName);
                 rs = pstat.executeQuery();
