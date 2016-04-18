@@ -75,7 +75,7 @@ else
                 query = "INSERT INTO school (school_name) VALUES (?);";
                 pstat = con.prepareStatement(query);
                 pstat.setString(1, schoolName);
-                pstat.executeQuery();
+                pstat.executeUpdate();
 
                 query = "SELECT school_id FROM school WHERE school_name = ?;";
                 pstat = con.prepareStatement(query);
@@ -95,6 +95,7 @@ else
                 pstat.setString(4, password);
                 pstat.setInt(5, schoolID);
                 pstat.setInt(6, 1);
+                pstat.executeUpdate();
 
                 query = "SELECT coach_id FROM coach WHERE email = ?;";
                 pstat = con.prepareStatement(query);
@@ -110,7 +111,7 @@ else
                 pstat = con.prepareStatement(query);
                 pstat.setInt(1, coachID);
                 pstat.setString(2, schoolName);
-                pstat.executeQuery();
+                pstat.executeUpdate();
 
                 response.sendRedirect("../../index.html");
             }
