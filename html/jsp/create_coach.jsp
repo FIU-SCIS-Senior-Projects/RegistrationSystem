@@ -12,6 +12,9 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/regist
 
 int coachID = 0;
 int schoolID = 0;
+String coachFullName = "";
+String coachFName = "";
+String coachLName = "";
        
 String fName = request.getParameter("fname");
 String lName = request.getParameter("lname");
@@ -59,7 +62,6 @@ else
 
             if (rs.isBeforeFirst())
             {
-                String coachFName, coachLName;
                 while (rs.next())
                 {
                     coachFName = rs.getString("first_name");
@@ -82,7 +84,7 @@ else
 
                 while (rs.next())
                 {
-                    schoolID = Integer.parseInteger(rs.getString("school_id"));
+                    schoolID = Integer.parseInt(rs.getString("school_id"));
                 }
 
                 query = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (?,?,?,?,?,?);";
@@ -94,14 +96,14 @@ else
                 pstat.setInt(5, schoolID);
                 pstat.setInt(6, 1);
 
-                query = "SELECT coach_id FROM coach WHERE email = ?;"
+                query = "SELECT coach_id FROM coach WHERE email = ?;";
                 pstat = con.prepareStatement(query);
                 pstat.setString(1, coachemail);
                 rs = pstat.executeQuery();
 
                 while (rs.next())
                 {
-                    coachID = Integer.parseInteger(rs.getString("coach_id"));
+                    coachID = Integer.parseInt(rs.getString("coach_id"));
                 }
 
                 query = "UPDATE school SET coach_id=? where school_name = ?;";
