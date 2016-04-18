@@ -9,6 +9,9 @@
 <%
 Class.forName("com.mysql.jdbc.Driver").newInstance ();
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
+
+int coachID = 0;
+int schoolID = 0;
        
 String fName = request.getParameter("fname");
 String lName = request.getParameter("lname");
@@ -71,6 +74,43 @@ else
                 pstat = con.prepareStatement(query);
                 pstat.setString(1, schoolName);
                 pstat.executeQuery();
+
+                query = "SELECT school_id FROM school WHERE school_name = ?;"
+                pstat = con.prepareStatement(query);
+                pstat.setString(1, schoolName);
+                rs = pstat.executeQuery();
+
+                while (rs.next())
+                {
+                    schoolID = Integer.parseInteger(rs.getString("school_id"));
+                }
+
+                query = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (?,?,?,?,?,?);";
+                pstat = con.prepareStatement(query);
+                pstat.setString(1, fName);
+                pstat.setString(2, lName);
+                pstat.setString(3, coachemail);
+                pstat.setString(4, password);
+                pstat.setInt(5, schoolID);
+                pstat.setInt(6, 1);
+
+                query = "SELECT coach_id FROM coach WHERE email = ?;"
+                pstat = con.prepareStatement(query);
+                pstat.setString(1, coachemail);
+                rs = pstat.executeQuery();
+
+                while (rs.next())
+                {
+                    coachID = Integer.parseInteger(rs.getString("coach_id"));
+                }
+
+                query = "UPDATE school SET coach_id=? where school_name = ?;";
+                pstat = con.prepareStatement(query);
+                pstat.setInt(1, coachID);
+                pstat.setString(2, schoolName);
+                pstat.executeQuery();
+
+                response.sendRedirect("../../index.html");
             }
         }
         else
