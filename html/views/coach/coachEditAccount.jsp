@@ -19,8 +19,8 @@
    <li><a href="homecoachlogin.html">Home</a></li>
    <li><a href="coachteams.jsp">My Teams</a></li>
    <li><a href="coachAccount.jsp">My Profile</a></li>
-   <li><a href="coachcontests.html">Contests</a></li>
-   <li><a href="coachvideos.html">Videos</a></li>
+   <li><a href="coachContest.jsp">Contests</a></li>
+   <li><a href="coachVideo.jsp">Videos</a></li>
 </ul>
 </div>
 
