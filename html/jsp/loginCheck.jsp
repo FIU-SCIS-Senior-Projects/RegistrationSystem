@@ -12,7 +12,7 @@
        
         String email = request.getParameter("email");
         String pw = request.getParameter("pw");
-        int coachID;
+        int coachID = 0;
        
         try {
             String query = "SELECT coach_id FROM coach WHERE email=? AND password=?;";
