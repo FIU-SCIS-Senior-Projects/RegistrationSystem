@@ -32,7 +32,7 @@
                 session.setAttribute("user_id", coachID);
                 %>
                 <script language="JavaScript">
-                    window.opener.document.location.href = "../views/coach/homecoachlogin.html";
+                    window.opener.document.location.href = "../views/coach/coachHome.jsp";
                     window.close();
                 </script>
                 <%
