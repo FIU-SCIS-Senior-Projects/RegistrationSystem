@@ -12,6 +12,7 @@
        
         String email = request.getParameter("email");
         String pw = request.getParameter("pw");
+        int coachID;
        
         try {
             String query = "SELECT coach_id FROM coach WHERE email=? AND password=?;";
@@ -22,8 +23,13 @@
        
             if (rs.isBeforeFirst())
             {
+            	while (rs.next())
+            	{
+            		coachID = Integer.parseInt(rs.getString("coach_id"));
+            	}
                 session.setAttribute("user_email", email);
                 session.setAttribute("user_role", 1);
+                session.setAttribute("user_id", coachID);
                 %>
                 <script language="JavaScript">
                     window.opener.document.location.href = "../views/coach/homecoachlogin.html";
