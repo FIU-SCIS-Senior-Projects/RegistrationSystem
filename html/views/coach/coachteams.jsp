@@ -48,7 +48,7 @@
    
     ResultSet rs = null;
     ResultSet rs1 = null;
-    String coachID = Integer.parseInt((int)session.getAttribute("user_id"));
+    int coachID = (int)session.getAttribute("user_id");
     String query;
     query = "SELECT * FROM team where coach_id = " + coachID;
     rs = stat.executeQuery(query);
