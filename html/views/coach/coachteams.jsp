@@ -21,7 +21,7 @@
 <div id='cssmenu'>
 <ul>
    <li><a href="coachHome.jsp">Home</a></li>
-   <li><a href="coachteams.jsp">My Teams</a></li>
+   <li><a href="coachTeams.jsp">My Teams</a></li>
    <li><a href="coachAccount.jsp">My Profile</a></li>
    <li><a href="coachContest.jsp">Contests</a></li>
    <li><a href="coachVideo.jsp">Videos</a></li>
@@ -76,7 +76,7 @@ try{
    
     
     <table border="0" style="padding-left:30px;">
-    <form action="coachedit.jsp">
+    <form action="coachEditTeam.jsp">
     <input type="hidden" name="teamId" value="<%=teamIds.get(i)%>"/>
 
 	<h2 style="font-family:sans-serif;padding-left:30px;"><%= teamNames.get(i)%></h2> 

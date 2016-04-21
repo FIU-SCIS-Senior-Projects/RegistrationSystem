@@ -19,7 +19,7 @@
     //Cancel and go back to teams page
     if(submit.equals("Cancel"))
     {
-        response.sendRedirect("coachteams.jsp");
+        response.sendRedirect("coachTeams.jsp");
     }
     
    
@@ -52,7 +52,7 @@
     
             rows = pStatement.executeUpdate();
         }
-        response.sendRedirect("coachteams.jsp");
+        response.sendRedirect("coachTeams.jsp");
         
         
      }
@@ -70,7 +70,7 @@
             pStatement.setString(1, originalEmail.get(k).toString());
             
             rows = pStatement.executeUpdate();
-            response.sendRedirect("coachedit.jsp?teamId=" + teamID);
+            response.sendRedirect("coachEditTeam.jsp?teamId=" + teamID);
         }
                                  
     }
@@ -94,7 +94,7 @@
         pStatement.setString(6, newTShirt);
             
         rows = pStatement.executeUpdate();
-        response.sendRedirect("coachedit.jsp?teamId=" + teamID);
+        response.sendRedirect("coachEditTeam.jsp?teamId=" + teamID);
     
     }
      
