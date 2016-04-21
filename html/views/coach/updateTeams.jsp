@@ -83,6 +83,7 @@
         String newEmail = request.getParameter("email");
         String newTShirt = request.getParameter("tShirt");
         teamID = Integer.parseInt(request.getParameter("teamId"));
+        int coachID = (int)session.getAttribute("user_id");
        
         String query = "INSERT INTO participant(first_name, last_name, email, team_id, coach_id, tshirt_size) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement pStatement = con.prepareStatement(query);
@@ -90,7 +91,7 @@
         pStatement.setString(2, newLname);
         pStatement.setString(3, newEmail);
         pStatement.setInt(4, teamID);
-        pStatement.setInt(5, 1);
+        pStatement.setInt(5, coachID);
         pStatement.setString(6, newTShirt);
             
         rows = pStatement.executeUpdate();
