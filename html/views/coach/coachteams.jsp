@@ -101,7 +101,8 @@ try{
 	<%}rs1.close();rs.close();
                                
     }
-    catch(IllegalStateException e) {}%>
+    catch(IllegalStateException e) {}
+    catch(NullPointerException n)  {}%>
     
 </body>
 <html>
