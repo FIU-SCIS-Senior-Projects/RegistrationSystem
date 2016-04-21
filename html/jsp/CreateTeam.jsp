@@ -13,13 +13,14 @@
     Statement stat = con.createStatement();
         
     String teamName = request.getParameter("tname");
-    int coachID = 1;
+    int coachID = (int)session.getAttribute("user_id");
    
     String query = "INSERT INTO team (coach_id, team_name) VALUES (?, ?)";
     PreparedStatement pStatement = con.prepareStatement(query);
     pStatement.setInt(1, coachID);
     pStatement.setString(2, teamName);
 	int rows = pStatement.executeUpdate();
+    response.sendRedirect("../views/coach/coachTeams.jsp");
 	
 %>
 </body> 
