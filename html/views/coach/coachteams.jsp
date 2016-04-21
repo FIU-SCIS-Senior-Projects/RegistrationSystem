@@ -42,6 +42,7 @@
     
     
 <%
+try{
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
     Statement stat = con.createStatement();
@@ -97,7 +98,10 @@
                 <input align="center" type="submit" value="Edit Team"/>
             </div>
     </form>
-	<%}rs1.close();rs.close();%>
+	<%}rs1.close();rs.close();
+                               
+    }
+    catch(IllegalStateException e) {}%>
     
 </body>
 <html>
