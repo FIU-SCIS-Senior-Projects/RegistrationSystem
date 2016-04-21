@@ -31,6 +31,9 @@
 </div>
     
     <%
+    try{
+       
+       
 	String firstName = request.getParameter("fname");
 	String lastName = request.getParameter("lname");
 	String email = request.getParameter("email");	
@@ -48,5 +51,11 @@
 	   <input type="submit" name="submit"  value="Cancel">
     </div>
     </form>
+    <% 
+       }
+       catch(IllegalStateException e) {}
+       
+       
+       %>
    </body> 
 </html>
