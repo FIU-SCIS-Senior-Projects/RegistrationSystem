@@ -13,6 +13,7 @@
         String email = request.getParameter("email");
         String pw = request.getParameter("pw");
         int coachID = 0;
+        int adminID = 0;
        
         try {
             String query = "SELECT coach_id FROM coach WHERE email=? AND password=?;";
@@ -48,9 +49,10 @@
                 {
                     session.setAttribute("user_email", email);
                     session.setAttribute("user_role", 2);
+                    session.setAttribute("user_id", adminID);
                     %>
                     <script language="JavaScript">
-                        window.opener.document.location.href = "../views/admin/homeadminlogin.jsp";
+                        window.opener.document.location.href = "../views/admin/adminHome.jsp";
                         window.close();
                     </script>
                     <%
