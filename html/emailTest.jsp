@@ -1,7 +1,7 @@
 <!doctype html>
  
-<%@ page import ="java.util.*;" %>
-<%@ page import ="javax.mail.*;" %>
+<%@ page import ="java.util.*" %>
+<%@ page import ="javax.mail.*" %>
 
 <html lang=''>
 <body>
