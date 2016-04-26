@@ -55,26 +55,29 @@
     ResultSet rs = null;
     ResultSet rs1 = null;
     String query;
-    query = "SELECT first_name, last_name, school_name FROM school, coach WHERE school.coach_id=coach.coach_id";
+    query = "SELECT first_name, last_name, school_name, coach.coach_id FROM school, coach WHERE school.coach_id=coach.coach_id";
     rs = stat.executeQuery(query);
     ArrayList coachFNames = new ArrayList();
     ArrayList coachLNames = new ArrayList();
     ArrayList schoolNames = new ArrayList();
+    ArrayList coachIDs = new ArrayList();
     PreparedStatement pStatement = null;
    
     while (rs.next()){
        coachFNames.add(rs.getString("first_name"));
        coachLNames.add(rs.getString("last_name"));
        schoolNames.add(rs.getString("school_name"));
+       coachIDs.add(rs.getString("coach_id"));
     } 
  %>
-    
+
+<!--For loop for getting all the participants to display for the administrator -->
 <% for(int i =0; i < coachFNames.size(); i++) {
     
     query = "SELECT participant.first_name, participant.last_name, participant.email, participant.tshirt_size, team.team_name From participant, team where participant.coach_id = ? and participant.team_id = team.team_id;";
     pStatement = con.prepareStatement(query);
     
-    pStatement.setInt(1, (i + 1));
+    pStatement.setInt(1, (int)coachIDs.get(i));
     rs1 = pStatement.executeQuery();
     %>
 
