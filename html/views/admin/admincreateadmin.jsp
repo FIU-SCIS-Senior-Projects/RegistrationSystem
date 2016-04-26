@@ -24,8 +24,9 @@
    </li>
    <li class='has-sub'><a href="#">Participants</a>
        <ul>
-         <li><a href="adminparticipants.jsp">Teams</a></li>
+         <li><a href="adminViewsParticipants.jsp">Teams</a></li>
          <li><a href="admincoachlist.jsp">Coaches</a></li>
+         <li><a href="adminViewsAdmins.jsp">Administrators</a></li>
        </ul> 
    </li>
    <li><a href="admincreateadmin.jsp">Create Admin</a></li>
