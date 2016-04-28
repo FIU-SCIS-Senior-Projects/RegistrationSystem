@@ -2,6 +2,8 @@
 <%@ page import="java.io.*" %>  
 <%@ page import="java.util.*" %>
 <%
+   try{
+   
    Class.forName("com.mysql.jdbc.Driver").newInstance ();
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
    Statement stat = con.createStatement();
@@ -99,5 +101,6 @@
     
     }
      
-       
+    }
+    catch(IllegalStateException e) {}
     %>

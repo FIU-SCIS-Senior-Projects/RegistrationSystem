@@ -31,6 +31,7 @@
 </div>
     
     <%
+    try{
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
     Statement stat = con.createStatement();
@@ -42,7 +43,8 @@
     rs = pStatement.executeQuery();
        
     %>
-    
+        
+    <!--The editable table for participants-->
     <br>
     <div>
     <table align="center" border="0">
@@ -89,7 +91,7 @@
     </div>
     
 
-
+<!--The table/form for adding a participant-->
 <div id="table" style="padding-top:40px;">
 <form action ="updateTeams.jsp">     
     <table  align="center" border="0">
@@ -115,4 +117,9 @@
     </table>
 </form>
 </div>
+        <% }
+           catch(IllegalStateException e) {}
+           %>
+</body>
+</html>
 

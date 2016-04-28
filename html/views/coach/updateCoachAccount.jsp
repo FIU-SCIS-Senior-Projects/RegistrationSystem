@@ -2,6 +2,8 @@
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*"%>
 <%
+   
+   try{
 
    if(request.getParameter("submit").equals("Cancel"))
    { response.sendRedirect("coachAccount.jsp"); }
@@ -26,5 +28,8 @@ if(request.getParameter("submit").equals ("Save & Close")){
    int rows = pStatement.executeUpdate();
 
    response.sendRedirect("coachAccount.jsp");}
+   
+   }
+   catch(IllegalStateException e) {}
 %>
    

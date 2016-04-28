@@ -31,6 +31,8 @@
 </div>
     
     <%
+       
+    try{
     int coach_id = (int)session.getAttribute("user_id");
     Class.forName("com.mysql.jdbc.Driver").newInstance ();
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_system","root","EWdev");
@@ -60,7 +62,12 @@
 	 <input type="hidden" name="email" value="<%=email%>"/>
          <input type="submit" value="Edit Account"/>
     </div>
-        <% } rs.close(); %>
+        <% } rs.close(); 
+           
+           }
+           catch(IllegalStateException e) {}
+           
+           %>
    </form>
    </body> 
 </html>
