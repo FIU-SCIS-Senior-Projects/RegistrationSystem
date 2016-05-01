@@ -17,7 +17,7 @@
 
 <div id='cssmenu'>
 <ul>
-   <li><a href="hadminHome.jsp">Home</a></li>
+   <li><a href="adminHome.jsp">Home</a></li>
    <li class='has-sub'><a href='#'>Contests</a>
        <ul>
          <li><a href="adminviewcontests.jsp">Current Contests</a></li>
