@@ -27,7 +27,7 @@
                 pstat.setInt(5, 2);
                 pstat.executeUpdate();
 
-                response.sendRedirect("../views/admin/adminHome.jsp");
+                response.sendRedirect("../views/admin/adminViewsAdmins.jsp");
             }
             else if (!password.equals(confpassword))
             {
