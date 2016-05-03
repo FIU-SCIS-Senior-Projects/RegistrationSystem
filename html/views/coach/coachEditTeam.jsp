@@ -93,7 +93,9 @@
 
 <!--The table/form for adding a participant-->
 <div id="table" style="padding-top:40px;">
-<form action ="updateTeams.jsp">     
+<form action ="updateTeams.jsp">
+    <fieldset style="display:inline">
+    <legend>Add Participant:</legend>
     <table  align="center" border="0">
         <tr>
         </tr>
@@ -115,6 +117,7 @@
         <input type="hidden" name="tableSize" value="<%=0%>"/>
         
     </table>
+    </fieldset>
 </form>
 </div>
         <% }
