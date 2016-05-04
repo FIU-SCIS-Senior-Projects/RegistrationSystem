@@ -53,9 +53,10 @@
     %>
     
     <form action="coachEditAccount.jsp">
+    
+    <div style="text-align: center;">
     <fieldset style="display:inline">
     <legend>Account Information:</legend>
-    <div style="text-align: center;">
          <p>First Name: <%=firstName%></p>
          <p>Last Name: <%=lastName%></p>
          <p>Email: <%=email%></p>
@@ -63,8 +64,9 @@
 	 <input type="hidden" name="lname" value="<%=lastName%>"/>
 	 <input type="hidden" name="email" value="<%=email%>"/>
          <input type="submit" value="Edit Account"/>
-    </div>
-        </fieldset>
+     </fieldset>
+        </div>
+       
         <% } rs.close(); 
            
            }

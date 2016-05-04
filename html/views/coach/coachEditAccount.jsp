@@ -41,9 +41,10 @@
     %>
 
 <form action="updateCoachAccount.jsp">
+    
+    <div style="text-align: center;">
     <fieldset style="display:inline">
     <legend>Edit Account Information:</legend>
-    <div style="text-align: center;">
         </br>
         First Name : <input type="text" name="fname" value="<%=firstName%>"></br></br>
         Last Name : <input type="text" name="lname" value="<%=lastName%>"></br></br>
@@ -51,8 +52,9 @@
 	   <input type="hidden" name="oldEmail" value="<%=oldEmail%>"/>
 	   <input type="submit" name="submit" value="Save & Close">
 	   <input type="submit" name="submit"  value="Cancel">
-    </div>
     </fieldset>
+    </div>
+    
     </form>
     <% 
        }
