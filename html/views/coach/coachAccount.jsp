@@ -52,7 +52,9 @@
         email = rs.getString("email");
     %>
     
-    <form action="coachEditAccount.jsp">   
+    <form action="coachEditAccount.jsp">
+    <fieldset style="display:inline">
+    <legend>Account Information:</legend>
     <div style="text-align: center;">
          <p>First Name: <%=firstName%></p>
          <p>Last Name: <%=lastName%></p>
@@ -62,6 +64,7 @@
 	 <input type="hidden" name="email" value="<%=email%>"/>
          <input type="submit" value="Edit Account"/>
     </div>
+        </fieldset>
         <% } rs.close(); 
            
            }

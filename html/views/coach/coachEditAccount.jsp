@@ -41,6 +41,8 @@
     %>
 
 <form action="updateCoachAccount.jsp">
+    <fieldset style="display:inline">
+    <legend>Edit Account Information:</legend>
     <div style="text-align: center;">
         </br>
         First Name : <input type="text" name="fname" value="<%=firstName%>"></br></br>
@@ -50,6 +52,7 @@
 	   <input type="submit" name="submit" value="Save & Close">
 	   <input type="submit" name="submit"  value="Cancel">
     </div>
+    </fieldset>
     </form>
     <% 
        }
