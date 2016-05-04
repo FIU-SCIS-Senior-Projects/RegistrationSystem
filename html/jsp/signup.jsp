@@ -41,7 +41,7 @@ Registration form-->
            {
         %>
         <div class="alert">
-            Your passwords do not match!
+            Your passwords do not match.
         </div>
         <% } %>
         <%
@@ -49,7 +49,7 @@ Registration form-->
            {
         %>
         <div class="alert">
-            Invalid email!
+            Invalid email.
         </div>
         <% } %>
         <%
@@ -57,7 +57,7 @@ Registration form-->
            {
         %>
         <div class="alert">
-            The password must be at least 6 characters long!
+            The password must be at least 6 characters long.
         </div>
         <% } %>
         <%
@@ -65,7 +65,7 @@ Registration form-->
            {
         %>
         <div class="alert">
-            A coach account already exists with the email!
+            A coach account already exists with the email.
         </div>
         <% } %>
         <%
@@ -73,7 +73,7 @@ Registration form-->
            {
         %>
         <div class="alert">
-            An admin account already exists with the email!
+            An admin account already exists with the email.
         </div>
         <% } %>
         <%

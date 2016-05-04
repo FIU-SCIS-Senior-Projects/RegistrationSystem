@@ -58,7 +58,7 @@ function storeContest(str)
    ResultSet rs = stat.executeQuery(query);
    
    while (rs.next()) { %>
-        <form action="../../jsp/storeContest.jsp" >
+        <form action="../../jsp/storeContest.jsp" onsubmit="return confirm('Are you sure you want to archive?');">
         <fieldset style="display:inline">
         <legend> <%= rs.getString("contest_name") %></legend>
         Location: <%=rs.getString("location")%> <br>
