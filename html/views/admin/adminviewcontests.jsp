@@ -43,7 +43,7 @@ function storeContest(str)
     
 <div id='toprighttext'>
    <p id="email" style="position: absolute; top: 0; right: 0; width: 4%; text-align: right; margin-right: 195px; margin-top: 18px"><%=session.getAttribute("user_email")%> </p>
-   <p style="color:black; position: absolute; top: 0; right: 0; width: 100%; text-align: right; margin-right: 72px">|</p>
+   <p style="color:black; position: absolute; top: 0; right: 0; width: 3%; text-align: right; margin-right: 72px">|</p>
    <a href="../../jsp/logout.jsp" id="logout" style="position: absolute; top: 0; right: 0; width: 4.5%; text-align: right; margin-right: 10px; margin-top: 18px">Log Out</a> 
 </div>
    
@@ -68,7 +68,7 @@ function storeContest(str)
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
         <input type="hidden" name="cName" value="<%= rs.getString("contest_name")%>">
-        <input type="submit" value="Store">
+        <input type="submit" value="Archive">
         </fieldset>
         </form>
    <%}%>

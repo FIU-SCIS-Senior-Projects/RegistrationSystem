@@ -57,7 +57,6 @@
         Created By: <%= rs.getString("creator") %> <br>
         Description: <%= rs.getString("description") %> <br>
         Participants: <br>
-        <input type="submit" value="Store">
         </fieldset>
    <%}%>
 </body>
