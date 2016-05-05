@@ -23,8 +23,6 @@
    <li><a href="coachHome.jsp">Home</a></li>
    <li><a href="coachTeams.jsp">My Teams</a></li>
    <li><a href="coachAccount.jsp">My Profile</a></li>
-   <li><a href="coachContest.jsp">Contests</a></li>
-   <li><a href="coachVideo.jsp">Videos</a></li>
 </ul>
 </div>
 

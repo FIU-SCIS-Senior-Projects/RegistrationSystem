@@ -29,11 +29,13 @@ ResultSet rs = null;
 try {
     if (password.equals(confpassword) == false)
     {
-        response.sendRedirect("signup.jsp?pwvalid=false");
+    	%> <script> document.location.href = "signup.jsp?pwvalid=false";</script> <%
+        //response.sendRedirect("signup.jsp?pwvalid=false");
     }
     if (password.length() < 6)
     {
-        response.sendRedirect("signup.jsp?pwlength=false");
+    	%> <script> document.location.href = "signup.jsp?pwvalid=false";</script> <%
+        //response.sendRedirect("signup.jsp?pwlength=false");
     }
 
     query = "SELECT * FROM coach WHERE email=?;";
