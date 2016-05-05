@@ -140,15 +140,13 @@ try {
 	{
 		response.sendRedirect("signup.jsp?adminvalid=false");
 	}
-	else if (schoolvalid == false)
+	else if (emailvalid == false)
 	{
-		response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
-		//response.sendRedirect("signup.jsp?emailvalid=false");
+		response.sendRedirect("signup.jsp?emailvalid=false");
 	}
 	else
 	{
-		response.sendRedirect("signup.jsp?emailvalid=false");
-		//response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
+		response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
 	}
 } catch(IllegalStateException e) {}
 // try {
