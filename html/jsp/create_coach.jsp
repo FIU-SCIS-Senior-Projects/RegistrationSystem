@@ -28,17 +28,13 @@ ResultSet rs = null;
 
 boolean pwvalid = password.equals(confpassword);
 
-boolean pwlength = null;
+boolean pwlength = true;
 if (password.length() < 6)
 {
     pwlength = false;
 }
-else
-{
-	pwlength = true;
-}
 
-boolean coachvalid = null;
+boolean coachvalid = true;
 query = "SELECT * FROM coach WHERE email=?;";
 pstat = con.prepareStatement(query);
 pstat.setString(1, coachemail);
@@ -48,12 +44,8 @@ if (rs.isBeforeFirst())
 {
     coachvalid = false;
 }
-else
-{
-	coachvalid = true;
-}
 
-boolean adminvalid = null;
+boolean adminvalid = true;
 query = "SELECT * FROM administrator WHERE email=?";
 pstat = con.prepareStatement(query);
 pstat.setString(1, coachemail);
@@ -62,22 +54,14 @@ if (rs.isBeforeFirst())
 {
     adminvalid = false;
 }
-else
-{
-	adminvalid = true;
-}
 
-boolean emailvalid = null;
+boolean emailvalid = false;
 if (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com") || coachemail.contains(".org") || coachemail.contains(".gov")))
 {
 	emailvalid = true;
 }
-else
-{
-	emailvalid = false;
-}
 
-boolean schoolvalid = null;
+boolean schoolvalid = true;
 String checkSchool = "SELECT first_name, last_name FROM coach, school WHERE school.coach_id = coach.coach_id AND school_name=?;";
 pstat = con.prepareStatement(checkSchool);
 pstat.setString(1, schoolName);
@@ -91,10 +75,6 @@ if (rs.isBeforeFirst())
     }
     coachFullName = coachFName + " " + coachLName;
     schoolvalid = false;
-}
-else
-{
-	schoolvalid = true;
 }
 
 try {
