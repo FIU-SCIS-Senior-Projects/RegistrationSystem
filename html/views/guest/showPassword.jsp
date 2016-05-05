@@ -31,7 +31,7 @@
 		{
 			pw = rs.getString("password");
 		}
-		%> <p style="margin-top: 50%">Your password is: <%=pw%> </p><%
+		%> <p style="margin-top: 25%">Your password is: <%=pw%> </p><%
 	}
 	else
 	{
