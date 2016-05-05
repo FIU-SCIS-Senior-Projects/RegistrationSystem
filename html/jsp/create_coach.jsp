@@ -144,9 +144,13 @@ try {
 	{
 		response.sendRedirect("signup.jsp?emailvalid=false");
 	}
-	else
+	else if (schoolvalid == false)
 	{
 		response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
+	}
+	else 
+	{
+		response.sendRedirect("signup.jsp");
 	}
 } catch(IllegalStateException e) {}
 // try {
