@@ -35,7 +35,7 @@
 	}
 	else
 	{
-		%> No account with that email.<%
+		%> <p style="margin-top: 25%">No account with that email.</p><%
 	}
 %>
 </body>
