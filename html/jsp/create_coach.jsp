@@ -26,136 +26,251 @@ String query = "";
 PreparedStatement pstat = null;
 ResultSet rs = null;
 
+boolean pwvalid = password.equals(confpassword);
+
+boolean pwlength = null;
+if (password.length() < 6)
+{
+    pwlength = false;
+}
+else
+{
+	pwlength = true;
+}
+
+boolean coachvalid = null;
+query = "SELECT * FROM coach WHERE email=?;";
+pstat = con.prepareStatement(query);
+pstat.setString(1, coachemail);
+rs = pstat.executeQuery();
+
+if (rs.isBeforeFirst())
+{
+    coachvalid = false;
+}
+else
+{
+	coachvalid = true;
+}
+
+boolean adminvalid = null;
+query = "SELECT * FROM administrator WHERE email=?";
+pstat = con.prepareStatement(query);
+pstat.setString(1, coachemail);
+rs = pstat.executeQuery();
+if (rs.isBeforeFirst())
+{
+    adminvalid = false;
+}
+else
+{
+	adminvalid = true;
+}
+
+boolean emailvalid = null;
+if (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com") || coachemail.contains(".org") || coachemail.contains(".gov")))
+{
+	emailvalid = true;
+}
+else
+{
+	emailvalid = false;
+}
+
+boolean schoolvalid = null;
+String checkSchool = "SELECT first_name, last_name FROM coach, school WHERE school.coach_id = coach.coach_id AND school_name=?;";
+pstat = con.prepareStatement(checkSchool);
+pstat.setString(1, schoolName);
+rs = pstat.executeQuery();
+if (rs.isBeforeFirst())
+{
+    while (rs.next())
+    {
+        coachFName = rs.getString("first_name");
+        coachLName = rs.getString("last_name");
+    }
+    coachFullName = coachFName + " " + coachLName;
+    schoolvalid = false;
+}
+else
+{
+	schoolvalid = true;
+}
+
 try {
-    if (password.equals(confpassword) == false)
-    {
-    	%> <script> document.location.href = "signup.jsp?pwvalid=false";</script> <%
-        //response.sendRedirect("signup.jsp?pwvalid=false");
-    }
-    if (password.length() < 6)
-    {
-    	%> <script> document.location.href = "signup.jsp?pwvalid=false";</script> <%
-        //response.sendRedirect("signup.jsp?pwlength=false");
-    }
-
-    query = "SELECT * FROM coach WHERE email=?;";
-    pstat = con.prepareStatement(query);
-    pstat.setString(1, coachemail);
-    rs = pstat.executeQuery();
-
-    if (rs.isBeforeFirst())
-    {
-        response.sendRedirect("signup.jsp?coachvalid=false");
-    }
-    else
-    {
-        query = "SELECT * FROM administrator WHERE email=?";
+	if (pwvalid && pwlength && coachvalid && adminvalid && emailvalid && schoolvalid)
+	{
+		query = "INSERT INTO school (school_name, coach_id) VALUES (?,?);";
         pstat = con.prepareStatement(query);
-        pstat.setString(1, coachemail);
+        pstat.setString(1, schoolName);
+        pstat.setInt(2, 0);
+        pstat.executeUpdate();
+
+        query = "SELECT school_id FROM school WHERE school_name = ?;";
+        pstat = con.prepareStatement(query);
+        pstat.setString(1, schoolName);
         rs = pstat.executeQuery();
-        if (rs.isBeforeFirst())
+
+        while (rs.next())
         {
-            response.sendRedirect("signup.jsp?adminvalid=false");
+         	schoolID = Integer.parseInt(rs.getString("school_id"));
         }
-        else
-        {
-            if (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com") || coachemail.contains(".org") || coachemail.contains(".gov")))
-            {
-                String checkSchool = "SELECT first_name, last_name FROM coach, school WHERE school.coach_id = coach.coach_id AND school_name=?;";
-                pstat = con.prepareStatement(checkSchool);
-                pstat.setString(1, schoolName);
-                rs = pstat.executeQuery();
 
-                if (rs.isBeforeFirst())
-                {
-                    while (rs.next())
-                    {
-                        coachFName = rs.getString("first_name");
-                        coachLName = rs.getString("last_name");
-                    }
-                    coachFullName = coachFName + " " + coachLName;
-                    response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
-                }
-                else
-                {
-                    query = "INSERT INTO school (school_name, coach_id) VALUES (?,?);";
-                    pstat = con.prepareStatement(query);
-                    pstat.setString(1, schoolName);
-                    pstat.setInt(2, 0);
-                    pstat.executeUpdate();
+        query = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (?,?,?,?,?,?);";
+        pstat = con.prepareStatement(query);
+        pstat.setString(1, fName);
+        pstat.setString(2, lName);
+        pstat.setString(3, coachemail);
+        pstat.setString(4, password);
+        pstat.setInt(5, schoolID);
+        pstat.setInt(6, 1);
+        pstat.executeUpdate();
 
-                    query = "SELECT school_id FROM school WHERE school_name = ?;";
-                    pstat = con.prepareStatement(query);
-                    pstat.setString(1, schoolName);
-                    rs = pstat.executeQuery();
+        query = "SELECT coach_id FROM coach WHERE email = ?;";
+	    pstat = con.prepareStatement(query);
+		pstat.setString(1, coachemail);
+		rs = pstat.executeQuery();
 
-                    while (rs.next())
-                    {
-                        schoolID = Integer.parseInt(rs.getString("school_id"));
-                    }
+		while (rs.next())
+		{
+			coachID = Integer.parseInt(rs.getString("coach_id"));
+		}
 
-                    query = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (?,?,?,?,?,?);";
-                    pstat = con.prepareStatement(query);
-                    pstat.setString(1, fName);
-                    pstat.setString(2, lName);
-                    pstat.setString(3, coachemail);
-                    pstat.setString(4, password);
-                    pstat.setInt(5, schoolID);
-                    pstat.setInt(6, 1);
-                    pstat.executeUpdate();
+		query = "UPDATE school SET coach_id=? where school_name = ?;";
+		pstat = con.prepareStatement(query);
+		pstat.setInt(1, coachID);
+		pstat.setString(2, schoolName);
+		pstat.executeUpdate();
 
-                    query = "SELECT coach_id FROM coach WHERE email = ?;";
-                    pstat = con.prepareStatement(query);
-                    pstat.setString(1, coachemail);
-                    rs = pstat.executeQuery();
+		response.sendRedirect("../../index.html");
+	}
+	else if (pwvalid == false)
+	{
+		response.sendRedirect("signup.jsp?pwvalid=false");
+	}
+	else if (pwlength == false)
+	{
+		response.sendRedirect("signup.jsp?pwlength=false");
+	}
+	else if (coachvalid == false)
+	{
+		response.sendRedirect("signup.jsp?coachvalid=false");
+	}
+	else if (adminvalid == false)
+	{
+		response.sendRedirect("signup.jsp?adminvalid=false");
+	}
+	else if (emailvalid == false)
+	{
+		response.sendRedirect("signup.jsp?emailvalid=false");
+	}
+	else
+	{
+		response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
+	}
+} catch(IllegalStateException e) {}
+// try {
+//     if (password.equals(confpassword) == false)
+//     {   	
+//         response.sendRedirect("signup.jsp?pwvalid=false");
+//     }
+//     if (password.length() < 6)
+//     {
+//         response.sendRedirect("signup.jsp?pwlength=false");
+//     }
 
-                    while (rs.next())
-                    {
-                        coachID = Integer.parseInt(rs.getString("coach_id"));
-                    }
+//     query = "SELECT * FROM coach WHERE email=?;";
+//     pstat = con.prepareStatement(query);
+//     pstat.setString(1, coachemail);
+//     rs = pstat.executeQuery();
 
-                    query = "UPDATE school SET coach_id=? where school_name = ?;";
-                    pstat = con.prepareStatement(query);
-                    pstat.setInt(1, coachID);
-                    pstat.setString(2, schoolName);
-                    pstat.executeUpdate();
+//     if (rs.isBeforeFirst())
+//     {
+//         response.sendRedirect("signup.jsp?coachvalid=false");
+//     }
+//     else
+//     {
+//         query = "SELECT * FROM administrator WHERE email=?";
+//         pstat = con.prepareStatement(query);
+//         pstat.setString(1, coachemail);
+//         rs = pstat.executeQuery();
+//         if (rs.isBeforeFirst())
+//         {
+//             response.sendRedirect("signup.jsp?adminvalid=false");
+//         }
+//         else
+//         {
+//             if (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com") || coachemail.contains(".org") || coachemail.contains(".gov")))
+//             {
+//                 String checkSchool = "SELECT first_name, last_name FROM coach, school WHERE school.coach_id = coach.coach_id AND school_name=?;";
+//                 pstat = con.prepareStatement(checkSchool);
+//                 pstat.setString(1, schoolName);
+//                 rs = pstat.executeQuery();
 
-                    response.sendRedirect("../../index.html");
-                }
-            }
-            else
-            {
-                response.sendRedirect("signup.jsp?emailvalid=false");
-            }
-        }
-    }
-} catch(IllegalStateException e) {}               
-        // try {
-        //     if (password.equals(confpassword) && (coachemail.contains("@") && (coachemail.contains(".edu") || coachemail.contains(".com"))))
-        //     {
-        //         String sql = "INSERT INTO coach (first_name,last_name, email, password, school_id, role) VALUES(?,?,?,?,?,?);";
-        //         PreparedStatement pstat = con.prepareStatement(sql);
-        //         pstat.setString(1, fName);
-        //         pstat.setString(2, lName);
-        //         pstat.setString(3, coachemail);
-        //         pstat.setString(4, password);
-        //         pstat.setInt(5, 1);
-        //         pstat.setInt(6, 1);
-        //         pstat.executeUpdate();
+//                 if (rs.isBeforeFirst())
+//                 {
+//                     while (rs.next())
+//                     {
+//                         coachFName = rs.getString("first_name");
+//                         coachLName = rs.getString("last_name");
+//                     }
+//                     coachFullName = coachFName + " " + coachLName;
+//                     response.sendRedirect("signup.jsp?exists=true&coachName=" + coachFullName);
+//                 }
+//                 else
+//                 {
+//                     query = "INSERT INTO school (school_name, coach_id) VALUES (?,?);";
+//                     pstat = con.prepareStatement(query);
+//                     pstat.setString(1, schoolName);
+//                     pstat.setInt(2, 0);
+//                     pstat.executeUpdate();
 
-        //         response.sendRedirect("../../index.html");
-        //     }
-        //     else if (!password.equals(confpassword))
-        //     {
-        //         response.sendRedirect("signup.jsp?pwvalid=false");
-        //     }
-        //     else
-        //     {
-        //         response.sendRedirect("signup.jsp?emailvalid=false");
-        //     }
-        // }
-        // catch (IllegalStateException e) {}
-        
+//                     query = "SELECT school_id FROM school WHERE school_name = ?;";
+//                     pstat = con.prepareStatement(query);
+//                     pstat.setString(1, schoolName);
+//                     rs = pstat.executeQuery();
+
+//                     while (rs.next())
+//                     {
+//                         schoolID = Integer.parseInt(rs.getString("school_id"));
+//                     }
+
+//                     query = "INSERT INTO coach (first_name, last_name, email, password, school_id, role) VALUES (?,?,?,?,?,?);";
+//                     pstat = con.prepareStatement(query);
+//                     pstat.setString(1, fName);
+//                     pstat.setString(2, lName);
+//                     pstat.setString(3, coachemail);
+//                     pstat.setString(4, password);
+//                     pstat.setInt(5, schoolID);
+//                     pstat.setInt(6, 1);
+//                     pstat.executeUpdate();
+
+//                     query = "SELECT coach_id FROM coach WHERE email = ?;";
+//                     pstat = con.prepareStatement(query);
+//                     pstat.setString(1, coachemail);
+//                     rs = pstat.executeQuery();
+
+//                     while (rs.next())
+//                     {
+//                         coachID = Integer.parseInt(rs.getString("coach_id"));
+//                     }
+
+//                     query = "UPDATE school SET coach_id=? where school_name = ?;";
+//                     pstat = con.prepareStatement(query);
+//                     pstat.setInt(1, coachID);
+//                     pstat.setString(2, schoolName);
+//                     pstat.executeUpdate();
+
+//                     response.sendRedirect("../../index.html");
+//                 }
+//             }
+//             else
+//             {
+//                 response.sendRedirect("signup.jsp?emailvalid=false");
+//             }
+//         }
+//     }
+// } catch(IllegalStateException e) {}                       
 %>
 </body>
 </hmtl>
